@@ -1,0 +1,335 @@
+<div
+  class="modal fade"
+  id="authModalToggle"
+  aria-hidden="true"
+  aria-labelledby="loginModalToggleLabel"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="modal-title text-subtitle-color" id="loginModalToggleLabel">
+          Inicio de Sesión
+        </p>
+        <button
+          type="button"
+          class="btn-close text-danger"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulario de login -->
+        <form
+          [formGroup]="loginForm"
+          (ngSubmit)="onsubmitLogin()"
+          class="needs-validations"
+          novalidate
+        >
+          <!-- Número de Documento Login-->
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control shadow"
+              name="numDniLogin"
+              id="numDniLogin"
+              formControlName="numDniLogin"
+              placeholder="Ingrese su número de documento (Cédula, Pasaporte, RUC)."
+              required="true"
+              [ngClass]="{
+                'is-invalid':
+                  loginForm.get('numDniLogin')?.touched &&
+                  loginForm.get('numDniLogin')?.invalid
+              }"
+              autocomplete="off"
+            />
+            <label for="numDniLogin"
+              >Número de Documento <span class="text-danger">(*)</span></label
+            >
+            <div
+              *ngIf="
+                loginForm.get('numDniLogin')?.touched &&
+                loginForm.get('numDniLogin')?.invalid
+              "
+              class="invalid-feedback"
+            >
+              <div *ngIf="loginForm.get('numDniLogin')?.errors?.['required']">
+                Campo Obligatorio.
+              </div>
+              <div *ngIf="loginForm.get('numDniLogin')?.errors?.['minlength']">
+                Mínimo 10 caracteres.
+              </div>
+              <div *ngIf="loginForm.get('numDniLogin')?.errors?.['maxlength']">
+                Máximo 13 caracteres.
+              </div>
+              <div *ngIf="loginForm.get('numDniLogin')?.errors?.['pattern']">
+                Sin letras o dígitos especiales.
+              </div>
+            </div>
+          </div>
+          <!-- Password Login -->
+          <div class="form-floating mb-3">
+            <input
+              type="password"
+              class="form-control shadow"
+              name="passwordLogin"
+              id="passwordLogin"
+              formControlName="passwordLogin"
+              placeholder="Ingresa tu contraseña."
+              required="true"
+              [ngClass]="{
+                'is-invalid':
+                  loginForm.get('passwordLogin')?.touched &&
+                  loginForm.get('passwordLogin')?.invalid
+              }"
+              autocomplete="off"
+            />
+            <label for="passwordLogin"
+              >Contraseña <span class="text-danger">(*)</span></label
+            >
+            <div
+              *ngIf="
+                loginForm.get('passwordLogin')?.touched &&
+                loginForm.get('passwordLogin')?.invalid
+              "
+              class="invalid-feedback"
+            >
+              <div *ngIf="loginForm.get('passwordLogin')?.errors?.['required']">
+                Campo Obligatorio.
+              </div>
+              <div
+                *ngIf="loginForm.get('passwordLogin')?.errors?.['minlength']"
+              >
+                Ingrese mínimo los 8 caracteres necesarios.
+              </div>
+            </div>
+          </div>
+          <!-- Enviar datos -->
+          <div class="mb-3">
+            <button
+              type="submit"
+              class="btn btn-primary me-2"
+              [disabled]="!loginForm.valid"
+            >
+              Iniciar sesión
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger me-2"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          class="btn btn-warning"
+          data-bs-target="#authModalToggle2"
+          data-bs-toggle="modal"
+        >
+          Recuperar mi contraseña
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="modal fade"
+  id="authModalToggle2"
+  aria-hidden="true"
+  aria-labelledby="forgotModalToggleLabel2"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="modal-title text-subtitle-color" id="forgotModalToggleLabel2">
+          ¿Olvidaste tu contraseña?
+        </p>
+        <button
+          type="button"
+          class="btn-close text-danger"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulario para la recuperación de contraseña -->
+        <form
+          [formGroup]="forgotForm"
+          (ngSubmit)="onsubmitForgot()"
+          class="needs-validations"
+          novalidate
+        >
+          <!-- Número de Documento   -->
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control shadow"
+              name="numDniForgot"
+              id="numDniForgot"
+              formControlName="numDniForgot"
+              placeholder="Ingrese su número de documento (Cédula, Pasaporte, RUC)."
+              required="true"
+              [ngClass]="{
+                'is-invalid':
+                  forgotForm.get('numDniForgot')?.touched &&
+                  forgotForm.get('numDniForgot')?.invalid
+              }"
+              autocomplete="off"
+            />
+            <label for="numDniForgot"
+              >Número de Documento <span class="text-danger">(*)</span></label
+            >
+            <div
+              *ngIf="
+                forgotForm.get('numDniForgot')?.touched &&
+                forgotForm.get('numDniForgot')?.invalid
+              "
+              class="invalid-feedback"
+            >
+              <div *ngIf="forgotForm.get('numDniForgot')?.errors?.['required']">
+                Campo Obligatorio.
+              </div>
+              <div
+                *ngIf="forgotForm.get('numDniForgot')?.errors?.['minlength']"
+              >
+                Mínimo 10 caracteres.
+              </div>
+              <div
+                *ngIf="forgotForm.get('numDniForgot')?.errors?.['maxlength']"
+              >
+                Máximo 13 caracteres.
+              </div>
+              <div *ngIf="forgotForm.get('numDniForgot')?.errors?.['pattern']">
+                Sin letras o dígitos especiales.
+              </div>
+            </div>
+          </div>
+          <!-- Correo Electrónico -->
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              class="form-control shadow"
+              name="emailForgot"
+              id="emailForgot"
+              formControlName="emailForgot"
+              placeholder="Ingrese su correo electrónico."
+              required="true"
+              [ngClass]="{
+                'is-invalid':
+                  forgotForm.get('emailForgot')?.touched &&
+                  forgotForm.get('emailForgot')?.invalid
+              }"
+              autocomplete="off"
+            />
+            <label for="emailForgot"
+              >Correo Electrónico <span class="text-danger">(*)</span></label
+            >
+            <div
+              *ngIf="
+                forgotForm.get('emailForgot')?.touched &&
+                forgotForm.get('emailForgot')?.invalid
+              "
+              class="invalid-feedback"
+            >
+              <div *ngIf="forgotForm.get('emailForgot')?.errors?.['required']">
+                Campo Obligatorio.
+              </div>
+              <div *ngIf="forgotForm.get('emailForgot')?.errors?.['email']">
+                El correo debe ser valido
+              </div>
+              <div *ngIf="forgotForm.get('emailForgot')?.errors?.['pattern']">
+                Debe ingresar en minúsculas el correo.
+              </div>
+            </div>
+          </div>
+          <!-- Numero de Contacto -->
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control shadow"
+              name="numPhoneForgot"
+              id="numPhoneForgot"
+              formControlName="numPhoneForgot"
+              placeholder="Ingrese su número de contacto."
+              required="true"
+              [ngClass]="{
+                'is-invalid':
+                  forgotForm.get('numPhoneForgot')?.touched &&
+                  forgotForm.get('numPhoneForgot')?.invalid
+              }"
+              autocomplete="off"
+            />
+            <label for="numPhoneForgot"
+              >Número de Contacto <span class="text-danger">(*)</span></label
+            >
+            <div
+              *ngIf="
+                forgotForm.get('numPhoneForgot')?.touched &&
+                forgotForm.get('numPhoneForgot')?.invalid
+              "
+              class="invalid-feedback"
+            >
+              <div
+                *ngIf="forgotForm.get('numPhoneForgot')?.errors?.['required']"
+              >
+                Campo Obligatorio.
+              </div>
+              <div
+                *ngIf="forgotForm.get('numPhoneForgot')?.errors?.['minlength']"
+              >
+                El número debe tener mínimo 10 dígitos.
+              </div>
+              <div
+                *ngIf="forgotForm.get('numPhoneForgot')?.errors?.['maxlength']"
+              >
+                El número debe tener máximo 10 dígitos.
+              </div>
+              <div
+                *ngIf="forgotForm.get('numPhoneForgot')?.errors?.['pattern']"
+              >
+                No debe contener letras o dígitos especiales.
+              </div>
+            </div>
+          </div>
+          <!-- Enviar datos -->
+          <div class="mb-3">
+            <button
+              type="submit"
+              class="btn btn-success me-2"
+              [disabled]="!forgotForm.valid"
+            >
+              Verificar datos
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger me-2"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          class="btn btn-primary"
+          data-bs-target="#authModalToggle"
+          data-bs-toggle="modal"
+        >
+          Regresar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<button
+  class="btn btn-primary"
+  data-bs-target="#authModalToggle"
+  data-bs-toggle="modal"
+>
+  Iniciar Sesión
+</button>

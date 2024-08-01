@@ -1,4 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #ebf1f3;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.text-title-color {
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(
+    to left,
+    hsl(329.57, 98.54%, 45.32%) 8.1%,
+    hsl(328.47, 93.42%, 46.17%) 15.5%,
+    hsl(326.72, 84.72%, 47.64%) 22.5%,
+    hsl(323.68, 75.57%, 48.92%) 29%,
+    hsl(318.9, 66.2%, 49.78%) 35.3%,
+    hsl(311.58, 56.8%, 50.07%) 41.2%,
+    hsl(300.08, 46.81%, 49.66%) 47.1%,
+    hsl(285.32, 51.31%, 54.23%) 52.9%,
+    hsl(270.4, 56.53%, 58.2%) 58.8%,
+    hsl(255.42, 61.23%, 61.44%) 64.7%,
+    hsl(240.37, 64.95%, 63.91%) 71%,
+    hsl(228.07, 72.14%, 59.91%) 77.5%,
+    hsl(219.75, 76.98%, 55.15%) 84.5%,
+    hsl(213.62, 81.32%, 49.68%) 91.9%,
+    hsl(210, 100%, 45.1%) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-subtitle-color {
+  font-size: 1rem;
+  font-weight: bold;
+  background: linear-gradient(
+    to right,
+    hsl(329.57, 98.54%, 45.32%) 8.1%,
+    hsl(328.47, 93.42%, 46.17%) 15.5%,
+    hsl(326.72, 84.72%, 47.64%) 22.5%,
+    hsl(323.68, 75.57%, 48.92%) 29%,
+    hsl(318.9, 66.2%, 49.78%) 35.3%,
+    hsl(311.58, 56.8%, 50.07%) 41.2%,
+    hsl(300.08, 46.81%, 49.66%) 47.1%,
+    hsl(285.32, 51.31%, 54.23%) 52.9%,
+    hsl(270.4, 56.53%, 58.2%) 58.8%,
+    hsl(255.42, 61.23%, 61.44%) 64.7%,
+    hsl(240.37, 64.95%, 63.91%) 71%,
+    hsl(228.07, 72.14%, 59.91%) 77.5%,
+    hsl(219.75, 76.98%, 55.15%) 84.5%,
+    hsl(213.62, 81.32%, 49.68%) 91.9%,
+    hsl(210, 100%, 45.1%) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
