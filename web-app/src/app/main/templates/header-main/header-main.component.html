@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
-    <a href="#" class="navbar-brand text-title-color"
+    <a routerLink="/main" class="navbar-brand text-title-color"
       ><i class="bi bi-app-indicator"></i> Selección Talento</a
     >
     <button
@@ -17,15 +17,13 @@
     <div class="collapse navbar-collapse" id="myHeaderNav">
       <ul class="navbar me-auto mb-2 mb-lg-0 text-subtitle-color list-unstyled">
         <li class="nav-item p-2">
-          <a href="/main" class="nav-link active"
+          <a routerLink="/main" class="nav-link active"
             ><i class="bi bi-house"></i> Menu Principal</a
           >
         </li>
         <li class="nav-item p-2">
           <a
-            href="/users"
-            [routerLink]="['/users']"
-            routerLinkActive="router-link-active"
+          [routerLink]="['/users']" routerLinkActive="router-link-active" 
             class="nav-link"
             ><i class="bi bi-people-fill"></i> Cuenta Usuarios</a
           >

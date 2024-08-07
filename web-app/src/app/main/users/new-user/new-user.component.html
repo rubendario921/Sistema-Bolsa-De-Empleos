@@ -1,1 +1,302 @@
-<p>new-user works!</p>
+<div class="container-fluid mt-5 px-5">
+    <div class="card shadow p-3 mb-3 bg-body-tertiary rounded border-custom">
+      <div class="card-header">
+        <p class="fs-1 text-subtitle-color">Crea tu cuenta y encuentra tu empleo ideal</p>
+      </div>
+      <div class="card-body back-color">
+        <div class="row d-flex align-items-center justify-content-center">
+          <div class="col-md-8 col-lg-7 col-xl-6">
+            <form
+              [formGroup]="registerUser"
+              (ngSubmit)="onsubmit()"
+              method="post"
+              class="needs-validations"
+              novalidate
+            >
+              <div class="row d-flex align-items-center justify-content-center">
+                <!-- username -->
+                <div class="col-md-8 col-lg-7 col-xl-6">
+                  <div class="form-floating mb-4">
+                    <input
+                      type="text"
+                      class="form-control shadow"
+                      id="name"
+                      formControlName="name"
+                      autocomplete="off"
+                      placeholder="Ingresa tu nombre"
+                      [ngClass]="{
+                        'is-invalid':
+                        registerUser.get('name')?.touched &&
+                        registerUser.get('name')?.invalid
+                      }"
+                    />
+                    <label for="name" class="form-label fw-semibold">Nombre(s) <span class="text-danger">*</span></label>
+                    <div
+                      *ngIf="
+                      registerUser.get('name')?.touched &&
+                      registerUser.get('name')?.invalid
+                      "
+                      class="invalid-feedback"
+                    >
+                      <div
+                        *ngIf="registerUser.get('name')?.errors?.['required']"
+                      >
+                        El nombre es obligatorio.
+                      </div>
+                      <div
+                        *ngIf="registerUser.get('name')?.errors?.['pattern']"
+                      >
+                        El nombre no debe contener números o caracteres especiales.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- lastName -->
+                <div class="col-md-8 col-lg-7 col-xl-6">
+                  <div class="form-floating mb-4">
+                    <input
+                      type="text"
+                      class="form-control shadow"
+                      id="lastname"
+                      formControlName="lastname"
+                      autocomplete="off"
+                      placeholder="Ingresa tu apellido"
+                      [ngClass]="{
+                        'is-invalid':
+                        registerUser.get('lastname')?.touched &&
+                        registerUser.get('lastname')?.invalid
+                      }"
+                    />
+                    <label for="lastname" class="form-label fw-semibold"
+                      >Apellido(s) <span class="text-danger">*</span> </label
+                    >
+                    <div
+                      *ngIf="
+                      registerUser.get('lastname')?.touched &&
+                      registerUser.get('lastname')?.invalid
+                      "
+                      class="invalid-feedback"
+                    >
+                      <div
+                        *ngIf="registerUser.get('lastname')?.errors?.['required']"
+                      >
+                        El apellido es obligatorio.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Fila 2 -->
+              <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-md-8 col-lg-7 col-xl-6">
+                  <div class="row">
+                    <!-- Tipo de DNI -->
+                    <div class="col-5">
+                      <div class="form-floating mb-4">
+                        <select
+                          formControlName="type_dni"
+                          id="typeDni"
+                          class="form-select shadow"
+                        >
+                          <option value="" disabled selected>Tipo de DNI</option>
+                          <option value="CI">Cédula de Identidad</option>
+                          <option value="PA">Pasaporte</option>
+                        </select>
+                        <label for="typeDni" class="form-label"
+                          >Tipo de DNI</label
+                        >
+                      </div>
+                    </div>
+                    <!-- Número de Identificación -->
+                    <div class="col-7">
+                      <div class="form-floating mb-4">
+                        <input
+                          type="text"
+                          class="shadow form-control"
+                          id="num_dni"
+                          formControlName="num_dni"
+                          autocomplete="off"
+                          placeholder="Ingresa tu número de identificación"
+                          maxlength="10"
+                          [ngClass]="{
+                            'is-invalid':
+                            registerUser.get('num_dni')?.touched &&
+                            registerUser.get('num_dni')?.invalid
+                          }"
+                        />
+                        <label for="num_dni" class="form-label"
+                          >Número de Identificación *</label
+                        >
+                        <div
+                          *ngIf="
+                          registerUser.get('num_dni')?.touched &&
+                          registerUser.get('num_dni')?.invalid
+                          "
+                          class="invalid-feedback"
+                        >
+                          <div
+                            *ngIf="registerUser.get('num_dni')?.errors?.['required']"
+                          >
+                            El número de identificación es obligatorio.
+                          </div>
+                          <div
+                            *ngIf="registerUser.get('num_dni')?.errors?.['minlength']"
+                          >
+                            El número de identificación debe tener exactamente 10
+                            dígitos.
+                          </div>
+                          <div
+                            *ngIf="registerUser.get('num_dni')?.errors?.['maxlength']"
+                          >
+                            El número de identificación no debe tener más de 10
+                            dígitos.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- NUmero de teléfono -->
+                <div class="col-md-8 col-lg-7 col-xl-6">
+                  <div class="form-floating mb-4">
+                    <input
+                      type="text"
+                      class="shadow form-control"
+                      id="phone_number"
+                      formControlName="phone_number"
+                      autocomplete="off"
+                      placeholder="Ingresa tu número de contacto"
+                      maxlength="10"
+                      [ngClass]="{
+                        'is-invalid':
+                        registerUser.get('phone_number')?.touched &&
+                        registerUser.get('phone_number')?.invalid
+                      }"
+                    />
+                    <label for="phone_number" class="form-label"
+                      >Teléfono celular *</label
+                    >
+                    <div
+                      *ngIf="
+                      registerUser.get('phone_number')?.touched &&
+                      registerUser.get('phone_number')?.invalid
+                      "
+                      class="invalid-feedback"
+                    >
+                      <div
+                        *ngIf="registerUser.get('phone_number')?.errors?.['required']"
+                      >
+                        El número de teléfono es obligatorio.
+                      </div>
+                      <div
+                        *ngIf="registerUser.get('phone_number')?.errors?.['minlength']"
+                      >
+                        El número de teléfono debe tener exactamente 10 dígitos.
+                      </div>
+                      <div
+                        *ngIf="registerUser.get('phone_number')?.errors?.['maxlength']"
+                      >
+                        El número de teléfono no debe tener más de 10 dígitos.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Fila 3 -->
+              <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-md-8 col-lg-7 col-xl-6">
+                  <div class="form-floating mb-4">
+                    <input
+                      type="email"
+                      class="shadow form-control"
+                      id="email"
+                      formControlName="email"
+                      autocomplete="off"
+                      placeholder="Ingresa tu correo electrónico"
+                      [ngClass]="{
+                        'is-invalid':
+                        registerUser.get('email')?.touched &&
+                        registerUser.get('email')?.invalid
+                      }"
+                    />
+                    <label for="last_name" class="form-label">Email *</label>
+                    <div
+                      *ngIf="
+                      registerUser.get('email')?.touched &&
+                      registerUser.get('email')?.invalid
+                      "
+                      class="invalid-feedback"
+                    >
+                      <div
+                        *ngIf="registerUser.get('email')?.errors?.['required']"
+                      >
+                        El email es obligatorio.
+                      </div>
+                      <div *ngIf="registerUser.get('email')?.errors?.['email']">
+                        Por favor ingresa un email válido.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-8 col-lg-7 col-xl-6">
+                  <div class="form-floating mb-4">
+                    <input
+                      type="password"
+                      class="shadow form-control"
+                      id="password"
+                      formControlName="password"
+                      autocomplete="off"
+                      placeholder="Ingresa tu contraseña"
+                      [ngClass]="{
+                        'is-invalid':
+                        registerUser.get('password')?.touched &&
+                        registerUser.get('password')?.invalid
+                      }"
+                    />
+                    <label for="phone_number" class="form-label"
+                      >Contraseña*</label
+                    >
+                    <div
+                      *ngIf="
+                      registerUser.get('password')?.touched &&
+                      registerUser.get('password')?.invalid
+                      "
+                      class="invalid-feedback"
+                    >
+                      <div
+                        *ngIf="registerUser.get('password')?.errors?.['required']"
+                      >
+                        La contraseña es obligatoria.
+                      </div>
+                      <div
+                        *ngIf="registerUser.get('password')?.errors?.['minlength']"
+                      >
+                        La contraseña debe tener al menos 8 caracteres.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center">
+                <button
+                  type="submit"
+                  class="btn btn-primary me-2"
+                  [disabled]="!registerUser.valid"
+                >
+                  Crear cuenta
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 job-image">
+            <img
+              src="../../../assets/mi-ilustracion-concepto-contrasena.png"
+              alt="image form register"
+              class="job-image-element"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

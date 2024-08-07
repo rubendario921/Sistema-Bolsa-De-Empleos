@@ -18,6 +18,7 @@ export class AuthComponent implements OnInit, OnDestroy {
   // Variables del componente
   forgotForm!: FormGroup;
   loginForm!: FormGroup;
+  
   ngOnInit(): void {
     //Formulario Login
     this.loginForm = new FormGroup({
