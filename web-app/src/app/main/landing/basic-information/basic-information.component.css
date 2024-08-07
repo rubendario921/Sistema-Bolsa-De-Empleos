@@ -1,0 +1,27 @@
+.back-color {
+  background: linear-gradient(135deg, #fdf3f4, #c1dff0);
+}
+
+.job-image-element {
+  max-width: 100%;
+  border-radius: 10px;
+  height: auto;
+}
+
+.job-image {
+  max-width: 500px;
+}
+.job-info {
+  padding-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .job-info {
+    padding-left: 20px;
+    padding-top: 0;
+  }
+}
+
+i {
+  color: blue;
+}

@@ -37,7 +37,7 @@ export class AuthComponent implements OnInit, OnDestroy {
       numDniForgot: new FormControl('', [
         Validators.required,
         Validators.minLength(10),
-        Validators.minLength(13),
+        Validators.maxLength(13),
         Validators.pattern(/^[0-9]+$/),
       ]),
       emailForgot: new FormControl('', [
