@@ -7,7 +7,6 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-user',
@@ -19,45 +18,52 @@ import { Router } from '@angular/router';
 export class NewUserComponent implements OnInit, OnDestroy {
   //Variables de Componente
   registerUser!: FormGroup;
-  // constructor( private fb:FormBuilder, private router: Router){}
+  viewPasswordInput: boolean = false;
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
     //Formulario de registro
-    this.registerUser = new FormGroup({
-      name: new FormControl('', [
-        Validators.required,
-        Validators.pattern(/^[a-zA-Z ]+$/),
-      ]),
-      lastName: new FormControl('', [
-        Validators.required,
-        Validators.pattern(/^[a-zA-ZÑ ]+$/),
-      ]),
-      typeDni: new FormControl('', [Validators.required]),
-      numDni: new FormControl('', [
-        Validators.required,
-        Validators.minLength(10),
-        Validators.maxLength(10),
-        Validators.pattern(/^[0-9]+$/),
-      ]),
-      phoneNumber: new FormControl('', [
-        Validators.required,
-        Validators.minLength(10),
-        Validators.maxLength(10),
-        Validators.pattern(/^[0-9]+$/),
-      ]),
-      email: new FormControl('', [
-        Validators.required,
-        Validators.email,
-        Validators.pattern(/^[a-z0-9@_.]+$/),
-      ]),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.minLength(8),
-      ]),
+    this.registerUser = this.fb.group({
+      name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
+      lastName: [
+        '',
+        [Validators.required, Validators.pattern(/^[a-zA-ZÑ ]+$/)],
+      ],
+      typeDni: ['', [Validators.required]],
+      numDni: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(10),
+          Validators.maxLength(10),
+          Validators.pattern(/^[0-9]+$/),
+        ],
+      ],
+      phoneNumber: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(10),
+          Validators.maxLength(10),
+          Validators.pattern(/^[0-9]+$/),
+        ],
+      ],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.email,
+          Validators.pattern(/^[a-z0-9@_.]+$/),
+        ],
+      ],
+      password: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
   ngOnDestroy(): void {
     this.registerUser.reset();
   }
   onsubmit() {}
+  viewPassword(): void {
+    this.viewPasswordInput = !this.viewPasswordInput;
+  }
 }

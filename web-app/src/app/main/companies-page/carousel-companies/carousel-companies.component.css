@@ -1,0 +1,52 @@
+.carousel-item img {
+  height: 350px;
+  object-fit: contain;
+}
+
+.back-color {
+  background: linear-gradient(135deg, #fdf3f4, #c1dff0);
+}
+
+.card {
+  border: none;
+  background-color: transparent;
+}
+.carousel-indicators {
+  bottom: -30px;
+}
+.carousel-indicators button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 5px;
+  border: 2px solid #fff;
+  background-color: transparent;
+}
+.carousel-indicators .active {
+  background-color: #fff;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  width: auto;
+  margin-top: -30px;
+}
+.carousel-inner {
+  border-radius: 10px;
+  overflow: hidden;
+}
+.carousel-item {
+  text-align: center;
+}
+.carousel-item img {
+  max-height: 400px;
+  object-fit: contain;
+}
+.card-title {
+  color: #000;
+}

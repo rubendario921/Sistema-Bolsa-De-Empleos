@@ -267,40 +267,53 @@
                 </div>
               </div>
               <div class="col-md-8 col-lg-7 col-xl-6">
-                <div class="form-floating mb-4">
-                  <input
-                    type="password"
-                    class="shadow form-control"
-                    id="password"
-                    formControlName="password"
-                    autocomplete="off"
-                    placeholder="Ingresa tu contraseña"
-                    [ngClass]="{
-                      'is-invalid':
-                        registerUser.get('password')?.touched &&
-                        registerUser.get('password')?.invalid
-                    }"
-                  />
-                  <label for="password" class="form-label fw-semibold"
-                    >Contraseña <span class="text-danger">*</span></label
-                  >
+                <div class="input-group">
+                  <div class="form-floating flex-grow-1">
+                    <input
+                      [type]="viewPasswordInput ? 'text' : 'password'"
+                      class="shadow form-control"
+                      id="password"
+                      formControlName="password"
+                      autocomplete="off"
+                      placeholder="Ingresa tu contraseña"
+                      [ngClass]="{
+                        'is-invalid':
+                          registerUser.get('password')?.touched &&
+                          registerUser.get('password')?.invalid
+                      }"
+                    />
+                    <label for="password" class="form-label fw-semibold"
+                      >Contraseña <span class="text-danger">*</span></label
+                    >
+                    <span
+                      type="button"
+                      (click)="viewPassword()"
+                      class="input-group-text mb-4"
+                    >
+                      <i
+                        [ngClass]="
+                          viewPasswordInput ? 'bi bi-eye-slash' : 'bi bi-eye'
+                        "
+                      ></i>
+                    </span>
+                  </div>
+                </div>
+                <div
+                  *ngIf="
+                    registerUser.get('password')?.touched &&
+                    registerUser.get('password')?.invalid
+                  "
+                  class="invalid-feedback"
+                >
                   <div
-                    *ngIf="
-                      registerUser.get('password')?.touched &&
-                      registerUser.get('password')?.invalid
-                    "
-                    class="invalid-feedback"
+                    *ngIf="registerUser.get('password')?.errors?.['required']"
                   >
-                    <div
-                      *ngIf="registerUser.get('password')?.errors?.['required']"
-                    >
-                      La contraseña es obligatoria.
-                    </div>
-                    <div
-                      *ngIf="registerUser.get('password')?.errors?.['minlength']"
-                    >
-                      La contraseña debe tener al menos 8 caracteres.
-                    </div>
+                    La contraseña es obligatoria.
+                  </div>
+                  <div
+                    *ngIf="registerUser.get('password')?.errors?.['minlength']"
+                  >
+                    La contraseña debe tener al menos 8 caracteres.
                   </div>
                 </div>
               </div>
@@ -318,7 +331,7 @@
         </div>
         <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 job-image">
           <img
-            src="../../../assets/mi-ilustracion-concepto-contrasena.png"
+            src="https://www.multitrabajos.com/candidate/static/media/sign-in.2d89cef2.svg"
             alt="image form register"
             class="job-image-element"
           />

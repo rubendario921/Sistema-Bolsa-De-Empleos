@@ -1,0 +1,542 @@
+<div class="container-fluid mt-5 px-5">
+  <div class="card shadow p-3 mb-3 bg-body-tertiary rounded border-custom">
+    <div class="card-header">
+      <p class="fs-1 fw-bold text-subtitle-color">
+        Registra tu empresa y publica tu oferta
+      </p>
+    </div>
+    <div class="card-body back-color">
+      <div class="row d-flex align-items-center justify-content-center">
+        <div class="col-md-8 col-lg-7 col-xl-6">
+          <form
+            [formGroup]="registerStaff"
+            (ngSubmit)="onsubmit()"
+            method="post"
+            class="needs-validations"
+            novalidate
+          >
+            <p class="fw-bolder">Completa la Información de tu usuario</p>
+            <div class="row d-flex align-items-center justify-content-center">
+              <!-- staffUser -->
+              <div class="col-md-8 col-lg-7 col-xl-6">
+                <div class="form-floating mb-4">
+                  <input
+                    type="text"
+                    class="shadow form-control"
+                    id="staffName"
+                    formControlName="staffName"
+                    autocomplete="off"
+                    placeholder="Ingresa los datos correctos"
+                    [ngClass]="{
+                      'is-invalid':
+                        registerStaff.get('staffName')?.touched &&
+                        registerStaff.get('staffName')?.invalid
+                    }"
+                  />
+                  <label for="staffName" class="form-label fw-semibold"
+                    >Nombre(s) <span class="text-danger">*</span></label
+                  >
+                  <div
+                    *ngIf="
+                      registerStaff.get('staffName')?.touched &&
+                      registerStaff.get('staffName')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="registerStaff.get('staffName')?.errors?.['required'] "
+                    >
+                      Los nombre de usuario es obligatorio.
+                    </div>
+                    <div
+                      *ngIf="registerStaff.get('staffName')?.errors?.['pattern'] "
+                    >
+                      Los nombres de usuario no debe contener números o carácter
+                      especial.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- staffLastName -->
+              <div class="col-md-8 col-lg-7 col-xl-6">
+                <div class="form-floating mb-4">
+                  <input
+                    type="text"
+                    class="shadow form-control"
+                    id="staffLastName"
+                    formControlName="staffLastName"
+                    autocomplete="off"
+                    placeholder="Ingresa los datos correctos"
+                    [ngClass]="{
+                      'is-invalid':
+                        registerStaff.get('staffLastName')?.touched &&
+                        registerStaff.get('staffLastName')?.invalid
+                    }"
+                  />
+                  <label for="staffLastName" class="form-label"
+                    >Apellido(s) <span class="text-danger">*</span>
+                  </label>
+                  <div
+                    *ngIf="
+                      registerStaff.get('staffLastName')?.touched &&
+                      registerStaff.get('staffLastName')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="registerStaff.get('staffLastName')?.errors?.['required'] "
+                    >
+                      Los Apellidos del usuario es obligatorio.
+                    </div>
+                    <div
+                      *ngIf="registerStaff.get('staffName')?.errors?.['pattern'] "
+                    >
+                      Los apellidos del usuario no debe contener números o
+                      carácter especial.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Fila 2 -->
+            <div class="row d-flex align-items-center justify-content-center">
+              <!-- StaffEmail -->
+              <div class="col-md-8 col-lg-7 col-xl-6">
+                <div class="form-floating mb-4">
+                  <input
+                    type="email"
+                    class="shadow form-control"
+                    id="staffEmail"
+                    formControlName="staffEmail"
+                    autocomplete="off"
+                    placeholder="example@selecciontalento.com"
+                    [ngClass]="{
+                      'is-invalid':
+                        registerStaff.get('staffEmail')?.touched &&
+                        registerStaff.get('staffEmail')?.invalid
+                    }"
+                  />
+                  <label for="staffEmail" class="form-label"
+                    >Correo Electrónico
+                    <span class="text-danger">*</span></label
+                  >
+                  <div
+                    *ngIf="
+                      registerStaff.get('staffEmail')?.touched &&
+                      registerStaff.get('staffEmail')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="registerStaff.get('staffEmail')?.errors?.['required'] "
+                    >
+                      El correo electrónico es obligatorio.
+                    </div>
+                    <div
+                      *ngIf="registerStaff.get('staffEmail')?.errors?.['email'] "
+                    >
+                      Ingrese un correo electrónico valido.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Fila 3 -->
+            <div class="row d-flex align-items-center justify-content-center">
+              <!-- StaffPassword -->
+              <div class="col-md-8 col-lg-7 col-xl-6">
+                <div class="input-group">
+                  <div class="form-floating mb-4">
+                    <input
+                      [type]="viewPasswordInput ? 'text' : 'password'"
+                      class="shadow form-control"
+                      id="staffPassword"
+                      formControlName="staffPassword"
+                      autocomplete="off"
+                      placeholder="Ingresa los datos correctos"
+                      [ngClass]="{
+                        'is-invalid':
+                          registerStaff.get('staffPassword')?.touched &&
+                          registerStaff.get('staffPassword')?.invalid
+                      }"
+                    />
+                    <label for="staffPassword" class="form-label"
+                      >Contraseña <span class="text-danger">*</span></label
+                    >
+                  </div>
+                  <span
+                    type="button"
+                    (click)="viewPassword()"
+                    class="input-group-text mb-4"
+                  >
+                    <i
+                      [ngClass]="
+                        viewPasswordInput ? 'bi bi-eye-slash' : 'bi bi-eye'
+                      "
+                    ></i>
+                  </span>
+                </div>
+                <div
+                  *ngIf="
+                    registerStaff.get('staffPassword')?.touched &&
+                    registerStaff.get('staffPassword')?.invalid
+                  "
+                  class="invalid-feedback"
+                >
+                  <div
+                    *ngIf="registerStaff.get('staffPassword')?.errors?.['required'] "
+                  >
+                    La contraseña es obligatorio.
+                  </div>
+                  <div
+                    *ngIf="registerStaff.get('staffPassword')?.errors?.['minLength'] "
+                  >
+                    La contraseña debe contener minino 8 dígitos.
+                  </div>
+                  <div
+                    *ngIf="registerStaff.get('staffPassword')?.errors?.['required'] "
+                  >
+                    La contraseña de tener MAYÚSCULAS, minúsculas, números(0123)
+                    y carácter especial.
+                  </div>
+                </div>
+              </div>
+              <!-- ConfirmStaffPassword -->
+              <div class="col-md-8 col-lg-7 col-xl-6">
+                <div class="input-group">
+                  <div class="form-floating mb-4">
+                    <input
+                      [type]="viewConfirmPasswordInput ? 'text' : 'password'"
+                      class="shadow form-control"
+                      id="confirmStaffPassword"
+                      formControlName="confirmStaffPassword"
+                      autocomplete="off"
+                      placeholder="Ingresa los datos correctos"
+                      [ngClass]="{
+                        'is-invalid':
+                          registerStaff.get('confirmStaffPassword')?.touched &&
+                          registerStaff.get('confirmStaffPassword')?.invalid
+                      }"
+                    />
+                    <label for="confirmStaffPassword" class="form-label"
+                      >Confirmar contraseña
+                      <span class="text-danger">*</span></label
+                    >
+                  </div>
+                  <span
+                    type="button"
+                    (click)="viewConfirmPassword()"
+                    class="input-group-text mb-4"
+                  >
+                    <i
+                      [ngClass]="
+                        viewConfirmPasswordInput
+                          ? 'bi bi-eye-slash'
+                          : 'bi bi-eye'
+                      "
+                    ></i>
+                  </span>
+                </div>
+                <div
+                  *ngIf="
+                    registerStaff.get('confirmStaffPassword')?.touched &&
+                    registerStaff.get('confirmStaffPassword')?.invalid
+                  "
+                  class="invalid-feedback"
+                >
+                  <div
+                    *ngIf="registerStaff.get('confirmStaffPassword')?.errors?.['required'] "
+                  >
+                    La contraseña es obligatorio.
+                  </div>
+                  <div
+                    *ngIf="registerStaff.get('confirmStaffPassword')?.errors?.['minLength'] "
+                  >
+                    La contraseña debe contener minino 8 dígitos.
+                  </div>
+                  <div
+                    *ngIf="registerStaff.get('confirmStaffPassword')?.errors?.['required'] "
+                  >
+                    La contraseña no coincide con la ingresada anteriormente.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="fw-semibold">Completa los datos de la Empresa</p>
+            <div class="row d-flex align-items-center justify-content-center">
+              <!-- staffNameCompany -->
+              <div class="col-md-8 col-lg-7 col-xl-6">
+                <div class="form-floating mb-4">
+                  <input
+                    type="text"
+                    class="shadow form-control"
+                    id="staffNameCompany"
+                    formControlName="staffNameCompany"
+                    autocomplete="off"
+                    placeholder="Ingresa los datos correctos"
+                    [ngClass]="{
+                      'is-invalid':
+                        registerStaff.get('staffNameCompany')?.touched &&
+                        registerStaff.get('staffNameCompany')?.invalid
+                    }"
+                  />
+                  <label for="staffNameCompany" class="form-label"
+                    >Nombre de la empresa
+                    <span class="text-danger">*</span></label
+                  >
+                  <div
+                    *ngIf="
+                      registerStaff.get('staffNameCompany')?.touched &&
+                      registerStaff.get('staffNameCompany')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="registerStaff.get('staffNameCompany')?.errors?.['required'] "
+                    >
+                      El nombre de la empresa es requerido.
+                    </div>
+                    <div
+                      *ngIf="registerStaff.get('staffNameCompany')?.errors?.['pattern'] "
+                    >
+                      El nombre de la empresa no debe contener caracteres
+                      especiales.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- staffBusinessName -->
+              <div class="col-md-8 col-lg-7 col-xl-6">
+                <div class="form-floating mb-4">
+                  <input
+                    type="text"
+                    class="shadow form-control"
+                    id="staffBusinessName"
+                    formControlName="staffBusinessName"
+                    autocomplete="off"
+                    placeholder="Ingresa los datos correctos"
+                    [ngClass]="{
+                      'is-invalid':
+                        registerStaff.get('staffBusinessName')?.touched &&
+                        registerStaff.get('staffBusinessName')?.invalid
+                    }"
+                  />
+                  <label for="staffBusinessName" class="form-label"
+                    >Razón Social <span class="text-danger">*</span>
+                  </label>
+                  <div
+                    *ngIf="
+                      registerStaff.get('staffBusinessName')?.touched &&
+                      registerStaff.get('staffBusinessName')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="registerStaff.get('staffBusinessName')?.errors?.['required'] "
+                    >
+                      La razón social es obligatorio.
+                    </div>
+                    <div
+                      *ngIf="registerStaff.get('staffBusinessName')?.errors?.['pattern'] "
+                    >
+                      La razón social de la empresa no debe contener números o
+                      carácter especial.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Fila 2 -->
+            <div class="row d-flex align-items-center justify-content-center">
+              <!-- staffRuc -->
+              <div class="col-md-8 col-lg-7 col-xl-6">
+                <div class="form-floating mb-4">
+                  <input
+                    type="text"
+                    class="shadow form-control"
+                    id="staffRuc"
+                    formControlName="staffRuc"
+                    autocomplete="off"
+                    placeholder="Ingrese el número de RUC"
+                    minlength="13"
+                    maxlength="13"
+                    [ngClass]="{
+                      'is-invalid':
+                        registerStaff.get('staffRuc')?.touched &&
+                        registerStaff.get('staffRuc')?.invalid
+                    }"
+                  />
+                  <label for="staffRuc" class="form-label"
+                    >Número de RUC <span class="text-danger">*</span></label
+                  >
+                  <div
+                    *ngIf="
+                      registerStaff.get('staffRuc')?.touched &&
+                      registerStaff.get('staffRuc')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="registerStaff.get('staffRuc')?.errors?.['required'] "
+                    >
+                      El número de RUC es obligatorio.
+                    </div>
+                    <div
+                      *ngIf="registerStaff.get('staffRuc')?.errors?.['pattern'] "
+                    >
+                      El RUC solo debe contener solo números.
+                    </div>
+                    <div
+                      *ngIf="registerStaff.get('staffRuc')?.errors?.['minlength']"
+                    >
+                      El número de RUC tiene mínimo 13 dígitos.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- staffNumContact -->
+              <div class="col-md-8 col-lg-7 col-xl-6">
+                <div class="form-floating mb-4">
+                  <input
+                    type="text"
+                    class="shadow form-control"
+                    id="staffNumContact"
+                    formControlName="staffNumContact"
+                    autocomplete="off"
+                    minlength="10"
+                    maxlength="10"
+                    placeholder="Ingrese el número de contacto."
+                    [ngClass]="{
+                      'is-invalid':
+                        registerStaff.get('staffNumContact')?.touched &&
+                        registerStaff.get('staffNumContact')?.invalid
+                    }"
+                  />
+                  <label for="staffNumContact" class="form-label"
+                    >Número de Contacto
+                    <span class="text-danger">*</span></label
+                  >
+                  <div
+                    *ngIf="
+                      registerStaff.get('staffNumContact')?.touched &&
+                      registerStaff.get('staffNumContact')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="registerStaff.get('staffNumContact')?.errors?.['required'] "
+                    >
+                      El número de contacto es obligatorio.
+                    </div>
+                    <div
+                      *ngIf="registerStaff.get('staffNumContact')?.errors?.['pattern'] "
+                    >
+                      El campo solo debe tener números.
+                    </div>
+                    <div
+                      *ngIf="registerStaff.get('staffNumContact')?.errors?.['minlength']"
+                    >
+                      El número de contacto debe contener minino 10 dígitos.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Fila 3 -->
+            <div class="row d-flex align-items-center justify-content-center">
+              <!-- staffIndustry -->
+              <div class="col-md-8 col-lg-7 col-xl-6">
+                <div class="form-floating mb-4">
+                  <select
+                    name="staffIndustry"
+                    id="staffIndustry"
+                    class="form-select"
+                    formControlName="staffIndustry"
+                    aria-describedby="staffIndustryFeedback"
+                  >
+                    <option value="" disabled selected>
+                      Seleccione una industria
+                    </option>
+                    <option value="1">Tecnología</option>
+                    <option value="2">Recursos Humanos</option>
+                  </select>
+                  <label for="staffIndustry" class="form-label"
+                    >Industrias<span class="text-danger">*</span></label
+                  >
+                </div>
+                <div
+                  *ngIf="
+                    registerStaff.get('staffIndustry')?.touched &&
+                    registerStaff.get('staffIndustry')?.invalid
+                  "
+                  class="invalid-feedback d-block"
+                  aria-describedby="staffIndustryFeedback"
+                >
+                  <div
+                    *ngIf="registerStaff.get('staffIndustry')?.errors?.['required'] "
+                  >
+                    La opción de industria es requerida.
+                  </div>
+                </div>
+              </div>
+              <!-- StaffCount -->
+              <div class="col-md-8 col-lg-7 col-xl-6">
+                <div class="form-floating mb-4">
+                  <select
+                    name="StaffCount"
+                    id="StaffCount"
+                    class="form-select"
+                    formControlName="StaffCount"
+                    aria-describedby="StaffCountFeedback"
+                  >
+                    <option value="" disabled selected>
+                      Seleccione una opción.
+                    </option>
+                    <option value="1">0 - 5</option>
+                    <option value="2">50-100</option>
+                  </select>
+                  <label for="StaffCount" class="form-label"
+                    >Cantidad de Empleados<span class="text-danger"
+                      >*</span
+                    ></label
+                  >
+                </div>
+                <div
+                  *ngIf="
+                    registerStaff.get('StaffCount')?.touched &&
+                    registerStaff.get('StaffCount')?.invalid
+                  "
+                  class="invalid-feedback d-block"
+                  aria-describedby="StaffCountFeedback"
+                >
+                  <div
+                    *ngIf="registerStaff.get('StaffCount')?.errors?.['required'] "
+                  >
+                    La cantidad de empleados es requerida.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row d-flex align-items-center justify-content-center">
+              <div class="col-md-8 col-lg-7 col-xl-6 text-center">
+                <button
+                  class="btn btn-primary mb-4"
+                  [disabled]="!registerStaff.valid"
+                >
+                  Crear cuenta Empresa
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 job-image">
+          <img
+            src="https://previews.123rf.com/images/artinspiring/artinspiring2011/artinspiring201101558/159881500-registro-de-nueva-empresa-formulario-de-creaci%C3%B3n-de-empresas-marca.jpg"
+            alt="image form register"
+            class="job-image-element"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
