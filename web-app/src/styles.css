@@ -62,3 +62,7 @@ body {
 .job-image-element:hover {
   transform: scale(1.05);
 }
+
+.back-color {
+  background: linear-gradient(135deg, #fdf3f4, #c1dff0);  
+}

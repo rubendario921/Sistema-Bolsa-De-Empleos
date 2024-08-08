@@ -1,0 +1,14 @@
+import { Component } from '@angular/core';
+import { HeaderAdminComponent } from '../template-admin/header-admin/header-admin.component';
+import { FooterAdminComponent } from '../template-admin/footer-admin/footer-admin.component';
+
+@Component({
+  selector: 'app-index-page',
+  standalone: true,
+  imports: [HeaderAdminComponent, FooterAdminComponent],
+  templateUrl: './index-page.component.html',
+  styleUrl: './index-page.component.css'
+})
+export class IndexPageComponent {
+
+}

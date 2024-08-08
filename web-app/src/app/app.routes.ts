@@ -3,6 +3,7 @@ import { UsersComponent } from './main/users/users.component';
 import { MainComponent } from './main/main.component';
 import { LandingComponent } from './main/landing/landing.component';
 import { CompaniesPageComponent } from './main/companies-page/companies-page.component';
+import { IndexPageComponent } from './portal-admin/index-page/index-page.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -14,5 +15,6 @@ export const routes: Routes = [
   },
   { path: 'users', component: UsersComponent },
   { path: 'companies', component: CompaniesPageComponent },
+  {path:'portal-admin',component:IndexPageComponent}
 ];
 export const appRouterProviders = [provideRouter(routes)];
