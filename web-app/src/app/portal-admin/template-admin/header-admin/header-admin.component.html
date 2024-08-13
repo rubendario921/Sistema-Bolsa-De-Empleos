@@ -1,1 +1,16 @@
-<p>header-admin works!</p>
+<div class="container-fluid">
+  <nav class="navbar navbar-expand navbar-light bg-light shadow">
+    <div class="nav navbar-nav">
+      <a
+        class="nav-item nav-link active text-title-color"
+        [routerLink]="['/portal-admin']"
+        routerLinkActive="router-link-active"
+        aria-current="page"
+        >Portal Administrativo
+      </a>
+    </div>
+    <div class="text-center">
+      <p class="text-title-color my-2 text-center">{{ usuName }}</p>
+    </div>
+  </nav>
+</div>

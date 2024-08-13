@@ -15,6 +15,6 @@ export const routes: Routes = [
   },
   { path: 'users', component: UsersComponent },
   { path: 'companies', component: CompaniesPageComponent },
-  {path:'portal-admin',component:IndexPageComponent}
+  { path: 'portal-admin', component: IndexPageComponent },
 ];
 export const appRouterProviders = [provideRouter(routes)];
