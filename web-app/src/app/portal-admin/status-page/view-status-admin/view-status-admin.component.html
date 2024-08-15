@@ -1,27 +1,67 @@
-<div class="container-fluid">
-  <p class="text-center fs-1 fw-medium">Estados</p>
-  <div class="table-responsive">
-    <table class="table table-light shadow" id="statusDataTable">
-      <thead>
-        <tr>
-          <th scope="col">Id</th>
-          <th scope="col">First Name</th>
-          <th scope="col">Last Name</th>
-          <th scope="col">Email</th>
-          <th scope="col">Avatar</th>
-          <th scope="col">Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="" *ngFor="let status of dataTable">
-          <td scope="row">{{ status.id }}</td>
-          <td>{{ status.first_name }}</td>
-          <td>{{ status.last_name }}</td>
-          <td>{{ status.email }}</td>
-          <td><img [src]="status.avatar" alt="{{ status.first_name }}" /></td>
-          <td>Details || Edit || Delete</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+<!-- view-status-admin.component.html -->
+<mat-card>
+  <mat-card-header>
+    <div class="container text-center">
+      <p class="text-subtitle-color">Estados</p>
+    </div>
+    <!-- Campo de búsqueda -->
+    <mat-form-field>
+      <mat-label>Buscar</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Buscar">
+    </mat-form-field>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="table-responsive">
+      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+          <td mat-cell *matCellDef="let status"> {{ status.id }} </td>
+        </ng-container>
+
+        <!-- First Name Column -->
+        <ng-container matColumnDef="first_name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+          <td mat-cell *matCellDef="let status"> {{ status.first_name }} </td>
+        </ng-container>
+
+        <!-- Last Name Column -->
+        <ng-container matColumnDef="last_name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+          <td mat-cell *matCellDef="let status"> {{ status.last_name }} </td>
+        </ng-container>
+
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+          <td mat-cell *matCellDef="let status"> {{ status.email }} </td>
+        </ng-container>
+
+        <!-- Avatar Column -->
+        <ng-container matColumnDef="avatar">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Avatar </th>
+          <td mat-cell *matCellDef="let status">
+            <img [src]="status.avatar" alt="{{ status.first_name }}" />
+          </td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Acciones </th>
+          <td mat-cell *matCellDef="let status">
+            <!-- Aquí puedes agregar botones para detalles, edición y eliminación -->
+            Details || Edit || Delete
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </mat-card-content>
+  <mat-card-footer>
+    <mat-paginator [length]="dataSource.data.length" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+  </mat-card-footer>
+</mat-card>

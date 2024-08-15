@@ -6,3 +6,4 @@ export interface TestModel {
   last_name: string;
   avatar: string;
 }
+  
