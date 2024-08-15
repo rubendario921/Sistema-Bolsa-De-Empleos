@@ -14,6 +14,5 @@ export const appConfig: ApplicationConfig = {
     provideToastr({
       timeOut: 9000,
     }),
-        
   ],
 };

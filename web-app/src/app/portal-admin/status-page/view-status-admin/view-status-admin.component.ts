@@ -26,7 +26,7 @@ import { EditStatusAdminComponent } from '../edit-status-admin/edit-status-admin
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
   ],
   templateUrl: './view-status-admin.component.html',
   styleUrls: ['./view-status-admin.component.css'],
@@ -47,15 +47,15 @@ export class ViewStatusAdminComponent implements OnInit, OnDestroy {
   constructor(
     private testApiService: TestApiService,
     private toastr: CustomToastrService,
-    private dialog:MatDialog
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
     this.loadstatus();
+    this.dataSource.sort = this.sort;
   }
 
-  ngOnDestroy(): void {      
-  }
+  ngOnDestroy(): void {}
 
   loadstatus(): void {
     this.testApiService.getAllUsers().subscribe(
@@ -71,7 +71,7 @@ export class ViewStatusAdminComponent implements OnInit, OnDestroy {
       }
     );
   }
-  //Filtro de busqueda
+  //Filtro de búsqueda
   applyFilter(filterValue: KeyboardEvent): void {
     const inputFilter = event?.target as HTMLInputElement;
     if (inputFilter) {
@@ -79,19 +79,19 @@ export class ViewStatusAdminComponent implements OnInit, OnDestroy {
       this.dataSource.filter = filterValue;
     }
   }
-//Abrir el Details-Modal
-openDetailsModal(status:TestModel):void{
-  this.dialog.open(DetailsStatusAdminComponent,{data:status})
-}
-//Abrir el Edti-Modal
-openEditModal(status: TestModel): void {
-  const dialogRef = this.dialog.open(EditStatusAdminComponent, {
-    data: status,
-    width: '600px'
-  });
+  //Abrir el Details-Modal
+  openDetailsModal(status: TestModel): void {
+    this.dialog.open(DetailsStatusAdminComponent, { data: status });
+  }
+  //Abrir el Edti-Modal
+  openEditModal(status: TestModel): void {
+    const dialogRef = this.dialog.open(EditStatusAdminComponent, {
+      data: status,
+      width: '600px',
+    });
 
-  dialogRef.afterClosed().subscribe(() => {
-    this.loadstatus(); // Re-cargar los datos después de editar
-  });
-}
+    dialogRef.afterClosed().subscribe(() => {
+      this.loadstatus(); // Re-cargar los datos después de editar
+    });
+  }
 }

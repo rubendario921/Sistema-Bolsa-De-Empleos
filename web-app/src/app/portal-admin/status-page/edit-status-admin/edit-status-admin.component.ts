@@ -4,11 +4,12 @@ import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/materia
 import { TestApiService } from '../../../services/test-api.service';
 import { CustomToastrService } from '../../../services/custom-toastr.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-edit-status-admin',
   standalone: true,
-  imports: [MatDialogModule,MatFormFieldModule,ReactiveFormsModule],
+  imports: [MatDialogModule,MatFormFieldModule,ReactiveFormsModule,MatInputModule],
   templateUrl: './edit-status-admin.component.html',
   styleUrl: './edit-status-admin.component.css',
 })
