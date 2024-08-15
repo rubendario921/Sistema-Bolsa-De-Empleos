@@ -1,1 +1,28 @@
-<p>status-page works!</p>
+<header><app-header-admin></app-header-admin></header>
+<main>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 d-md-none py-2">
+        <button
+          class="btn btn-primary w-100"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarAdminCollapse"
+          aria-expanded="false"
+        >
+          Menú
+        </button>
+        <div class="collapse" id="navbarAdminCollapse">
+          <app-navbar-admin></app-navbar-admin>
+        </div>
+      </div>
+      <div class="col-12 col-md-2 d-none d-md-block py-3">
+        <app-navbar-admin></app-navbar-admin>
+      </div>
+      <div class="col-12 col-md-10 py-3">
+        <app-view-status-admin></app-view-status-admin>
+      </div>
+    </div>
+  </div>
+</main>
+<footer><app-footer-admin></app-footer-admin></footer>
