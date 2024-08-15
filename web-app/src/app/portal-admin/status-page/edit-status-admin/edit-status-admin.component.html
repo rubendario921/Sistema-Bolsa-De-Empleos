@@ -1,0 +1,30 @@
+<!-- edit-modal.component.html -->
+<mat-dialog-content>
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="first_name" />
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="last_name" />
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Avatar URL</mat-label>
+        <input matInput formControlName="avatar" />
+      </mat-form-field>
+  
+      <mat-dialog-actions>
+        <button mat-button type="submit">Guardar</button>
+        <button mat-button (click)="onClose()">Cancelar</button>
+      </mat-dialog-actions>
+    </form>
+  </mat-dialog-content>
+  

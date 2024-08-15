@@ -1,4 +1,4 @@
-import { Component, input, OnInit, ViewChild } from '@angular/core';
+import { Component, input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
@@ -11,6 +11,10 @@ import { CustomToastrService } from '../../../services/custom-toastr.service';
 import { MatSort } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialog } from '@angular/material/dialog';
+import { DetailsStatusAdminComponent } from '../details-status-admin/details-status-admin.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EditStatusAdminComponent } from '../edit-status-admin/edit-status-admin.component';
 
 @Component({
   selector: 'app-view-status-admin',
@@ -22,11 +26,12 @@ import { MatInputModule } from '@angular/material/input';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
+    ReactiveFormsModule 
   ],
   templateUrl: './view-status-admin.component.html',
   styleUrls: ['./view-status-admin.component.css'],
 })
-export class ViewStatusAdminComponent implements OnInit {
+export class ViewStatusAdminComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = [
     'id',
     'first_name',
@@ -41,11 +46,15 @@ export class ViewStatusAdminComponent implements OnInit {
 
   constructor(
     private testApiService: TestApiService,
-    private toastr: CustomToastrService
+    private toastr: CustomToastrService,
+    private dialog:MatDialog
   ) {}
 
   ngOnInit(): void {
     this.loadstatus();
+  }
+
+  ngOnDestroy(): void {      
   }
 
   loadstatus(): void {
@@ -62,6 +71,7 @@ export class ViewStatusAdminComponent implements OnInit {
       }
     );
   }
+  //Filtro de busqueda
   applyFilter(filterValue: KeyboardEvent): void {
     const inputFilter = event?.target as HTMLInputElement;
     if (inputFilter) {
@@ -69,4 +79,19 @@ export class ViewStatusAdminComponent implements OnInit {
       this.dataSource.filter = filterValue;
     }
   }
+//Abrir el Details-Modal
+openDetailsModal(status:TestModel):void{
+  this.dialog.open(DetailsStatusAdminComponent,{data:status})
+}
+//Abrir el Edti-Modal
+openEditModal(status: TestModel): void {
+  const dialogRef = this.dialog.open(EditStatusAdminComponent, {
+    data: status,
+    width: '600px'
+  });
+
+  dialogRef.afterClosed().subscribe(() => {
+    this.loadstatus(); // Re-cargar los datos después de editar
+  });
+}
 }

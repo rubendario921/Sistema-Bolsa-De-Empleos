@@ -13,6 +13,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideToastr({
       timeOut: 9000,
-    }),    
+    }),
+        
   ],
 };
