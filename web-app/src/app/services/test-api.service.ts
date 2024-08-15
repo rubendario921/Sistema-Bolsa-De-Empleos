@@ -15,10 +15,10 @@ interface DataTest {
   providedIn: 'root',
 })
 export class TestApiService {
-  private apiUrl = 'https://reqres.in/api/users';  
+  private apiUrl = 'https://reqres.in/api/users';
   constructor(private http: HttpClient) {}
 
-  getAllUsers():Observable<DataTest[]>{
+  getAllUsers(): Observable<DataTest[]> {
     return this.http.get<DataTest[]>(this.apiUrl);
   }
 }
