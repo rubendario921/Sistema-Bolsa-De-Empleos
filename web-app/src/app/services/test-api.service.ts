@@ -1,24 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-
-//Interface
-interface DataTest {
-  id: number;
-  email: string;
-  first_name: string;
-  last_name: string;
-  avatar: string;
-}
+import { TestModel } from '../models/testModel.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TestApiService {
-  private apiUrl = 'https://reqres.in/api/users';
+  private apiUrl = 'https://reqres.in/api';
   constructor(private http: HttpClient) {}
 
-  getAllUsers(): Observable<DataTest[]> {
-    return this.http.get<DataTest[]>(this.apiUrl);
+  getAllUsers() {
+    return this.http.get<TestModel[]>(this.apiUrl + '/users');
   }
 }

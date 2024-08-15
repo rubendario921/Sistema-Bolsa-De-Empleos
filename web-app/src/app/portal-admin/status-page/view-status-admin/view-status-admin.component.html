@@ -1,1 +1,27 @@
-<p>view-status-admin works!</p>
+<div class="container-fluid">
+  <p class="text-center fs-1 fw-medium">Estados</p>
+  <div class="table-responsive">
+    <table class="table table-light shadow" id="statusDataTable">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Avatar</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="" *ngFor="let status of dataTable">
+          <td scope="row">{{ status.id }}</td>
+          <td>{{ status.first_name }}</td>
+          <td>{{ status.last_name }}</td>
+          <td>{{ status.email }}</td>
+          <td><img [src]="status.avatar" alt="{{ status.first_name }}" /></td>
+          <td>Details || Edit || Delete</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
