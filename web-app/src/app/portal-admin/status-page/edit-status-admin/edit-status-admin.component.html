@@ -1,75 +1,76 @@
 <mat-dialog-content>
   <h2 mat-dialog-title class="text-subtitle-color fs-2 fw-medium">Editar</h2>
-  <form
-    [formGroup]="editForm"
-    (ngSubmit)="onSubmit()"
-    class="needs-validation"
-    novalidate
-  >
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
     <div class="row">
       <div class="col-md-6 mb-3">
+        <!-- Primer Nombre -->
         <div class="form-floating mb-4">
-          <input
-            type="text"
-            class="form-control shadow"
-            matInput
-            id="first_name"
-            formControlName="first_name"
-            autocomplete="off"
-            [ngClass]="{
+          <input type="text" class="form-control shadow" matInput id="first_name" formControlName="first_name"
+            autocomplete="off" [ngClass]="{
               'is-invalid':
                 editForm.get('first_name')?.touched &&
                 editForm.get('first_name')?.invalid
-            }"
-          />
-          <label for="first_name" class="form-label">First Name</label>
+            }" />
+          <label for="first_name" class="form-label fw-semibold">Nombre
+            <span class="text-danger">*</span>
+          </label>
+          <div *ngIf="editForm.get('first_name')?.touched && editForm.get('first_name')?.invalid"
+            class="invalid-feedback">
+            <div *ngIf="editForm.get('first_name')?.errors?.['required']">
+              El nombre es obligatorio.
+            </div>
+            <div *ngIf="editForm.get('first_name')?.errors?.['pattern']">
+              No debe contener números o caractecteres especiales.
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-md-6 mb-3">
-        <div class="form-group">
-          <label for="last_name" class="form-label">Last Name</label>
-          <input
-            matInput
-            id="last_name"
-            formControlName="last_name"
-            class="form-control"
-          />
+        <div class="form-floating mb-4">
+          <input type="text" class="form-control shadow" matInput id="last_name" formControlName="last_name"
+            autocomplete="off" [ngClass]="{
+              'is-invalid':
+                editForm.get('last_name')?.touched &&
+                editForm.get('last_name')?.invalid
+            }" />
+          <label for="last_name" class="form-label fw-semibold">Apellido
+            <span class="text-danger">*</span>
+          </label>
+          <div *ngIf="editForm.get('last_name')?.touched && editForm.get('last_name')?.invalid"
+            class="invalid-feedback">
+            <div *ngIf="editForm.get('last_name')?.errors?.['required']">
+              El apellido es obligatorio.
+            </div>
+            <div *ngIf="editForm.get('last_name')?.errors?.['pattern']">
+              No debe contener números o caractecteres especiales.
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <div class="form-group">
-          <label for="email" class="form-label">Email</label>
-          <input
-            matInput
-            id="email"
-            formControlName="email"
-            class="form-control"
-          />
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input matInput id="email" formControlName="email" class="form-control" />
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <div class="form-group">
+            <label for="avatar" class="form-label">Avatar URL</label>
+            <input matInput id="avatar" formControlName="avatar" class="form-control" />
+          </div>
         </div>
       </div>
-      <div class="col-md-6 mb-3">
-        <div class="form-group">
-          <label for="avatar" class="form-label">Avatar URL</label>
-          <input
-            matInput
-            id="avatar"
-            formControlName="avatar"
-            class="form-control"
-          />
-        </div>
-      </div>
-    </div>
 
-    <mat-dialog-actions class="d-flex justify-content-end">
-      <button mat-button class="btn btn-success me-2" type="submit">
-        Actualizar
-      </button>
-      <button mat-button class="btn btn-danger" (click)="onClose()">
-        Cancelar
-      </button>
-    </mat-dialog-actions>
+      <mat-dialog-actions class="d-flex justify-content-end">
+        <button mat-button class="btn btn-success me-2" type="submit">
+          Actualizar
+        </button>
+        <button mat-button class="btn btn-danger" (click)="onClose()">
+          Cancelar
+        </button>
+      </mat-dialog-actions>
   </form>
 </mat-dialog-content>

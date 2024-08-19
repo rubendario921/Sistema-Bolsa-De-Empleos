@@ -1,15 +1,31 @@
 import { Component, Inject } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import {
+  MAT_DIALOG_DATA,
+  MatDialogModule,
+  MatDialogRef,
+} from '@angular/material/dialog';
 import { TestApiService } from '../../../services/test-api.service';
 import { CustomToastrService } from '../../../services/custom-toastr.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-edit-status-admin',
   standalone: true,
-  imports: [MatDialogModule,MatFormFieldModule,ReactiveFormsModule,MatInputModule],
+  imports: [
+    MatDialogModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    CommonModule,
+  ],
   templateUrl: './edit-status-admin.component.html',
   styleUrl: './edit-status-admin.component.css',
 })
@@ -27,8 +43,14 @@ export class EditStatusAdminComponent {
   ) {
     this.editForm = this.fb.group({
       id: [data.id],
-      first_name: [data.first_name, Validators.required],
-      last_name: [data.last_name, Validators.required],
+      first_name: [
+        data.first_name,
+        [Validators.required, Validators.pattern(/^[a-zA-ZÑñ ]+$/)],
+      ],
+      last_name: [
+        data.last_name,
+        [Validators.required, Validators.pattern(/^[a-zA-ZÑñ ]+$/)],
+      ],
       email: [data.email, [Validators.required, Validators.email]],
       avatar: [data.avatar],
     });
