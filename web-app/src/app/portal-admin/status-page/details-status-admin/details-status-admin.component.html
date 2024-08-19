@@ -1,13 +1,50 @@
-<!-- details-modal.component.html -->
 <mat-dialog-content>
-    <h2 mat-dialog-title>Detalles</h2>
-    <p>ID: {{data.id}}</p>
-    <p>First Name: {{data.first_name}}</p>
-    <p>Last Name: {{data.last_name}}</p>
-    <p>Email: {{data.email}}</p>
-    <img [src]="data.avatar" alt="{{data.first_name}}" />
-  </mat-dialog-content>
-  <mat-dialog-actions>
-    <button mat-button (click)="onClose()">Cerrar</button>
-  </mat-dialog-actions>
-  
+  <h2 mat-dialog-title class="text-subtitle-color fs-2 fw-medium mb-4">
+    Detalles
+  </h2>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p><strong>ID:</strong></p>
+      </div>
+      <div class="col-md-8">
+        <p>{{ data.id }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p><strong>First Name:</strong></p>
+      </div>
+      <div class="col-md-8">
+        <p>{{ data.first_name }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p><strong>Last Name:</strong></p>
+      </div>
+      <div class="col-md-8">
+        <p>{{ data.last_name }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p><strong>Email:</strong></p>
+      </div>
+      <div class="col-md-8">
+        <p>{{ data.email }}</p>
+      </div>
+    </div>
+    <div class="text-center">
+      <img
+        [src]="data.avatar"
+        alt="{{ data.first_name }}"
+        class="img-fluid rounded-circle"
+        style="max-width: 150px"
+      />
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions class="d-flex justify-content-end">
+  <button mat-button class="btn btn-danger" (click)="onClose()">Cerrar</button>
+</mat-dialog-actions>
