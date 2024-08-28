@@ -1,40 +1,42 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, ObservedValueOf } from 'rxjs';
-
-//Interfaces
-interface User{
-  id:number;
-  name:string;
-  username:string;
-  emai:string;
-}
+import { environment } from '../environment/environment';
+import { usuarioDTO } from '../models/userDTOs.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsersService {
-  private apiUrl = 'http://localhost:53921/api';
+  private apiUrl = environment.apiURL;
 
-  constructor(private http:HttpClient) { }  
+  constructor(private http: HttpClient) {}
 
-  getAllUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.apiUrl);
+  getAllUsuarios(): Observable<usuarioDTO[]> {
+    return this.http.get<usuarioDTO[]>(
+      `${this.apiUrl}/Usuarios/GetAllUsuarios`
+    );
   }
 
-  getUser(id: number): Observable<User> {
-    return this.http.get<User>(`${this.apiUrl}/${id}`);
+  getAllUsuarioById(id: number): Observable<usuarioDTO[]> {
+    return this.http.get<usuarioDTO[]>(
+      `${this.apiUrl}/Usuarios/GetUsuarioById/${id}`
+    );
   }
 
-  createUser(user: User): Observable<User> {
-    return this.http.post<User>(this.apiUrl, user);
-  }
+  // getUser(id: number): Observable<User> {
+  //   return this.http.get<User>(`${this.apiUrl}/${id}`);
+  // }
 
-  updateUser(id: number, user: User): Observable<User> {
-    return this.http.put<User>(`${this.apiUrl}/${id}`, user);
-  }
+  // createUser(user: User): Observable<User> {
+  //   return this.http.post<User>(this.apiUrl, user);
+  // }
 
-  deleteUser(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
-  }
+  // updateUser(id: number, user: User): Observable<User> {
+  //   return this.http.put<User>(`${this.apiUrl}/${id}`, user);
+  // }
+
+  // deleteUser(id: number): Observable<void> {
+  //   return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  // }
 }
