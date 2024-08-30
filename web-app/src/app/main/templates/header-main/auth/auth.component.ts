@@ -6,6 +6,11 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { loginDTO } from '../../../../models/loginDTOs.interface';
+import { AuthService } from '../../../../services/auth.service';
+import { Router } from '@angular/router';
+import { CustomToastrService } from '../../../../services/custom-toastr.service';
+import { forgotDTO } from '../../../../models/forgotDTOs.interface';
 
 @Component({
   selector: 'app-auth',
@@ -18,7 +23,14 @@ export class AuthComponent implements OnInit, OnDestroy {
   // Variables del componente
   forgotForm!: FormGroup;
   loginForm!: FormGroup;
-  
+
+  //Constructor
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private toastrService: CustomToastrService
+  ) {}
+
   ngOnInit(): void {
     //Formulario Login
     this.loginForm = new FormGroup({
@@ -56,7 +68,79 @@ export class AuthComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy(): void {
     this.loginForm.reset();
+    this.forgotForm.reset();
   }
-  onsubmitLogin(): void {}
-  onsubmitForgot(): void {}
+  onsubmitLogin(): void {
+    if (this.loginForm.valid) {
+      //Crear el objeto
+      const loginDTO: loginDTO = {
+        usuNumDni: this.loginForm.get('numDniLogin')?.value,
+        usuPassword: this.loginForm.get('passwordLogin')?.value,
+      };
+      //console.log(loginDTO);
+      this.authService.loginUser(loginDTO).subscribe(
+        (response) => {
+          if (response) {
+            this.toastrService.success(
+              'Bienvenido: ' +
+                response.usuLastName +
+                ' ' +
+                response.usuName +
+                ' ' +
+                response.rolName,
+              'Correcto'
+            );
+            this.router.navigate(['portal-admin']);
+          } else {
+            this.toastrService.error(response.message, 'Error');
+          }
+        },
+        (error) => {
+          this.toastrService.error(error.message, 'Error');
+        }
+      );
+    }
+  }
+  onsubmitForgot(): void {
+    if (this.forgotForm.valid) {
+      //Crear el objeto
+      const forgotDTO: forgotDTO = {
+        usuNumDni: this.forgotForm.get('numDniForgot')?.value,
+        usuEmail: this.forgotForm.get('emailForgot')?.value,
+        usuNumPhone: this.forgotForm.get('numPhoneForgot')?.value,
+      };
+      console.log(forgotDTO);
+      this.authService.forgotLogin(forgotDTO).subscribe(
+        (response) => {
+          if (response) {
+            this.toastrService.success('Contraseña Restablecida', 'Correcto');
+          } else {
+            this.toastrService.error('Error al actualizar contraseña');
+            this.forgotForm.markAllAsTouched();
+          }
+        },
+        (error) => {
+          this.toastrService.error('Error al actualizar la contraseña');
+          this.forgotForm.markAllAsTouched();
+        }
+      );
+    } else {
+      this.toastrService.warning('Formulario no valido');
+      this.forgotForm.markAllAsTouched();
+    }
+  }
 }
+// this.authService.forgotLogin(forgotDTO).subscribe(
+//   (response) => {
+//     if (response) {
+//       this.toastrService.success(response.message);
+//     } else {
+//       this.toastrService.error(response.message);
+//       this.forgotForm.markAllAsTouched();
+//     }
+//   },
+//   (error) => {
+//     this.toastrService.error(error.error.message);
+//     this.forgotForm.markAllAsTouched();
+//   }
+// );

@@ -12,7 +12,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideHttpClient(),
     provideToastr({
-      timeOut: 1000,
+      timeOut: 2000,
     }),
   ],
 };

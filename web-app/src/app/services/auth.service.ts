@@ -1,25 +1,22 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tokenToString } from 'typescript';
-
-//interface
-interface loginUser{
-  usuNumDni: string | null;
-  usuPassword:string | null;
-}
+import { environment } from '../environment/environment.development';
+import { loginDTO } from '../models/loginDTOs.interface';
+import { Observable, tap } from 'rxjs';
+import { forgotDTO } from '../models/forgotDTOs.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl ='';
+  private apiUrl = environment.apiURL;
   private accessTokenKey = 'access_token';
-  private userInforKey = 'user_info';
+  private userInfoKey = 'user_info';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-//Obtener el token
-  getToken():string | null{
+  //Obtener el token
+  getToken(): string | null {
     return localStorage.getItem(this.accessTokenKey);
   }
   //Almacenar token
@@ -35,5 +32,48 @@ export class AuthService {
   isAuthenticated(): boolean {
     const token = this.getToken();
     return !!token;
+  }
+
+  //Método Login
+  loginUser(loginDTO: loginDTO): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/auth`, loginDTO).pipe(
+      tap((response) => {
+        if (response) {
+          this.setToken(response.token);
+          const user_info = {
+            usuName: response.usuName,
+            usuLastName: response.usuLastName,
+            usuNumDni: response.usuNumDni,
+            rolName: response.rolName,
+          };
+          localStorage.setItem(this.userInfoKey, JSON.stringify(user_info));
+          console.log('Inicio de sesión correcto', response);
+        } else {
+          console.error('Inicio de sesión incorrecto:');
+        }
+      })
+    );
+  }
+
+  //Método LoginCompanies
+
+  //Método Forgot
+  forgotLogin(forgotDTO: forgotDTO): Observable<any> {
+    return this.http.put(`${this.apiUrl}/forgotUser`, forgotDTO).pipe(
+      tap(
+        (response) => {
+          console.log('Usuario modificado correctamente', response);
+        },
+        (error) => {
+          console.error('Error al modificar usuario', error);
+        }
+      )
+    );
+  }
+
+  //Método LogOut
+  logOut(): void {
+    this.removeToken();
+    localStorage.removeItem(this.userInfoKey);
   }
 }
