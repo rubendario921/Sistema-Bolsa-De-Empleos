@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-header-admin',
@@ -9,8 +10,12 @@ import { RouterLink } from '@angular/router';
   styleUrl: './header-admin.component.css',
 })
 export class HeaderAdminComponent implements OnInit, OnDestroy {
-  usuName = 'Rubén Dario Carrillo Lopez';
-  usuEmail = 'allenmoreno@gmail.com';
-  ngOnInit(): void {}
+  //Construcutor
+  constructor(private authServices: AuthService, private router: Router) {}
+  ngOnInit(): void {
+    // if (!this.authServices.isAuthenticated()) {      
+    //   this.router.navigate(['main']);
+    // }
+  }
   ngOnDestroy(): void {}
 }
