@@ -11,7 +11,7 @@ import { forgotDTO } from '../models/forgotDTOs.interface';
 export class AuthService {
   private apiUrl = environment.apiURL;
   private accessTokenKey = 'access_token';
-  private userInfoKey = 'user_info';
+  public userInfoKey = 'user_info';
 
   constructor(private http: HttpClient) {}
 
