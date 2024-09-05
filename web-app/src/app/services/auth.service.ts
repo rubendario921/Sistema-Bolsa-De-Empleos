@@ -36,7 +36,7 @@ export class AuthService {
 
   //Método Login
   loginUser(loginDTO: loginDTO): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/auth`, loginDTO).pipe(
+    return this.http.post<any>(`${this.apiUrl}auth`, loginDTO).pipe(
       tap((response) => {
         if (response) {
           this.setToken(response.token);
@@ -59,7 +59,7 @@ export class AuthService {
 
   //Método Forgot
   forgotLogin(forgotDTO: forgotDTO): Observable<any> {
-    return this.http.put(`${this.apiUrl}/forgotUser`, forgotDTO).pipe(
+    return this.http.put(`${this.apiUrl}forgotUser`, forgotDTO).pipe(
       tap(
         (response) => {
           console.log('Usuario modificado correctamente', response);
