@@ -11,23 +11,21 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class HeaderAdminComponent implements OnInit, OnDestroy {
   //Datos del candidato
-  public userData: any;
-  //Construcutor
+  protected userData: any;
+  //Constructor
   constructor(private authServices: AuthService, private router: Router) {}
   ngOnInit(): void {
-    //Verificacion de authentificacion
+    //Verificación de autentificación
 
     // if (!this.authServices.isAuthenticated()) {
     //   this.router.navigate(['main']);
     // }
 
     //Extraer datos de AuthService
-    this.userData = localStorage.getItem(this.authServices.userInfoKey);
-    let user = {
-      usuName: this.userData.usuName,
-      usuLastName: this.userData.usuLastNameName,
-      usuRol: this.userData.usuRol
-    };   
+    this.userData = JSON.parse(
+      localStorage.getItem(this.authServices.userInfoKey) ?? ''
+    );
+    //console.log(this.userData);
   }
   ngOnDestroy(): void {}
 
@@ -36,4 +34,3 @@ export class HeaderAdminComponent implements OnInit, OnDestroy {
     this.router.navigate(['main']);
   }
 }
-

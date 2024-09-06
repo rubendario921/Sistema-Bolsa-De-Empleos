@@ -23,19 +23,19 @@ export class ViewStatusAdminComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private estadoService: EstadosService,
-    private toastr: CustomToastrService
+    private toast: CustomToastrService
   ) {}
   ngOnInit(): void {
     this.estadoService.getAllEstados().subscribe(
       (result) => {
-        this.toastr.success('Carga de datos exitosa');
+        this.toast.success('Carga de datos exitosa');
         this.apiData = result;
-        console.log(result);
+        //console.log(result);
         this.infoTable();
       },
       (error) => {
         console.error(error);
-        this.toastr.error('Error al cargar los datos');
+        this.toast.error('Error al cargar los datos');
       }
     );
   }
@@ -63,19 +63,46 @@ export class ViewStatusAdminComponent implements OnInit, OnDestroy {
         `;
           },
         },
-        { title: 'Categoria', data: 'estCategory' },
+        { title: 'Categoría', data: 'estCategory' },
         {
           title: 'Acción',
           data: 'estId',
           render(data: any, type: any, full: any) {
+            //console.log(full);
             return `
-          <button class="btn btn-warning btn-sm" onclick="viewEstado(${data})">Ver</button>
-          <button class="btn btn-info btn-sm" onclick="editEstado(${data})">Editar</button>
-    <button class="btn btn-danger btn-sm" onclick="deleteEstado(${data})">Eliminar</button>      
+          <button class="btn btn-warning btn-sm" onclick="viewEstado(${data})"><i class="bi bi-search"></i></button>
+          <button class="btn btn-info btn-sm" onclick="editEstado(${data})"><i class="bi bi-pencil-square"></i></button>
+    <button class="btn btn-danger btn-sm" onclick="deleteEstado(${full.estId})"><i class="bi bi-trash2-fill"></i></button>      
     `;
           },
         },
       ],
     });
   }
+
+  //Eliminar el registro
+  deleteEstado = (estId: any) => {
+    if (confirm('¿Estás seguro de eliminar este registro?')) {
+      this.estadoService.deleteEstado(estId).subscribe(
+        (result) => {
+          this.toast.success('Registro eliminado con éxito');
+          this.estadoService.getAllEstados().subscribe(
+            (result) => {
+              this.apiData = result;
+              this.dataTable.destroy();
+              this.infoTable();
+            },
+            (error) => {
+              console.error(error);
+              this.toast.error('Error al cargar los datos');
+            }
+          );
+        },
+        (error) => {
+          console.error(error);
+          this.toast.error('Error al eliminar el registro');
+        }
+      );
+    }
+  };
 }

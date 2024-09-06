@@ -11,7 +11,7 @@ import { forgotDTO } from '../models/forgotDTOs.interface';
 export class AuthService {
   private apiUrl = environment.apiURL;
   private accessTokenKey = 'access_token';
-  public userInfoKey = 'user_info';
+  public userInfoKey = 'userInfo';
 
   constructor(private http: HttpClient) {}
 
@@ -40,13 +40,13 @@ export class AuthService {
       tap((response) => {
         if (response) {
           this.setToken(response.token);
-          const user_info = {
+          const userInfo = {
             usuName: response.usuName,
             usuLastName: response.usuLastName,
             usuNumDni: response.usuNumDni,
             rolName: response.rolName,
           };
-          localStorage.setItem(this.userInfoKey, JSON.stringify(user_info));
+          localStorage.setItem(this.userInfoKey, JSON.stringify(userInfo));
           console.log('Inicio de sesión correcto', response);
         } else {
           console.error('Inicio de sesión incorrecto:');

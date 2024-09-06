@@ -1,4 +1,4 @@
-@import 'ngx-toastr/toastr';
+@import "ngx-toastr/toastr";
 
 body {
   background-color: #ebf1f3;
@@ -65,8 +65,14 @@ body {
 }
 
 .back-color {
-  background: linear-gradient(135deg, #fdf3f4, #c1dff0);  
+  background: linear-gradient(135deg, #fdf3f4, #c1dff0);
 }
 
+.table-backColor {
+  background-image: linear-gradient(30deg, #0048bd, #44a7fd);
+}
 
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
