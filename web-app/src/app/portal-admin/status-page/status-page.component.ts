@@ -3,6 +3,7 @@ import { HeaderAdminComponent } from '../template-admin/header-admin/header-admi
 import { FooterAdminComponent } from '../template-admin/footer-admin/footer-admin.component';
 import { NavbarAdminComponent } from '../template-admin/navbar-admin/navbar-admin.component';
 import { ViewStatusAdminComponent } from './view-status-admin/view-status-admin.component';
+import { NewStatusAdminComponent } from './new-status-admin/new-status-admin.component';
 
 @Component({
   selector: 'app-status-page',
@@ -12,6 +13,7 @@ import { ViewStatusAdminComponent } from './view-status-admin/view-status-admin.
     FooterAdminComponent,
     NavbarAdminComponent,
     ViewStatusAdminComponent,
+    NewStatusAdminComponent,
   ],
   templateUrl: './status-page.component.html',
   styleUrl: './status-page.component.css',

@@ -79,30 +79,4 @@ export class ViewStatusAdminComponent implements OnInit, OnDestroy {
       ],
     });
   }
-
-  //Eliminar el registro
-  deleteEstado = (estId: any) => {
-    if (confirm('¿Estás seguro de eliminar este registro?')) {
-      this.estadoService.deleteEstado(estId).subscribe(
-        (result) => {
-          this.toast.success('Registro eliminado con éxito');
-          this.estadoService.getAllEstados().subscribe(
-            (result) => {
-              this.apiData = result;
-              this.dataTable.destroy();
-              this.infoTable();
-            },
-            (error) => {
-              console.error(error);
-              this.toast.error('Error al cargar los datos');
-            }
-          );
-        },
-        (error) => {
-          console.error(error);
-          this.toast.error('Error al eliminar el registro');
-        }
-      );
-    }
-  };
 }
