@@ -1,25 +1,26 @@
-import { Component, Inject } from '@angular/core';
-import {
-  MAT_DIALOG_DATA,
-  MatDialogModule,
-  MatDialogRef,
-} from '@angular/material/dialog';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { EstadosService } from '../../../services/estados.service';
+import { CustomToastrService } from '../../../services/custom-toastr.service';
 
 @Component({
   selector: 'app-details-status-admin',
-  standalone: true,
-  imports: [MatDialogModule],
   templateUrl: './details-status-admin.component.html',
-  styleUrl: './details-status-admin.component.css',
+  styleUrls: ['./details-status-admin.component.css'],
 })
-export class DetailsStatusAdminComponent {
-  //constructor
+export class DetailsStatusAdminComponent implements OnInit, OnDestroy {
+  //Variable del Componente
+  detailsStatusForm!: FormGroup;
   constructor(
-    public dialogRef: MatDialogRef<DetailsStatusAdminComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    private fb: FormBuilder,
+    private statusService: EstadosService,
+    private toasts: CustomToastrService
   ) {}
 
-  onClose():void{
-    this.dialogRef.close();
+  ngOnInit(): void {}
+  ngOnDestroy(): void {
+    this.detailsStatusForm.reset();
   }
+
+  DetailsStatus(): void {}
 }

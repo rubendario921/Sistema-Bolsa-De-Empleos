@@ -130,17 +130,3 @@ export class AuthComponent implements OnInit, OnDestroy {
     }
   }
 }
-// this.authService.forgotLogin(forgotDTO).subscribe(
-//   (response) => {
-//     if (response) {
-//       this.toastrService.success(response.message);
-//     } else {
-//       this.toastrService.error(response.message);
-//       this.forgotForm.markAllAsTouched();
-//     }
-//   },
-//   (error) => {
-//     this.toastrService.error(error.error.message);
-//     this.forgotForm.markAllAsTouched();
-//   }
-// );

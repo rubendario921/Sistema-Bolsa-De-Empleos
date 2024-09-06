@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { EstadosService } from '../../../services/estados.service';
 import { CustomToastrService } from '../../../services/custom-toastr.service';
 import DataTable from 'datatables.net-dt';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DetailsStatusAdminComponent } from '../details-status-admin/details-status-admin.component';
 
 @Component({
   selector: 'app-view-status-admin',
@@ -23,7 +25,8 @@ export class ViewStatusAdminComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private estadoService: EstadosService,
-    private toast: CustomToastrService
+    private toast: CustomToastrService,
+    private modalService: NgbModal
   ) {}
   ngOnInit(): void {
     this.estadoService.getAllEstados().subscribe(
@@ -70,7 +73,8 @@ export class ViewStatusAdminComponent implements OnInit, OnDestroy {
           render(data: any, type: any, full: any) {
             //console.log(full);
             return `
-          <button class="btn btn-warning btn-sm" onclick="viewEstado(${data})"><i class="bi bi-search"></i></button>
+
+          <button class="btn btn-warning btn-sm" (click)="viewEstado(${full.estId})"><i class="bi bi-sea1rch"></i></button>
           <button class="btn btn-info btn-sm" onclick="editEstado(${data})"><i class="bi bi-pencil-square"></i></button>
     <button class="btn btn-danger btn-sm" onclick="deleteEstado(${full.estId})"><i class="bi bi-trash2-fill"></i></button>      
     `;
@@ -79,4 +83,22 @@ export class ViewStatusAdminComponent implements OnInit, OnDestroy {
       ],
     });
   }
+
+  viewEstado(estId: any): void {
+    let modalComponent = this.modalService.open(DetailsStatusAdminComponent);
+    modalComponent.componentInstance.estId = estId;
+  }
 }
+// viewEstado(estId: any): void {
+//   const modalRef = this.modalService.open(DetailsStatusAdminComponent, {
+//     size: 'lg',
+//     backdrop: 'static',
+//     keyboard: false
+//   });
+//   modalRef.componentInstance.estId = estId;
+//   modalRef.result.then((result) => {
+//     console.log(result);
+//   }, (reason) => {
+//     console.log(reason);
+//   });
+// }
