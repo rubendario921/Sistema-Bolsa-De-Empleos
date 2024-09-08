@@ -1,88 +1,136 @@
-<!-- Modal trigger button -->
-<button
-  type="button"
-  class="btn btn-primary btn-lg shadow"
-  data-bs-toggle="modal"
-  data-bs-target="#modalDetailStatus"
->
-  Detalles
-</button>
-
-<!-- Modal Body -->
-<div
-  class="modal fade"
-  id="modalDetailStatus"
-  tabindex="-1"
-  data-bs-backdrop="static"
-  data-bs-keyboard="true"
-  role="dialog"
-  aria-labelledby="modalTitleDetailStatus"
-  aria-hidden="true"
->
-  <div
-    class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
-    role="document"
-  >
-    <div class="modal-content">
-      <div class="modal-header">
-        <p class="modal-title text-subtitle-color" id="modalTitleDetailStatus">
-          Detalles del Estado
-        </p>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <!-- Nombre -->
-        <div class="form-floating mb-4">
-          <input
-            type="text"
-            class="form-control shadow"
-            id="detailName"
-            name="detailName"
-            autocomplete="off"
-            placeholder="Nombre de Estado"
-          />
-          <label for="detailName" class="form-label fw-semibold"
-            >Nombre del Estado<span class="text-danger">*</span></label
-          >
-        </div>
-        <!-- Categoría -->
-        <div class="form-floating mb-4">
-          <input
-            type="text"
-            class="form-control shadow"
-            id="detailCategory"
-            name="detailCategory"
-            autocomplete="off"
-            placeholder="Categoría del Estado"
-          />
-          <label for="detailCategory" class="form-label fw-semibold"
-            >Categoría del Estado<span class="text-danger">*</span></label
-          >
-        </div>
-        <!-- Color -->
-        <div class="form-floating mb-4">
-          <input
-            type="color"
-            class="form-control shadow"
-            id="detailColor"
-            name="detailColor"
-            autocomplete="off"
-            placeholder="Color del Estado"
-          />
-          <label for="detailColor" class="form-label fw-semibold"
-            >Color del Estado<span class="text-danger">*</span></label
-          >
-        </div>
-        <!-- Acciones -->
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-          Cerrar
+<header><app-header-admin></app-header-admin></header>
+<main>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 d-md-none py-2">
+        <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarAdminCollapse" aria-expanded="false">
+          Menú
         </button>
+        <div class="collapse" id="navbarAdminCollapse">
+          <app-navbar-admin></app-navbar-admin>
+        </div>
+      </div>
+      <div class="col-12 col-md-2 d-none d-md-block py-3">
+        <app-navbar-admin></app-navbar-admin>
+      </div>
+      <div class="col-12 col-md-10 mt-3 pt-3">
+        <div class="text-center mt-2 pt-2">
+          <p class="text-title-color">Estados</p>
+        </div>
+        <!-- Formulario de detalles de Estados -->
+        <div class="container-fluid mx-3 px-3">
+          <div class="card shadow px-3 mx-3 bg-body-tertiary rounded border-custom">
+
+            <div class="card-header">Información detallada</div>
+            <div class="card-body">
+              <!-- Formulario -->
+              <form id="detailsStatusForm" [formGroup]="detailsStatusForm" method="put" (ngSubmit)="updateStatus()"
+                class="needs-validations" novalidate>
+                <!-- Id -->
+                <div class="form-floating mb-4">
+                  <input type="text" class="form-control shadow" id="estId" formControlName="estId" autocomplete="off"
+                    placeholder="Nombre de Estado" readonly [ngClass]="{
+              'is-invalid':
+              detailsStatusForm.get('estId')?.touched &&
+              detailsStatusForm.get('estId')?.invalid
+            }" />
+                  <label for="estName" class="form-label fw-semibold">ID<span class="text-danger">*</span></label>
+
+                  <div *ngIf="
+              detailsStatusForm.get('estName')?.touched &&
+              detailsStatusForm.get('estName')?.invalid
+            " class="invalid-feedback">
+                    <div *ngIf="detailsStatusForm.get('estName')?.errors?.['required']">
+                      El nombre es obligatorio.
+                    </div>
+                    <div *ngIf="detailsStatusForm.get('estName')?.errors?.['pattern']"></div>
+                    No se permite caracteres especiales o números.
+                  </div>
+                </div>
+
+                <!-- Nombre -->
+                <div class="form-floating mb-4">
+                  <input type="text" class="form-control shadow" id="estName" formControlName="estName"
+                    autocomplete="off" placeholder="Nombre de Estado" [ngClass]="{
+              'is-invalid':
+              detailsStatusForm.get('estName')?.touched &&
+              detailsStatusForm.get('estName')?.invalid
+            }" />
+                  <label for="estName" class="form-label fw-semibold">Nombre del Estado<span
+                      class="text-danger">*</span></label>
+
+                  <div *ngIf="
+              detailsStatusForm.get('estName')?.touched &&
+              detailsStatusForm.get('estName')?.invalid
+            " class="invalid-feedback">
+                    <div *ngIf="detailsStatusForm.get('estName')?.errors?.['required']">
+                      El nombre es obligatorio.
+                    </div>
+                    <div *ngIf="detailsStatusForm.get('estName')?.errors?.['pattern']"></div>
+                    No se permite caracteres especiales o números.
+                  </div>
+                </div>
+                <!-- Categoría -->
+                <div class="form-floating mb-4">
+                  <input type="text" class="form-control shadow" id="estCategory" formControlName="estCategory"
+                    autocomplete="off" placeholder="Categoría de Estado" [ngClass]="{
+                'is-invalid':
+                detailsStatusForm.get('estCategory')?.touched &&
+                detailsStatusForm.get('estCategory')?.invalid
+              }" />
+                  <label for="estCategory" class="form-label fw-semibold">Categoría del Estado<span
+                      class="text-danger">*</span></label>
+
+                  <div *ngIf="
+                detailsStatusForm.get('estCategory')?.touched &&
+                detailsStatusForm.get('estCategory')?.invalid
+              " class="invalid-feedback">
+                    <div *ngIf="detailsStatusForm.get('estCategory')?.errors?.['required']">
+                      La categoría es obligatorio.
+                    </div>
+                    <div *ngIf="detailsStatusForm.get('estCategory')?.errors?.['pattern']"></div>
+                    No se permite caracteres especiales o números.
+                  </div>
+                </div>
+                <!-- Color -->
+                <div class="form-floating mb-4">
+                  <input type="color" class="form-control shadow" id="estColor" formControlName="estColor"
+                    autocomplete="off" placeholder="Color de Estado" [ngClass]="{
+                'is-invalid':
+                detailsStatusForm.get('estColor')?.touched &&
+                detailsStatusForm.get('estColor')?.invalid
+              }" />
+                  <label for="estColor" class="form-label fw-semibold">Color del Estado<span
+                      class="text-danger">*</span></label>
+
+                  <div *ngIf="
+                detailsStatusForm.get('estColor')?.touched &&
+                detailsStatusForm.get('estColor')?.invalid
+              " class="invalid-feedback">
+                    <div *ngIf="detailsStatusForm.get('estColor')?.errors?.['required']">
+                      El color es obligatorio.
+                    </div>
+                  </div>
+                </div>
+                <!-- Acciones -->
+
+                <div class="text-center">
+                  <a href="/status-page" type="button" class="btn btn-success mx-1">Regresar</a>
+                  <button type="submit" class="btn btn-warning shadow text-white mx-1"
+                    [disabled]="!detailsStatusForm.valid">Actualizar</button>
+                  <a href="/status-page" type="button" class="btn btn-danger mx-1" (click)="deleteStatus()">Eliminar</a>
+
+                </div>
+              </form>
+            </div>
+            <div class="card-footer text-muted fst-italic">Los campos con (<span class="text-danger">*</span>) son
+              obligatorios.
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</main>
+<footer><app-footer-admin></app-footer-admin></footer>

@@ -1,61 +1,26 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
-    <a routerLink="/main" class="navbar-brand text-title-color"
-      ><i class="bi bi-app-indicator"></i> Selección Talento</a
-    >
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#myHeaderNav"
-      aria-controls="myHeaderNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <a routerLink="/main" class="navbar-brand text-title-color"><i class="bi bi-app-indicator"></i> Selección
+      Talento</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myHeaderNav"
+      aria-controls="myHeaderNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="myHeaderNav">
       <ul class="navbar me-auto mb-2 mb-lg-0 text-subtitle-color list-unstyled">
         <li class="nav-item p-2">
-          <a routerLink="/main" class="nav-link active"
-            ><i class="bi bi-house"></i> Menu Principal</a
-          >
+          <a routerLink="/main" class="nav-link active"><i class="bi bi-house"></i> Menu Principal</a>
         </li>
         <li class="nav-item p-2">
-          <a
-            [routerLink]="['/users']"
-            routerLinkActive="router-link-active"
-            class="nav-link"
-            ><i class="bi bi-people-fill"></i> Cuenta Usuarios</a
-          >
+          <a [routerLink]="['/users']" routerLinkActive="router-link-active" class="nav-link"><i
+              class="bi bi-people-fill"></i> Cuenta Usuarios</a>
         </li>
         <li class="nav-item p-2">
-          <a
-            [routerLink]="['/companies']"
-            routerLinkActive="router-link-active"
-            class="nav-link"
-            ><i class="bi bi-buildings"></i> Cuenta Empresas</a
-          >
+          <a [routerLink]="['/companies']" routerLinkActive="router-link-active" class="nav-link"><i
+              class="bi bi-buildings"></i> Cuenta Empresas</a>
         </li>
       </ul>
-      <div class="dropdown">
-        <button
-          class="btn btn-success dropdown-toggle"
-          type="button"
-          id="triggerId"
-          data-bs-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          <i class="bi bi-file-plus"></i>
-          Crear Cuenta
-        </button>
-        <div class="dropdown-menu" aria-labelledby="triggerId">
-          <a class="dropdown-item" href="#">Soy Postulante</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Soy Empresa</a>
-        </div>
-      </div>
+
       <div class="p-2"><app-auth></app-auth></div>
     </div>
   </div>

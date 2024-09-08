@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, viewChild } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -28,7 +28,7 @@ export class AuthComponent implements OnInit, OnDestroy {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private toastrService: CustomToastrService
+    private toast: CustomToastrService
   ) {}
 
   ngOnInit(): void {
@@ -72,61 +72,60 @@ export class AuthComponent implements OnInit, OnDestroy {
   }
   onsubmitLogin(): void {
     if (this.loginForm.valid) {
+      let newLoginData = this.loginForm.value;
+
       //Crear el objeto
-      const loginDTO: loginDTO = {
-        usuNumDni: this.loginForm.get('numDniLogin')?.value,
-        usuPassword: this.loginForm.get('passwordLogin')?.value,
+      let loginDTO: loginDTO = {
+        usuNumDni: newLoginData.numDniLogin,
+        usuPassword: newLoginData.passwordLogin,
       };
       //console.log(loginDTO);
       this.authService.loginUser(loginDTO).subscribe(
         (response) => {
           if (response) {
-            this.toastrService.success(
-              'Bienvenido: ' +
-                response.usuLastName +
-                ' ' +
-                response.usuName +
-                ' ' +
-                response.rolName,
-              'Correcto'
-            );
+            this.toast.success('Inicio de sesión de correcto.');
             this.router.navigate(['portal-admin']);
           } else {
-            this.toastrService.error(response.message, 'Error');
+            this.toast.error('Error campos incorrectos');
           }
         },
         (error) => {
-          this.toastrService.error(error.message, 'Error');
+          this.toast.error(error.message, 'Error');
         }
       );
     }
   }
   onsubmitForgot(): void {
     if (this.forgotForm.valid) {
-      //Crear el objeto
-      const forgotDTO: forgotDTO = {
-        usuNumDni: this.forgotForm.get('numDniForgot')?.value,
-        usuEmail: this.forgotForm.get('emailForgot')?.value,
-        usuNumPhone: this.forgotForm.get('numPhoneForgot')?.value,
+      let newForgotData = this.forgotForm.value;
+      let forgotDTO: forgotDTO = {
+        usuNumDni: newForgotData.numDniForgot,
+        usuEmail: newForgotData.emailForgot,
+        usuNumPhone: newForgotData.numPhoneForgot,
       };
       console.log(forgotDTO);
       this.authService.forgotLogin(forgotDTO).subscribe(
         (response) => {
           if (response) {
-            this.toastrService.success('Contraseña Restablecida', 'Correcto');
+            this.toast.success('Contraseña restablecida.');
+            this.router.navigate(['main']).then(() => {
+              window.location.reload();
+            });
           } else {
-            this.toastrService.error('Error al actualizar contraseña');
-            this.forgotForm.markAllAsTouched();
+            this.toast.error('Error de campos incorrectos');
+            this.router.navigate(['main']).then(() => {
+              window.location.reload();
+            });
           }
         },
         (error) => {
-          this.toastrService.error('Error al actualizar la contraseña');
-          this.forgotForm.markAllAsTouched();
+          console.error(error);
+          this.toast.error('Error al recuperar la contraseña.');
+          this.router.navigate(['main']).then(() => {
+            window.location.reload();
+          });
         }
       );
-    } else {
-      this.toastrService.warning('Formulario no valido');
-      this.forgotForm.markAllAsTouched();
     }
   }
 }

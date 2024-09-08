@@ -13,7 +13,7 @@ export class EstadosService {
 
   constructor(private http: HttpClient) {}
 
-  //Metodos
+  //Métodos
   getAllEstados(): Observable<any> {
     return this.http.get<estadoDTO[]>(this.apiUrl + 'Estados/GetAllEstados');
   }
@@ -25,11 +25,13 @@ export class EstadosService {
   saveEstado(estadoDTO: estadoDTO): Observable<any> {
     return this.http.post<any>(this.apiUrl + 'Estados/SaveEstado', estadoDTO);
   }
-  updateEstado(id:number, estadoDTO: estadoDTO): Observable<any> {
-    return this.http.put<any>(this.apiUrl + 'Estados/UpdateEstado/' + id, estadoDTO);
-  }  
+  updateEstado(id: number, estadoDTO: estadoDTO): Observable<any> {
+    return this.http.put<any>(
+      this.apiUrl + 'Estados/UpdateEstado/' + id,
+      estadoDTO
+    );
+  }
   deleteEstado(id: number): Observable<any> {
     return this.http.delete<any>(this.apiUrl + 'Estados/DeleteEstado/' + id);
   }
-  
 }

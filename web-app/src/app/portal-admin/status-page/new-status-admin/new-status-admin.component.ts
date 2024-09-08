@@ -56,7 +56,7 @@ export class NewStatusAdminComponent implements OnInit, OnDestroy {
     this.statusService.saveEstado(estadoDTO).subscribe(
       (response) => {
         if (response) {
-          console.log(response);
+          //console.log(response);
           this.toasts.success('Estado creado con éxito');
           this.router.navigate(['status-page']).then(() => {
             window.location.reload();

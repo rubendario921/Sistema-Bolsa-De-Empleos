@@ -2,11 +2,10 @@ export interface usuarioDTO {
   usuId: number;
   usuName: string;
   usuLastName: string;
-  usuEmail: string;
   UsuTypeDni: string;
   UsuNumDni: string;
   UsuNumPhone: string;
-  UsuEmail: string;
+  usuEmail: string;
   UsuPassword: string;
   UsuAttempts: number;
   UsuProfilePicture: string;
