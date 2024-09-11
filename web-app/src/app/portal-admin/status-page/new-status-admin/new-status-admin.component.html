@@ -1,94 +1,169 @@
 <!-- Modal trigger button -->
-<button type="button" class="btn btn-primary btn-lg shadow" data-bs-toggle="modal" data-bs-target="#modalNewStatus">
+<button
+  type="button"
+  class="btn btn-primary btn-lg shadow"
+  data-bs-toggle="modal"
+  data-bs-target="#modalNewStatus"
+>
   Nuevo Registro
 </button>
 
 <!-- Modal Body -->
 <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
-<div class="modal fade" id="modalNewStatus" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="true"
-  role="dialog" aria-labelledby="modalTitleNewStatus" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+<div
+  class="modal fade"
+  id="modalNewStatus"
+  tabindex="-1"
+  data-bs-backdrop="static"
+  data-bs-keyboard="true"
+  role="dialog"
+  aria-labelledby="modalTitleNewStatus"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog modal-dialog-scrollable modal-body modal-md"
+    role="document"
+  >
     <div class="modal-content">
       <div class="modal-header">
-        <p class="modal-title text-subtitle-color" id="modalTitleNewStatus">
+        <p
+          class="modal-title text-subtitle-color fs-3"
+          id="modalTitleNewStatus"
+        >
           Nuevo Registro
         </p>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body">
         <!-- Formulario de registro -->
-        <form [formGroup]="newFormStatus" (ngSubmit)="onsubmitNewStatus()" method="post" class="needs-validations"
-          novalidate>
+        <form
+          [formGroup]="newFormStatus"
+          (ngSubmit)="onsubmitNewStatus()"
+          method="post"
+          class="needs-validations"
+          novalidate
+        >
           <!-- Nombre -->
           <div class="form-floating mb-4">
-            <input type="text" class="form-control shadow" id="newName" formControlName="newName" autocomplete="off"
-              placeholder="Nombre de Estado" [ngClass]="{
+            <input
+              type="text"
+              class="form-control shadow"
+              id="newName"
+              formControlName="newName"
+              autocomplete="off"
+              placeholder="Nombre de Estado"
+              [ngClass]="{
                 'is-invalid':
                   newFormStatus.get('newName')?.touched &&
                   newFormStatus.get('newName')?.invalid
-              }" />
-            <label for="newName" class="form-label fw-semibold">Nombre del Estado<span
-                class="text-danger">*</span></label>
+              }"
+            />
+            <label for="newName" class="form-label fw-semibold"
+              >Nombre del Estado<span class="text-danger">*</span></label
+            >
 
-            <div *ngIf="
+            <div
+              *ngIf="
                 newFormStatus.get('newName')?.touched &&
                 newFormStatus.get('newName')?.invalid
-              " class="invalid-feedback">
+              "
+              class="invalid-feedback"
+            >
               <div *ngIf="newFormStatus.get('newName')?.errors?.['required']">
                 El nombre es obligatorio.
               </div>
-              <div *ngIf="newFormStatus.get('newName')?.errors?.['pattern']"></div>
-              No se permite caracteres especiales o números.
+              <div *ngIf="newFormStatus.get('newName')?.errors?.['pattern']">
+                No se permite caracteres especiales o números.
+              </div>
             </div>
           </div>
           <!-- Categoría -->
           <div class="form-floating mb-4">
-            <input type="text" class="form-control shadow" id="newCategory" formControlName="newCategory"
-              autocomplete="off" placeholder="Categoría de Estado" [ngClass]="{
+            <input
+              type="text"
+              class="form-control shadow"
+              id="newCategory"
+              formControlName="newCategory"
+              autocomplete="off"
+              placeholder="Categoría de Estado"
+              [ngClass]="{
                 'is-invalid':
                   newFormStatus.get('newCategory')?.touched &&
                   newFormStatus.get('newCategory')?.invalid
-              }" />
-            <label for="newCategory" class="form-label fw-semibold">Categoría del Estado<span
-                class="text-danger">*</span></label>
+              }"
+            />
+            <label for="newCategory" class="form-label fw-semibold"
+              >Categoría del Estado<span class="text-danger">*</span></label
+            >
 
-            <div *ngIf="
+            <div
+              *ngIf="
                 newFormStatus.get('newCategory')?.touched &&
                 newFormStatus.get('newCategory')?.invalid
-              " class="invalid-feedback">
-              <div *ngIf="newFormStatus.get('newCategory')?.errors?.['required']">
+              "
+              class="invalid-feedback"
+            >
+              <div
+                *ngIf="newFormStatus.get('newCategory')?.errors?.['required']"
+              >
                 La categoría es obligatorio.
               </div>
-              <div *ngIf="newFormStatus.get('newCategory')?.errors?.['pattern']"></div>
+              <div
+                *ngIf="newFormStatus.get('newCategory')?.errors?.['pattern']"
+              ></div>
               No se permite caracteres especiales o números.
             </div>
           </div>
           <!-- Color -->
           <div class="form-floating mb-4">
-            <input type="color" class="form-control shadow" id="newColor" formControlName="newColor" autocomplete="off"
-              placeholder="Color de Estado" [ngClass]="{
+            <input
+              type="color"
+              class="form-control shadow"
+              id="newColor"
+              formControlName="newColor"
+              autocomplete="off"
+              placeholder="Color de Estado"
+              [ngClass]="{
                 'is-invalid':
                   newFormStatus.get('newColor')?.touched &&
                   newFormStatus.get('newColor')?.invalid
-              }" />
-            <label for="newColor" class="form-label fw-semibold">Color del Estado<span
-                class="text-danger">*</span></label>
+              }"
+            />
+            <label for="newColor" class="form-label fw-semibold"
+              >Color del Estado<span class="text-danger">*</span></label
+            >
 
-            <div *ngIf="
+            <div
+              *ngIf="
                 newFormStatus.get('newColor')?.touched &&
                 newFormStatus.get('newColor')?.invalid
-              " class="invalid-feedback">
+              "
+              class="invalid-feedback"
+            >
               <div *ngIf="newFormStatus.get('newColor')?.errors?.['required']">
                 El color es obligatorio.
               </div>
             </div>
           </div>
           <!-- Acciones -->
-          <button type="button" class="btn btn-danger shadow mx-1" data-bs-dismiss="modal">
+          <button
+            type="button"
+            class="btn btn-danger shadow mx-1"
+            data-bs-dismiss="modal"
+          >
             Cerrar
           </button>
-          <button type="submit" class="btn btn-success shadow mx-1" [disabled]="!newFormStatus.valid"
-            data-bs-dismiss="modal">
+          <button
+            type="submit"
+            class="btn btn-success shadow mx-1"
+            [disabled]="!newFormStatus.valid"
+            data-bs-dismiss="modal"
+          >
             Guardar
           </button>
         </form>

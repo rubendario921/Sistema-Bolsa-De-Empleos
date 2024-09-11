@@ -10,7 +10,6 @@ import { estadoDTO } from '../models/estadosDTO.interface';
 export class EstadosService {
   //Api
   private apiUrl = environment.apiURL;
-
   constructor(private http: HttpClient) {}
 
   //Métodos

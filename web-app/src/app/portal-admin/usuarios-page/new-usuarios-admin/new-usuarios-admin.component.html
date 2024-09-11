@@ -1,0 +1,470 @@
+<!--  Modal trigger button  -->
+<button
+  type="button"
+  class="btn btn-primary btn-lg shadow"
+  data-bs-toggle="modal"
+  data-bs-target="#modalNewUser"
+>
+  Nuevo Registro
+</button>
+
+<!-- Modal Body-->
+<div
+  class="modal fade"
+  id="modalNewUser"
+  tabindex="-1"
+  data-bs-backdrop="static"
+  data-bs-keyboard="true"
+  role="dialog"
+  aria-labelledby="modalTitleUser"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog modal-dialog-scrollable modal-body modal-lg"
+    role="document"
+  >
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="modal-title text-subtitle-color fs-3" id="modalTitleUser">
+          Nuevo Registro
+        </p>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <!-- Formulario de registro -->
+          <form
+            method="post"
+            [formGroup]="newFormUser"
+            (ngSubmit)="registerNewUser()"
+            class="needs-validations"
+            novalidate
+          >
+            <!-- Fila # 1-->
+            <div class="row justify-content-center align-items-center g-2">
+              <div class="col">
+                <!-- Name -->
+                <div class="form-floating mb-4">
+                  <input
+                    type="text"
+                    class="form-control shadow"
+                    id="newName"
+                    formControlName="newName"
+                    autocomplete="off"
+                    placeholder="Nombre del Usuario"
+                    [ngClass]="{
+                      'is-invalid':
+                        newFormUser.get('newName')?.touched &&
+                        newFormUser.get('newName')?.invalid
+                    }"
+                  />
+                  <label for="newName" class="form-label fw-semibold"
+                    >Nombre del Usuario<span class="text-danger">*</span></label
+                  >
+                  <div
+                    *ngIf="
+                      newFormUser.get('newName')?.touched &&
+                      newFormUser.get('newName')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="newFormUser.get('newName')?.errors?.['required']"
+                    >
+                      El nombre es obligatorio.
+                    </div>
+                    <div
+                      *ngIf="newFormUser.get('newName')?.errors?.['pattern']"
+                    >
+                      No se permite caracteres especiales o números.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <!-- LastName -->
+                <div class="form-floating mb-4">
+                  <input
+                    type="text"
+                    class="form-control shadow"
+                    id="newLastName"
+                    formControlName="newLastName"
+                    autocomplete="off"
+                    placeholder="Apellido del Usuario"
+                    [ngClass]="{
+                      'is-invalid':
+                        newFormUser.get('newLastName')?.touched &&
+                        newFormUser.get('newLastName')?.invalid
+                    }"
+                  />
+                  <label for="newLastName" class="form-label fw-semibold"
+                    >Apellido del Usuario<span class="text-danger"
+                      >*</span
+                    ></label
+                  >
+                  <div
+                    *ngIf="
+                      newFormUser.get('newLastName')?.touched &&
+                      newFormUser.get('newLastName')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="newFormUser.get('newLastName')?.errors?.['required']"
+                    >
+                      El Apellido es obligatorio.
+                    </div>
+                    <div
+                      *ngIf="newFormUser.get('newLastName')?.errors?.['pattern']"
+                    >
+                      No se permite caracteres especiales o números.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Fila # 2-->
+            <div class="row justify-content-center align-items-center g-2">
+              <div class="col">
+                <div class="row justify-content-center align-items-center g-2">
+                  <div class="col">
+                    <!-- Tipo de DNI -->
+                    <div class="form-floating mb-4">
+                      <select
+                        formControlName="newTypeDni"
+                        id="newTypeDni"
+                        class="form-select shadow"
+                        required
+                        [ngClass]="{
+                          'is-invalid':
+                            newFormUser.get('newTypeDni')?.touched &&
+                            newFormUser.get('newTypeDni')?.invalid
+                        }"
+                      >
+                        <option value="" disabled></option>
+                        <option value="CI">Cédula de Identidad</option>
+                        <option value="PA">Pasaporte</option>
+                      </select>
+                      <label for="newTypeDni" class="form-label fw-semibold"
+                        >Tipo de DNI</label
+                      >
+                      <div
+                        *ngIf="
+                          newFormUser.get('newTypeDni')?.touched &&
+                          newFormUser.get('newTypeDni')?.invalid
+                        "
+                        class="invalid-feedback"
+                      >
+                        <div
+                          *ngIf="newFormUser.get('newTypeDni')?.errors?.['required']"
+                        >
+                          El Tipo de DNI es obligatorio.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <!-- Numero de DNI -->
+                    <div class="form-floating mb-4">
+                      <input
+                        type="text"
+                        class="form-control shadow"
+                        id="newNumDni"
+                        formControlName="newNumDni"
+                        autocomplete="off"
+                        placeholder="Número de DNI"
+                        minlength="10"
+                        [ngClass]="{
+                          'is-invalid':
+                            newFormUser.get('newNumDni')?.touched &&
+                            newFormUser.get('newNumDni')?.invalid
+                        }"
+                      />
+                      <label for="newLastName" class="form-label fw-semibold"
+                        >Número de DNI<span class="text-danger">*</span></label
+                      >
+                      <div
+                        *ngIf="
+                          newFormUser.get('newNumDni')?.touched &&
+                          newFormUser.get('newNumDni')?.invalid
+                        "
+                        class="invalid-feedback"
+                      >
+                        <div
+                          *ngIf="newFormUser.get('newNumDni')?.errors?.['required']"
+                        >
+                          El número del DNI es obligatorio.
+                        </div>
+                        <div
+                          *ngIf="newFormUser.get('newNumDni')?.errors?.['pattern']"
+                        >
+                          No se permite caracteres especiales
+                        </div>
+                        <div
+                          *ngIf="newFormUser.get('newNumDni')?.errors?.['minlength']"
+                        >
+                          El campo requiere mínimo 10 dígitos.
+                        </div>
+                        <div
+                          *ngIf="newFormUser.get('newNumDni')?.errors?.['maxlength']"
+                        >
+                          El campo requiere máximo 13 dígitos.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <!-- Numero de Contacto -->
+                <div class="form-floating mb-4">
+                  <input
+                    type="email"
+                    class="form-control shadow"
+                    id="newNumPhone"
+                    formControlName="newNumPhone"
+                    autocomplete="off"
+                    placeholder="Número de Contacto"
+                    minlength="10"
+                    [ngClass]="{
+                      'is-invalid':
+                        newFormUser.get('newNumPhone')?.touched &&
+                        newFormUser.get('newNumPhone')?.invalid
+                    }"
+                  />
+                  <label for="newLastName" class="form-label fw-semibold"
+                    >Número de Contacto<span class="text-danger">*</span></label
+                  >
+                  <div
+                    *ngIf="
+                      newFormUser.get('newNumPhone')?.touched &&
+                      newFormUser.get('newNumPhone')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="newFormUser.get('newNumPhone')?.errors?.['required']"
+                    >
+                      El número de contacto es obligatorio.
+                    </div>
+                    <div
+                      *ngIf="newFormUser.get('newNumPhone')?.errors?.['pattern']"
+                    >
+                      No se permite caracteres especiales o letras.
+                    </div>
+                    <div
+                      *ngIf="newFormUser.get('newNumPhone')?.errors?.['minlength']"
+                    >
+                      El campo requiere mínimo 10 dígitos.
+                    </div>
+                    <div
+                      *ngIf="newFormUser.get('newNumPhone')?.errors?.['maxlength']"
+                    >
+                      El campo requiere máximo 13 dígitos.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Fila # 3-->
+            <div class="row justify-content-center align-items-center g-2">
+              <div class="col">
+                <!-- Name -->
+                <div class="form-floating mb-4">
+                  <input
+                    type="text"
+                    class="form-control shadow"
+                    id="newEmail"
+                    formControlName="newEmail"
+                    autocomplete="off"
+                    placeholder="Correo Electrónico"
+                    [ngClass]="{
+                      'is-invalid':
+                        newFormUser.get('newEmail')?.touched &&
+                        newFormUser.get('newEmail')?.invalid
+                    }"
+                  />
+                  <label for="newEmail" class="form-label fw-semibold"
+                    >Correo Electrónico<span class="text-danger">*</span></label
+                  >
+                  <div
+                    *ngIf="
+                      newFormUser.get('newEmail')?.touched &&
+                      newFormUser.get('newEmail')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="newFormUser.get('newEmail')?.errors?.['required']"
+                    >
+                      El correo electrónico es obligatorio.
+                    </div>
+                    <div *ngIf="newFormUser.get('newEmail')?.errors?.['email']">
+                      Dirección de correo electronica incorrecto
+                    </div>
+                    <div
+                      *ngIf="newFormUser.get('newEmail')?.errors?.['pattern']"
+                    >
+                      No se permite caracteres especiales, ni MAYÚSCULA.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <!-- Password -->
+                <div class="form-floating mb-4">
+                  <input
+                    type="password"
+                    class="form-control shadow"
+                    id="newPassword"
+                    formControlName="newPassword"
+                    autocomplete="off"
+                    placeholder="Contraseña Personal"
+                    [ngClass]="{
+                      'is-invalid':
+                        newFormUser.get('newPassword')?.touched &&
+                        newFormUser.get('newPassword')?.invalid
+                    }"
+                  />
+                  <label for="newPassword" class="form-label fw-semibold"
+                    >Contraseña Personal<span class="text-danger"
+                      >*</span
+                    ></label
+                  >
+                  <div
+                    *ngIf="
+                      newFormUser.get('newPassword')?.touched &&
+                      newFormUser.get('newPassword')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="newFormUser.get('newPassword')?.errors?.['required']"
+                    >
+                      El Apellido es obligatorio.
+                    </div>
+                    <div
+                      *ngIf="newFormUser.get('newPassword')?.errors?.['pattern']"
+                    >
+                      No se permite caracteres especiales o números.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Fila # 1-->
+            <div class="row justify-content-center align-items-center g-2">
+              <div class="col">
+                <!-- Rol -->
+                <div class="form-floating mb-4">
+                  <select
+                    formControlName="newRol"
+                    id="newRol"
+                    class="form-select shadow"
+                    required
+                    [ngClass]="{
+                      'is-invalid':
+                        newFormUser.get('newRol')?.touched &&
+                        newFormUser.get('newRol')?.invalid
+                    }"
+                  >
+                    <option value="" disabled></option>
+                    <option value="" *ngFor="let rol of allRoles"></option>
+                    <option *ngFor="let rol of allRoles" [value]="rol.rolId">
+                      {{ rol.rolName }}
+                    </option>
+                  </select>
+                  <label for="newStatus" class="form-label fw-semibold"
+                    >Roles</label
+                  >
+                  <div
+                    *ngIf="
+                      newFormUser.get('newRol')?.touched &&
+                      newFormUser.get('newRol')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="newFormUser.get('newRol')?.errors?.['required']"
+                    >
+                      El rol es obligatorio.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <!-- Estado -->
+                <div class="form-floating mb-4">
+                  <select
+                    formControlName="newStatus"
+                    id="newStatus"
+                    class="form-select shadow"
+                    required
+                    [ngClass]="{
+                      'is-invalid':
+                        newFormUser.get('newStatus')?.touched &&
+                        newFormUser.get('newStatus')?.invalid
+                    }"
+                  >
+                    <option value="" disabled></option>
+                    <option
+                      *ngFor="let state of allEstados"
+                      [value]="state.estId"
+                    >
+                      {{ state.estName }}
+                    </option>
+                  </select>
+                  <label for="newStatus" class="form-label fw-semibold"
+                    >Estado</label
+                  >
+                  <div
+                    *ngIf="
+                      newFormUser.get('newStatus')?.touched &&
+                      newFormUser.get('newStatus')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="newFormUser.get('newStatus')?.errors?.['required']"
+                    >
+                      El Estado es obligatorio.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <button
+                type="button"
+                class="btn btn-danger mx-2"
+                data-bs-dismiss="modal"
+              >
+                Cerrar
+              </button>
+              <button
+                type="submit"
+                class="btn btn-success mx-2"
+                [disabled]="!newFormUser.valid"
+                data-bs-dismiss="modal"
+              >
+                Guardar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <caption class="fst-italic">
+          Todos los campos con
+          <span class="text-danger">(*)</span>
+          es obligatorio
+        </caption>
+      </div>
+    </div>
+  </div>
+</div>

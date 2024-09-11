@@ -1,3 +1,41 @@
-<p>
-  usuarios-page works!
-</p>
+<header>
+  <app-header-admin></app-header-admin>
+</header>
+<main>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Navbar -->
+      <div class="col-12 d-md-none py-2">
+        <button
+          class="btn btn-primary w-100"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarAdminCollapse"
+          aria-expanded="false"
+        >
+          Menú
+        </button>
+        <div class="collapse" id="navbarAdminCollapse">
+          <app-navbar-admin></app-navbar-admin>
+        </div>
+      </div>
+      <div class="col-12 col-md-2 d-none d-md-block py-3">
+        <app-navbar-admin></app-navbar-admin>
+      </div>
+      <!-- Contenido -->
+      <div class="col-12 col-md-10 mt-3 pt-3">
+        <div class="text-center mt-2 pt-2">
+          <p class="text-title-color">Usuarios</p>
+          <div class="mb-3">
+            <!-- app-nuevo-ingreso -->
+            <app-new-usuarios-admin></app-new-usuarios-admin>
+          </div>
+        </div>
+        <app-view-usuarios-admin></app-view-usuarios-admin>
+      </div>
+    </div>
+  </div>
+</main>
+<footer>
+  <app-footer-admin></app-footer-admin>
+</footer>

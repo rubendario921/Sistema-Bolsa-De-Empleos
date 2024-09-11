@@ -15,8 +15,8 @@
             class="needs-validations"
             novalidate
           >
-          <!-- Nombre y Apellido-->
-            <div class="row">              
+            <!-- Nombre y Apellido-->
+            <div class="row">
               <div class="col-md-6 col-12">
                 <div class="form-floating mb-4">
                   <input
@@ -51,7 +51,7 @@
                     </div>
                   </div>
                 </div>
-              </div>              
+              </div>
               <div class="col-md-6 col-12">
                 <div class="form-floating mb-4">
                   <input
@@ -283,19 +283,19 @@
                     />
                     <label for="password" class="form-label fw-semibold"
                       >Contraseña <span class="text-danger">*</span></label
-                    >                    
+                    >
                   </div>
                   <span
-                      type="button"
-                      (click)="viewPassword()"
-                      class="input-group-text"
-                    >
-                      <i
-                        [ngClass]="
-                          viewPasswordInput ? 'bi bi-eye-slash' : 'bi bi-eye'
-                        "
-                      ></i>
-                    </span>
+                    type="button"
+                    (click)="viewPassword()"
+                    class="input-group-text"
+                  >
+                    <i
+                      [ngClass]="
+                        viewPasswordInput ? 'bi bi-eye-slash' : 'bi bi-eye'
+                      "
+                    ></i>
+                  </span>
                 </div>
                 <div
                   *ngIf="

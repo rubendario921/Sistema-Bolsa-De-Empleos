@@ -19,7 +19,7 @@ export const routes: Routes = [
   { path: 'users', component: UsersComponent },
   { path: 'companies', component: CompaniesPageComponent },
   { path: 'portal-admin', component: IndexPageComponent },
-  { path: 'usuarios-page', component: UsuariosPageComponent },
+  { path: 'portal-admin/usuarios-page', component: UsuariosPageComponent },
   { path: 'status-page', component: StatusPageComponent },
   {
     path: 'status-page/details-status/:id',
