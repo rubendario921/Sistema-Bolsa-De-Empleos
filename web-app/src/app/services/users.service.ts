@@ -12,31 +12,31 @@ export class UsersService {
 
   constructor(private http: HttpClient) {}
 
-  getAllUsuarios(): Observable<usuarioDTO[]> {
-    return this.http.get<usuarioDTO[]>(
-      `${this.apiUrl}/Usuarios/GetAllUsuarios`
-    );
+  //Métodos
+  getAllUsuarios(): Observable<any> {
+    return this.http.get<usuarioDTO[]>(this.apiUrl + 'Usuarios/GetAllUsuarios');
   }
 
-  getAllUsuarioById(id: number): Observable<usuarioDTO[]> {
+  getUsuarioById(id: number): Observable<any> {
     return this.http.get<usuarioDTO[]>(
-      `${this.apiUrl}/Usuarios/GetUsuarioById/${id}`
+      this.apiUrl + 'Usuarios/GetUsuarioById/' + id
     );
   }
-
-  // getUser(id: number): Observable<User> {
-  //   return this.http.get<User>(`${this.apiUrl}/${id}`);
-  // }
-
-  // createUser(user: User): Observable<User> {
-  //   return this.http.post<User>(this.apiUrl, user);
-  // }
-
-  // updateUser(id: number, user: User): Observable<User> {
-  //   return this.http.put<User>(`${this.apiUrl}/${id}`, user);
-  // }
-
-  // deleteUser(id: number): Observable<void> {
-  //   return this.http.delete<void>(`${this.apiUrl}/${id}`);
-  // }
+  saveUsuarios(usuarioDTO: usuarioDTO): Observable<any> {
+    return this.http.post<usuarioDTO>(
+      this.apiUrl + 'Usuarios/SaveUsuario',
+      usuarioDTO
+    );
+  }
+  updateUsuarios(id: number, usuarioDTO: usuarioDTO): Observable<any> {
+    return this.http.put<usuarioDTO>(
+      this.apiUrl + 'Usuarios/UpdateUsuario/' + id,
+      usuarioDTO
+    );
+  }
+  deleteUsuarios(id: number): Observable<any> {
+    return this.http.delete<usuarioDTO>(
+      this.apiUrl + 'Usuarios/DeleteUsuario/' + id
+    );
+  }
 }

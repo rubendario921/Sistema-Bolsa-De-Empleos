@@ -10,85 +10,52 @@
           </h2>
           <div class="search-form">
             <!-- Formulario de búsqueda por provincias -->
-            <form
-              [formGroup]="searchForm"
-              (ngSubmit)="onsubmit()"
-              class="needs-validations"
-              novalidate
-            >
-              <input
-                type="text"
-                class="shadow rm-control search-input"
-                id="keyword"
-                formControlName="keyword"
+            <form [formGroup]="searchForm" (ngSubmit)="onsubmit()" class="needs-validations" novalidate>
+              <input type="text" class="shadow rm-control search-input" id="keyword" formControlName="keyword"
                 [ngClass]="{
                   'is-invalid':
                     searchForm.get('keyword')?.touched &&
                     searchForm.get('keyword')?.invalid
-                }"
-                autocomplete="off"
-                placeholder="Puesto, empresa o palabra clave"
-              />
-              <div
-                *ngIf="
+                }" autocomplete="off" placeholder="Puesto, empresa o palabra clave" />
+              <div *ngIf="
                   searchForm.get('keyword')?.touched &&
                   searchForm.get('keyword')?.invalid
-                "
-                class="invalid-feedback"
-              >
+                " class="invalid-feedback">
                 <div *ngIf="searchForm?.get('keyword')?.errors?.['required']">
                   Por favor ingresa una palabra clave.
                 </div>
               </div>
-
               <br />
-              <select
-                class="form-control location-select"
-                formControlName="province"
-                [ngClass]="{
+              <select class="form-control location-select" formControlName="province" [ngClass]="{
                   'is-invalid':
                     searchForm.get('province')?.touched &&
                     searchForm.get('province')?.invalid
-                }"
-              >
+                }">
                 <option value="" selected disabled>
                   Selecciona la provincia
                 </option>
-                <option
-                  *ngFor="let province of provinces"
-                  [value]="province.name"
-                >
-                  {{ province.name }}
+                <option *ngFor="let province of provincias" [value]="province.proId">
+                  {{ province.prodName }} - {{province.prodCapital}}
                 </option>
               </select>
-              <div
-                *ngIf="
+              <div *ngIf="
                   searchForm.get('province')?.touched &&
                   searchForm.get('province')?.invalid
-                "
-                class="invalid-feedback"
-              >
+                " class="invalid-feedback">
                 <div *ngIf="searchForm.get('province')?.errors?.['required']">
                   Por favor selecciona una provincia.
                 </div>
               </div>
               <br />
-              <button
-                type="button"
-                class="btn btn-primary search-button"
-                [disabled]="!searchForm.valid"
-              >
+              <button type="button" class="btn btn-primary search-button" [disabled]="!searchForm.valid">
                 Buscar empleo
               </button>
             </form>
           </div>
         </div>
         <div class="col-md-6 job-image">
-          <img
-            src="https://imgbum.jobscdn.com/images/marketing/default3-ec-mobile.webp"
-            alt="Postulate"
-            class="img-fluid job-image-element job-image-element rounded shadow-sm"
-          />
+          <img src="https://imgbum.jobscdn.com/images/marketing/default3-ec-mobile.webp" alt="Postulate"
+            class="img-fluid job-image-element job-image-element rounded shadow-sm" />
         </div>
       </div>
     </div>
