@@ -10,6 +10,7 @@ import { UsuariosPageComponent } from './portal-admin/usuarios-page/usuarios-pag
 import { DetailsUsuarioAdminComponent } from './portal-admin/usuarios-page/details-usuario-admin/details-usuario-admin.component';
 import { RolesPageComponent } from './portal-admin/roles-page/roles-page.component';
 import { DetailsRolesAdminComponent } from './portal-admin/roles-page/details-roles-admin/details-roles-admin.component';
+import { PostulacionesPageComponent } from './main/postulaciones-page/postulaciones-page.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -21,6 +22,8 @@ export const routes: Routes = [
   },
   { path: 'users', component: UsersComponent },
   { path: 'companies', component: CompaniesPageComponent },
+  { path: 'postulaciones-page', component: PostulacionesPageComponent },
+
   { path: 'portal-admin', component: IndexPageComponent },
   //Usuarios
   { path: 'usuarios-page', component: UsuariosPageComponent },
