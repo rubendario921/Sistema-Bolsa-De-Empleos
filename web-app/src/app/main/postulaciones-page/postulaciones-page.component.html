@@ -1,1 +1,32 @@
-<p>postulaciones-page works!</p>
+<header>
+    <app-header-main></app-header-main>
+  </header>
+  
+  <main class="back-color">
+    <div class="row">
+      <div class="col md-6 text-color">
+        <h3 class="custom-font-size">Nav de Filtro</h3>
+        <!-- <app-navbar-filtros></app-navbar-filtros> -->
+      </div>
+      
+      <div class="col md-6">
+        <h3 class="custom-font-size text-color">Menú de Postulaciones</h3>
+  
+        <main>
+          <div class="job-list">
+            <div class="job-item back-color" *ngFor="let job of jobList">
+              <h2 class="job-title highlight text-color">{{ job.title }}</h2>
+              <p class="company icon-color">{{ job.company }}</p>
+              <p class="location text-color">{{ job.location }}</p>
+              <p class="job-type text-color">{{ job.jobType }}</p>
+              <p class="published text-color">{{ job.published }}</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+  </footer>
+  
