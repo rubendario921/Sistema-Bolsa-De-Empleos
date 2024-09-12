@@ -56,7 +56,7 @@
               id="newName"
               formControlName="newName"
               autocomplete="off"
-              placeholder="Nombre de Estado"
+              placeholder="Nombre del Rol"
               [ngClass]="{
                 'is-invalid':
                   newFormRol.get('newName')?.touched &&
@@ -64,7 +64,7 @@
               }"
             />
             <label for="newName" class="form-label fw-semibold"
-              >Nombre del Estado<span class="text-danger">*</span></label
+              >Nombre del Rol<span class="text-danger">*</span></label
             >
 
             <div
@@ -82,74 +82,39 @@
               </div>
             </div>
           </div>
-          <!-- Categoría -->
+          <!-- Descripción -->
           <div class="form-floating mb-4">
             <input
               type="text"
               class="form-control shadow"
-              id="newCategory"
-              formControlName="newCategory"
+              id="newDescription"
+              formControlName="newDescription"
               autocomplete="off"
-              placeholder="Categoría de Estado"
+              placeholder="Descripción de Rol"
               [ngClass]="{
                 'is-invalid':
-                  newFormRol.get('newCategory')?.touched &&
-                  newFormRol.get('newCategory')?.invalid
+                  newFormRol.get('newDescription')?.touched &&
+                  newFormRol.get('newDescription')?.invalid
               }"
             />
-            <label for="newCategory" class="form-label fw-semibold"
-              >Categoría del Estado<span class="text-danger">*</span></label
+            <label for="newDescription" class="form-label fw-semibold"
+              >Descripción del Rol<span class="text-danger">*</span></label
             >
 
             <div
               *ngIf="
-                newFormRol.get('newCategory')?.touched &&
-                newFormRol.get('newCategory')?.invalid
+                newFormRol.get('newDescription')?.touched &&
+                newFormRol.get('newDescription')?.invalid
               "
               class="invalid-feedback"
             >
               <div
-                *ngIf="newFormRol.get('newCategory')?.errors?.['required']"
+                *ngIf="newFormRol.get('newDescription')?.errors?.['required']"
               >
                 La categoría es obligatorio.
               </div>
-              <div
-                *ngIf="newFormRol.get('newCategory')?.errors?.['pattern']"
-              ></div>
-              No se permite caracteres especiales o números.
             </div>
-          </div>
-          <!-- Color -->
-          <div class="form-floating mb-4">
-            <input
-              type="color"
-              class="form-control shadow"
-              id="newColor"
-              formControlName="newColor"
-              autocomplete="off"
-              placeholder="Color de Estado"
-              [ngClass]="{
-                'is-invalid':
-                  newFormRol.get('newColor')?.touched &&
-                  newFormRol.get('newColor')?.invalid
-              }"
-            />
-            <label for="newColor" class="form-label fw-semibold"
-              >Color del Estado<span class="text-danger">*</span></label
-            >
-
-            <div
-              *ngIf="
-                newFormRol.get('newColor')?.touched &&
-                newFormRol.get('newColor')?.invalid
-              "
-              class="invalid-feedback"
-            >
-              <div *ngIf="newFormRol.get('newColor')?.errors?.['required']">
-                El color es obligatorio.
-              </div>
-            </div>
-          </div>
+          </div>          
           <!-- Acciones -->
           <button
             type="button"
