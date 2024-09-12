@@ -26,7 +26,7 @@ export class NewUsuariosAdminComponent implements OnInit, OnDestroy {
   //Variables
   newFormUser!: FormGroup;
   allEstados: estadoDTO[] = [];
-  public allRoles: rolesDTO[] = [];
+  allRoles: rolesDTO[] = [];
   //Constructor
   constructor(
     private userServices: UsersService,
