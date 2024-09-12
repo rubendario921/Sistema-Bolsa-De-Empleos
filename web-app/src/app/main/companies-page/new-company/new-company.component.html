@@ -10,7 +10,7 @@
         <div class="col-md-8 col-lg-7 col-xl-6">
           <form
             [formGroup]="registerStaff"
-            (ngSubmit)="onsubmit()"
+            (ngSubmit)="registerNewEmpresa()"
             method="post"
             class="needs-validations"
             novalidate
@@ -22,7 +22,7 @@
                 <div class="form-floating mb-4">
                   <input
                     type="text"
-                    class="shadow form-control"
+                    class="form-control shadow"
                     id="staffName"
                     formControlName="staffName"
                     autocomplete="off"
@@ -73,7 +73,7 @@
                         registerStaff.get('staffLastName')?.invalid
                     }"
                   />
-                  <label for="staffLastName" class="form-label"
+                  <label for="staffLastName" class="form-label fw-semibold"
                     >Apellido(s) <span class="text-danger">*</span>
                   </label>
                   <div
@@ -116,7 +116,7 @@
                         registerStaff.get('staffEmail')?.invalid
                     }"
                   />
-                  <label for="staffEmail" class="form-label"
+                  <label for="staffEmail" class="form-label fw-semibold"
                     >Correo Electrónico
                     <span class="text-danger">*</span></label
                   >
@@ -160,7 +160,7 @@
                           registerStaff.get('staffPassword')?.invalid
                       }"
                     />
-                    <label for="staffPassword" class="form-label"
+                    <label for="staffPassword" class="form-label fw-semibold"
                       >Contraseña <span class="text-danger">*</span></label
                     >
                   </div>
@@ -218,7 +218,9 @@
                           registerStaff.get('confirmStaffPassword')?.invalid
                       }"
                     />
-                    <label for="confirmStaffPassword" class="form-label"
+                    <label
+                      for="confirmStaffPassword"
+                      class="form-label fw-semibold"
                       >Confirmar contraseña
                       <span class="text-danger">*</span></label
                     >
@@ -280,7 +282,7 @@
                         registerStaff.get('staffNameCompany')?.invalid
                     }"
                   />
-                  <label for="staffNameCompany" class="form-label"
+                  <label for="staffNameCompany" class="form-label fw-semibold"
                     >Nombre de la empresa
                     <span class="text-danger">*</span></label
                   >
@@ -321,7 +323,7 @@
                         registerStaff.get('staffBusinessName')?.invalid
                     }"
                   />
-                  <label for="staffBusinessName" class="form-label"
+                  <label for="staffBusinessName" class="form-label fw-semibold"
                     >Razón Social <span class="text-danger">*</span>
                   </label>
                   <div
@@ -366,7 +368,7 @@
                         registerStaff.get('staffRuc')?.invalid
                     }"
                   />
-                  <label for="staffRuc" class="form-label"
+                  <label for="staffRuc" class="form-label fw-semibold"
                     >Número de RUC <span class="text-danger">*</span></label
                   >
                   <div
@@ -412,7 +414,7 @@
                         registerStaff.get('staffNumContact')?.invalid
                     }"
                   />
-                  <label for="staffNumContact" class="form-label"
+                  <label for="staffNumContact" class="form-label fw-semibold"
                     >Número de Contacto
                     <span class="text-danger">*</span></label
                   >
@@ -444,6 +446,100 @@
             </div>
             <!-- Fila 3 -->
             <div class="row d-flex align-items-center justify-content-center">
+              <!-- staffAddress -->
+              <div class="col-md-8 col-lg-7 col-xl-6">
+                <div class="form-floating mb-4">
+                  <input
+                    type="text"
+                    class="shadow form-control"
+                    id="staffAddress"
+                    formControlName="staffAddress"
+                    autocomplete="off"
+                    placeholder="Ubicación de la empresa."
+                    [ngClass]="{
+                      'is-invalid':
+                        registerStaff.get('staffAddress')?.touched &&
+                        registerStaff.get('staffAddress')?.invalid
+                    }"
+                  />
+                  <label for="staffRuc" class="form-label fw-semibold"
+                    >Ubicación de la empresa
+                    <span class="text-danger">*</span></label
+                  >
+                  <div
+                    *ngIf="
+                      registerStaff.get('staffAddress')?.touched &&
+                      registerStaff.get('staffAddress')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="registerStaff.get('staffAddress')?.errors?.['required'] "
+                    >
+                      El campo es obligatorio.
+                    </div>
+                    <div
+                      *ngIf="registerStaff.get('staffAddress')?.errors?.['pattern'] "
+                    >
+                      No debe contener caracteres especiales.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- staffPostalCode -->
+              <div class="col-md-8 col-lg-7 col-xl-6">
+                <div class="form-floating mb-4">
+                  <input
+                    type="text"
+                    class="shadow form-control"
+                    id="staffPostalCode"
+                    formControlName="staffPostalCode"
+                    autocomplete="off"
+                    minlength="5"
+                    maxlength="5"
+                    placeholder="Ingrese el código postal de su ubicación."
+                    [ngClass]="{
+                      'is-invalid':
+                        registerStaff.get('staffPostalCode')?.touched &&
+                        registerStaff.get('staffPostalCode')?.invalid
+                    }"
+                  />
+                  <label for="staffPostalCode" class="form-label fw-semibold"
+                    >Código Postal <span class="text-danger">*</span></label
+                  >
+                  <div
+                    *ngIf="
+                      registerStaff.get('staffPostalCode')?.touched &&
+                      registerStaff.get('staffPostalCode')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="registerStaff.get('staffPostalCode')?.errors?.['required'] "
+                    >
+                      El código postal es obligatorio.
+                    </div>
+                    <div
+                      *ngIf="registerStaff.get('staffNumContact')?.errors?.['pattern'] "
+                    >
+                      El campo solo debe tener números.
+                    </div>
+                    <div
+                      *ngIf="registerStaff.get('staffNumContact')?.errors?.['minlength']"
+                    >
+                      El número de código postal debe contener mínimo 5 dígitos.
+                    </div>
+                    <div
+                      *ngIf="registerStaff.get('staffNumContact')?.errors?.['minlength']"
+                    >
+                      El número de código postal debe contener máximo 5 dígitos.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Fila 4 -->
+            <div class="row d-flex align-items-center justify-content-center">
               <!-- staffIndustry -->
               <div class="col-md-8 col-lg-7 col-xl-6">
                 <div class="form-floating mb-4">
@@ -460,7 +556,7 @@
                     <option value="1">Tecnología</option>
                     <option value="2">Recursos Humanos</option>
                   </select>
-                  <label for="staffIndustry" class="form-label"
+                  <label for="staffIndustry" class="form-label fw-semibold"
                     >Industrias<span class="text-danger">*</span></label
                   >
                 </div>
@@ -495,7 +591,7 @@
                     <option value="1">0 - 5</option>
                     <option value="2">50-100</option>
                   </select>
-                  <label for="StaffCount" class="form-label"
+                  <label for="StaffCount" class="form-label fw-semibold"
                     >Cantidad de Empleados<span class="text-danger"
                       >*</span
                     ></label
@@ -517,6 +613,7 @@
                 </div>
               </div>
             </div>
+            <!-- Acción -->
             <div class="row d-flex align-items-center justify-content-center">
               <div class="col-md-8 col-lg-7 col-xl-6 text-center">
                 <button

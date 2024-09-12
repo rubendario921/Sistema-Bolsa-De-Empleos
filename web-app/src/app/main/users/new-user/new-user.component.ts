@@ -94,7 +94,7 @@ export class NewUserComponent implements OnInit, OnDestroy {
         estadoName: '',
         estadoColor: '',
       };
-      console.log(userDTO);
+      //console.log(userDTO);
       this.userService.saveUsuarios(userDTO).subscribe((result) => {
         if (result) {
           this.toast.success('Usuario registrado con éxito');
