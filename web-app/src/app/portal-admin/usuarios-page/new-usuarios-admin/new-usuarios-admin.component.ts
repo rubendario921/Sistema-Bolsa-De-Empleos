@@ -89,8 +89,7 @@ export class NewUsuariosAdminComponent implements OnInit, OnDestroy {
   loadRolData(): void {
     this.rolServices.getAllRoles().subscribe((result) => {
       if (result != null) {
-        this.allEstados = result;
-        console.log(this.allEstados);
+        this.allRoles = result;
         //return result;
       } else {
         console.log('Error, no hay datos registrados.');
@@ -102,7 +101,6 @@ export class NewUsuariosAdminComponent implements OnInit, OnDestroy {
     this.statusServices.getAllEstados().subscribe((result) => {
       if (result != null) {
         this.allEstados = result;
-        console.log(this.allEstados);
         //return result;
       } else {
         console.log('Error, No hay datos registrado');
@@ -131,10 +129,11 @@ export class NewUsuariosAdminComponent implements OnInit, OnDestroy {
         estadoName: '',
         estadoColor: '',
       };
+      console.log(userDTO);
       this.userServices.saveUsuarios(userDTO).subscribe((result) => {
         if (result) {
           this.toast.success('Usuario registrado con éxito');
-          this.router.navigate(['portal-admin/usuarios-page']).then(() => {
+          this.router.navigate(['usuarios-page']).then(() => {
             window.location.reload();
           });
         } else {

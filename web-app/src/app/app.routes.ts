@@ -7,6 +7,7 @@ import { IndexPageComponent } from './portal-admin/index-page/index-page.compone
 import { StatusPageComponent } from './portal-admin/status-page/status-page.component';
 import { DetailsStatusAdminComponent } from './portal-admin/status-page/details-status-admin/details-status-admin.component';
 import { UsuariosPageComponent } from './portal-admin/usuarios-page/usuarios-page.component';
+import { DetailsUsuarioAdminComponent } from './portal-admin/usuarios-page/details-usuario-admin/details-usuario-admin.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -19,7 +20,11 @@ export const routes: Routes = [
   { path: 'users', component: UsersComponent },
   { path: 'companies', component: CompaniesPageComponent },
   { path: 'portal-admin', component: IndexPageComponent },
-  { path: 'portal-admin/usuarios-page', component: UsuariosPageComponent },
+  { path: 'usuarios-page', component: UsuariosPageComponent },
+  {
+    path: 'usuarios-page/details-users/:id',
+    component: DetailsUsuarioAdminComponent,
+  },
   { path: 'status-page', component: StatusPageComponent },
   {
     path: 'status-page/details-status/:id',

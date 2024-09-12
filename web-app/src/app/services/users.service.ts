@@ -24,7 +24,7 @@ export class UsersService {
   }
   saveUsuarios(usuarioDTO: userDTO): Observable<any> {
     return this.http.post<userDTO>(
-      this.apiUrl + 'Usuarios/SaveUsuario',
+      this.apiUrl + 'Usuarios/SaveUsuarios',
       usuarioDTO
     );
   }

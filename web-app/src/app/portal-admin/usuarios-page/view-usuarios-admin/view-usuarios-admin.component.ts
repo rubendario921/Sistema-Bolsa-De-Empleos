@@ -68,7 +68,7 @@ export class ViewUsuariosAdminComponent implements OnInit, OnDestroy {
           title: 'Acción',
           data: 'usuId',
           render(data: any, type: any, full: any) {
-            return `<a href="/usuarios-page/details-usuarios/${full.usuId}" type="button" class="btn btn-warning" title="Ver Detalles"><i class="bi bi-search"></i></a>`;
+            return `<a href="/usuarios-page/details-users/${full.usuId}" type="button" class="btn btn-warning" title="Ver Detalles"><i class="bi bi-search"></i></a>`;
           },
         },
       ],
