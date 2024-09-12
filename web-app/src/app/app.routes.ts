@@ -8,6 +8,7 @@ import { StatusPageComponent } from './portal-admin/status-page/status-page.comp
 import { DetailsStatusAdminComponent } from './portal-admin/status-page/details-status-admin/details-status-admin.component';
 import { UsuariosPageComponent } from './portal-admin/usuarios-page/usuarios-page.component';
 import { DetailsUsuarioAdminComponent } from './portal-admin/usuarios-page/details-usuario-admin/details-usuario-admin.component';
+import { RolesPageComponent } from './portal-admin/roles-page/roles-page.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -30,5 +31,6 @@ export const routes: Routes = [
     path: 'status-page/details-status/:id',
     component: DetailsStatusAdminComponent,
   },
+  { path: 'roles-page', component: RolesPageComponent },
 ];
 export const appRouterProviders = [provideRouter(routes)];

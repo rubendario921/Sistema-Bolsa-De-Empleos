@@ -73,7 +73,7 @@
           <div class="col-12 col-sm-6 col-md-4">
             <div class="card shadow">
               <div class="card-body back-color border border-light">
-                <h4 class="card-title text-primary fs-3">Roles</h4>
+                <h4 class="card-title text-primary fs-3">Provincias</h4>
                 <p class="card-text">Información adicional</p>
                 <a
                   type="button"
@@ -87,17 +87,19 @@
           <div class="col-12 col-sm-6 col-md-4">
             <div class="card shadow">
               <div class="card-body back-color border border-light">
-                <h4 class="card-title text-primary fs-3">Perfiles</h4>
+                <h4 class="card-title text-primary fs-3">Roles</h4>
                 <p class="card-text">Información adicional</p>
                 <a
                   type="button"
-                  href="/portal-admin"
+                  [routerLink]="['/roles-page']"
+                  routerLinkActive="router-link-active"
                   class="btn btn-primary shadow"
                   >Ingresar</a
                 >
               </div>
             </div>
           </div>
+
           <div class="col-12 col-sm-6 col-md-4">
             <div class="card shadow">
               <div class="card-body back-color border border-light">
