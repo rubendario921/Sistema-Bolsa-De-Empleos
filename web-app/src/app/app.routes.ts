@@ -9,6 +9,7 @@ import { DetailsStatusAdminComponent } from './portal-admin/status-page/details-
 import { UsuariosPageComponent } from './portal-admin/usuarios-page/usuarios-page.component';
 import { DetailsUsuarioAdminComponent } from './portal-admin/usuarios-page/details-usuario-admin/details-usuario-admin.component';
 import { RolesPageComponent } from './portal-admin/roles-page/roles-page.component';
+import { DetailsRolesAdminComponent } from './portal-admin/roles-page/details-roles-admin/details-roles-admin.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -21,16 +22,20 @@ export const routes: Routes = [
   { path: 'users', component: UsersComponent },
   { path: 'companies', component: CompaniesPageComponent },
   { path: 'portal-admin', component: IndexPageComponent },
+  //Usuarios
   { path: 'usuarios-page', component: UsuariosPageComponent },
   {
     path: 'usuarios-page/details-users/:id',
     component: DetailsUsuarioAdminComponent,
   },
+  //Estados
   { path: 'status-page', component: StatusPageComponent },
   {
     path: 'status-page/details-status/:id',
     component: DetailsStatusAdminComponent,
   },
+  //Roles
   { path: 'roles-page', component: RolesPageComponent },
+  { path: 'roles-page/details-status/:id', component: DetailsRolesAdminComponent },
 ];
 export const appRouterProviders = [provideRouter(routes)];

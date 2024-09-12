@@ -1,0 +1,191 @@
+<header><app-header-admin></app-header-admin></header>
+<main>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 d-md-none py-2">
+        <button
+          class="btn btn-primary w-100"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarAdminCollapse"
+          aria-expanded="false"
+        >
+          Menu
+        </button>
+        <div class="collapse" id="navbarAdminCollapse">
+          <app-navbar-admin></app-navbar-admin>
+        </div>
+      </div>
+      <div class="col-12 col-md-2 d-none d-md-block py-3">
+        <app-navbar-admin></app-navbar-admin>
+      </div>
+      <div class="col-12 col-md-10 mt-3 pt-3">
+        <div class="text-center mt-2 pt-2">
+          <p class="text-title-color">Roles</p>
+        </div>
+        <!-- Formulario de detalles de Roles -->
+        <div class="container-fluid mx-3 px-3">
+          <div
+            class="card shadow px-3 mx-3 bg-body-tertiary rounded border-custom"
+          >
+            <div class="card-header">Información detallada</div>
+            <div class="card-body">
+              <!-- Formulario -->
+              <form
+                id="detailsRolesForm"
+                [formGroup]="detailsRolesForm"
+                method="put"
+                (ngSubmit)="updateRoles()"
+                class="needs-validations"
+                novalidate
+              >
+                <!-- Id -->
+                <div class="form-floating mb-4">
+                  <input
+                    type="text"
+                    class="form-control shadow"
+                    id="rolId"
+                    formControlName="rolId"
+                    autocomplete="off"
+                    placeholder="Nombre de Estado"
+                    readonly
+                    [ngClass]="{
+                      'is-invalid':
+                        detailsRolesForm.get('rolId')?.touched &&
+                        detailsRolesForm.get('rolId')?.invalid
+                    }"
+                  />
+                  <label for="rolName" class="form-label fw-semibold"
+                    >ID<span class="text-danger">*</span></label
+                  >
+                  <div
+                    *ngIf="
+                      detailsRolesForm.get('rolId')?.touched &&
+                      detailsRolesForm.get('rolId')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="detailsRolesForm.get('rolId')?.errors?.['required']"
+                    >
+                      El ID es obligatorio.
+                    </div>
+                    <div
+                      *ngIf="detailsRolesForm.get('rolId')?.errors?.['pattern']"
+                    ></div>
+                    No se permite caracteres especiales o números.
+                  </div>
+                </div>
+
+                <!-- Nombre -->
+                <div class="form-floating mb-4">
+                  <input
+                    type="text"
+                    class="form-control shadow"
+                    id="rolName"
+                    formControlName="rolName"
+                    autocomplete="off"
+                    placeholder="Nombre de Estado"
+                    [ngClass]="{
+                      'is-invalid':
+                        detailsRolesForm.get('rolName')?.touched &&
+                        detailsRolesForm.get('rolName')?.invalid
+                    }"
+                  />
+                  <label for="rolName" class="form-label fw-semibold"
+                    >Nombre del Rol<span class="text-danger">*</span></label
+                  >
+
+                  <div
+                    *ngIf="
+                      detailsRolesForm.get('rolName')?.touched &&
+                      detailsRolesForm.get('rolName')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="detailsRolesForm.get('rolName')?.errors?.['required']"
+                    >
+                      El nombre es obligatorio.
+                    </div>
+                    <div
+                      *ngIf="detailsRolesForm.get('rolName')?.errors?.['pattern']"
+                    ></div>
+                    No se permite caracteres especiales o números.
+                  </div>
+                </div>
+                <!-- Descripción -->
+                <div class="form-floating mb-4">
+                  <input
+                    type="text"
+                    class="form-control shadow"
+                    id="rolDescription"
+                    formControlName="rolDescription"
+                    autocomplete="off"
+                    placeholder="Descripción del Rol"
+                    [ngClass]="{
+                      'is-invalid':
+                        detailsRolesForm.get('rolDescription')?.touched &&
+                        detailsRolesForm.get('rolDescription')?.invalid
+                    }"
+                  />
+                  <label for="rolDescription" class="form-label fw-semibold"
+                    >Descripción del Rol<span class="text-danger"
+                      >*</span
+                    ></label
+                  >
+
+                  <div
+                    *ngIf="
+                      detailsRolesForm.get('rolDescription')?.touched &&
+                      detailsRolesForm.get('rolDescription')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="detailsRolesForm.get('rolDescription')?.errors?.['required']"
+                    >
+                      La descripcion es obligatorio.
+                    </div>
+                    <div
+                      *ngIf="detailsRolesForm.get('rolDescription')?.errors?.['pattern']"
+                    ></div>
+                    No se permite caracteres especiales o números.
+                  </div>
+                </div>
+                <!-- Acciones -->
+                <div class="text-center">
+                  <a
+                    href="/roles-page"
+                    type="button"
+                    class="btn btn-success mx-1"
+                    >Regresar</a
+                  >
+                  <button
+                    type="submit"
+                    class="btn btn-warning shadow text-white mx-1"
+                    [disabled]="!detailsRolesForm.valid"
+                  >
+                    Actualizar
+                  </button>
+                  <a
+                    href="/roles-page"
+                    type="button"
+                    class="btn btn-danger mx-1"
+                    (click)="deleteRoles()"
+                    >Eliminar</a
+                  >
+                </div>
+              </form>
+            </div>
+            <div class="card-footer text-muted fst-italic">
+              Los campos con (<span class="text-danger">*</span>) son
+              obligatorios.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer><app-footer-admin></app-footer-admin></footer>

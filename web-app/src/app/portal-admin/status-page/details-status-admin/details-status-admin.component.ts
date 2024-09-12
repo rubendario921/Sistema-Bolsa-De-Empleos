@@ -40,19 +40,17 @@ export class DetailsStatusAdminComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private toast: CustomToastrService,
     private router: Router
-  ) {}
-
-  ngOnInit() {
+  ) {
     //Validaciones del Formulario
     this.detailsStatusForm = this.fb.group({
-      estId: ['', Validators.required],
-      estName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
-      estCategory: [
-        '',
-        [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)],
-      ],
-      estColor: ['', [Validators.required]],
+      estId: [''],
+      estName: [''],
+      estCategory: [''],
+      estColor: [''],
     });
+  }
+
+  ngOnInit() {
     //Obtener información por Id
     this.route.params.subscribe((params) => {
       this.statusId = params['id'];
@@ -61,10 +59,16 @@ export class DetailsStatusAdminComponent implements OnInit, OnDestroy {
           //console.log(result);
           this.toast.success('Datos cargador correctamente');
           this.detailsStatusForm = this.fb.group({
-            estId: [result.estId],
-            estName: [result.estName],
-            estCategory: [result.estCategory],
-            estColor: [result.estColor],
+            estId: [result.estId, [Validators.required]],
+            estName: [
+              result.estName,
+              [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)],
+            ],
+            estCategory: [
+              result.estCategory,
+              [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)],
+            ],
+            estColor: [result.estColor, [Validators.required]],
           });
         },
         (error) => {

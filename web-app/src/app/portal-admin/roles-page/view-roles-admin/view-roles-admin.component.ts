@@ -66,7 +66,7 @@ export class ViewRolesAdminComponent implements OnInit, OnDestroy {
           title: 'Acción',
           data: 'rolId',
           render(data: any, type: any, full: any) {
-            return `<a href="/usuarios-page/details-users/${full.rolId}" type="button" class="btn btn-warning" title="Ver Detalles"><i class="bi bi-search"></i></a>`;
+            return `<a href="/roles-page/details-status/${full.rolId}" type="button" class="btn btn-warning" title="Ver Detalles"><i class="bi bi-search"></i></a>`;
           },
         },
       ],
