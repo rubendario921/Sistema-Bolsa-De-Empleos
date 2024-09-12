@@ -1,0 +1,173 @@
+<!-- Modal trigger button -->
+<button
+  type="button"
+  class="btn btn-primary btn-lg shadow"
+  data-bs-toggle="modal"
+  data-bs-target="#modalNewRol"
+>
+  Nuevo Registro
+</button>
+
+<!-- Modal Body -->
+<!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+<div
+  class="modal fade"
+  id="modalNewRol"
+  tabindex="-1"
+  data-bs-backdrop="static"
+  data-bs-keyboard="true"
+  role="dialog"
+  aria-labelledby="modalTitleNewRol"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog modal-dialog-scrollable modal-body modal-md"
+    role="document"
+  >
+    <div class="modal-content">
+      <div class="modal-header">
+        <p
+          class="modal-title text-subtitle-color fs-3"
+          id="modalTitleNewRol"
+        >
+          Nuevo Registro
+        </p>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulario de registro -->
+        <form
+          [formGroup]="newFormRol"
+          (ngSubmit)="newRegisterRol()"
+          method="post"
+          class="needs-validations"
+          novalidate
+        >
+          <!-- Nombre -->
+          <div class="form-floating mb-4">
+            <input
+              type="text"
+              class="form-control shadow"
+              id="newName"
+              formControlName="newName"
+              autocomplete="off"
+              placeholder="Nombre de Estado"
+              [ngClass]="{
+                'is-invalid':
+                  newFormRol.get('newName')?.touched &&
+                  newFormRol.get('newName')?.invalid
+              }"
+            />
+            <label for="newName" class="form-label fw-semibold"
+              >Nombre del Estado<span class="text-danger">*</span></label
+            >
+
+            <div
+              *ngIf="
+                newFormRol.get('newName')?.touched &&
+                newFormRol.get('newName')?.invalid
+              "
+              class="invalid-feedback"
+            >
+              <div *ngIf="newFormRol.get('newName')?.errors?.['required']">
+                El nombre es obligatorio.
+              </div>
+              <div *ngIf="newFormRol.get('newName')?.errors?.['pattern']">
+                No se permite caracteres especiales o números.
+              </div>
+            </div>
+          </div>
+          <!-- Categoría -->
+          <div class="form-floating mb-4">
+            <input
+              type="text"
+              class="form-control shadow"
+              id="newCategory"
+              formControlName="newCategory"
+              autocomplete="off"
+              placeholder="Categoría de Estado"
+              [ngClass]="{
+                'is-invalid':
+                  newFormRol.get('newCategory')?.touched &&
+                  newFormRol.get('newCategory')?.invalid
+              }"
+            />
+            <label for="newCategory" class="form-label fw-semibold"
+              >Categoría del Estado<span class="text-danger">*</span></label
+            >
+
+            <div
+              *ngIf="
+                newFormRol.get('newCategory')?.touched &&
+                newFormRol.get('newCategory')?.invalid
+              "
+              class="invalid-feedback"
+            >
+              <div
+                *ngIf="newFormRol.get('newCategory')?.errors?.['required']"
+              >
+                La categoría es obligatorio.
+              </div>
+              <div
+                *ngIf="newFormRol.get('newCategory')?.errors?.['pattern']"
+              ></div>
+              No se permite caracteres especiales o números.
+            </div>
+          </div>
+          <!-- Color -->
+          <div class="form-floating mb-4">
+            <input
+              type="color"
+              class="form-control shadow"
+              id="newColor"
+              formControlName="newColor"
+              autocomplete="off"
+              placeholder="Color de Estado"
+              [ngClass]="{
+                'is-invalid':
+                  newFormRol.get('newColor')?.touched &&
+                  newFormRol.get('newColor')?.invalid
+              }"
+            />
+            <label for="newColor" class="form-label fw-semibold"
+              >Color del Estado<span class="text-danger">*</span></label
+            >
+
+            <div
+              *ngIf="
+                newFormRol.get('newColor')?.touched &&
+                newFormRol.get('newColor')?.invalid
+              "
+              class="invalid-feedback"
+            >
+              <div *ngIf="newFormRol.get('newColor')?.errors?.['required']">
+                El color es obligatorio.
+              </div>
+            </div>
+          </div>
+          <!-- Acciones -->
+          <button
+            type="button"
+            class="btn btn-danger shadow mx-1"
+            data-bs-dismiss="modal"
+          >
+            Cerrar
+          </button>
+          <button
+            type="submit"
+            class="btn btn-success shadow mx-1"
+            [disabled]="!newFormRol.valid"
+            data-bs-dismiss="modal"
+          >
+            Guardar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
