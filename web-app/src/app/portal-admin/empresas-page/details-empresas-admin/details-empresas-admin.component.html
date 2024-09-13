@@ -1,0 +1,357 @@
+<header><app-header-admin></app-header-admin></header>
+<main>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 d-md-none py-2">
+        <button
+          class="btn btn-primary w-100"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarAdminCollapse"
+          aria-expanded="false"
+        >
+          Menú
+        </button>
+        <div class="collapse" id="navbarAdminCollapse">
+          <app-navbar-admin></app-navbar-admin>
+        </div>
+      </div>
+      <div class="col-12 col-md-2 d-none d-md-block py-3">
+        <app-navbar-admin></app-navbar-admin>
+      </div>
+      <div class="col-12 col-md-10 mt-3 pt-3">
+        <div class="text-center mt-2 pt-2">
+          <p class="text-title-color">Empresas</p>
+        </div>
+        <!-- Formulario de detalles de Estados -->
+        <div class="container-fluid mx-3 px-3">
+          <div
+            class="card shadow px-3 mx-3 bg-body-tertiary rounded border-custom"
+          >
+            <div class="card-header">Información detallada</div>
+            <div class="card-body">
+              <div class="container-fluid">
+                <!-- Formulario de Detalles-->
+                <form
+                  method="post"
+                  [formGroup]="detailsEmpresaForm"
+                  (ngSubmit)="updateEmpresa()"
+                  class="needs-validations"
+                  novalidate
+                >
+                  <!-- Fila # 1-->
+                  <p class="fw-semibold">Responsable</p>
+                  <div
+                    class="row justify-content-center align-items-center g-2"
+                  >
+                    <div class="col">
+                      <!-- Name -->
+                      <div class="form-floating mb-4">
+                        <input
+                          type="text"
+                          class="form-control shadow"
+                          id="empStaffName"
+                          formControlName="empStaffName"
+                          autocomplete="off"
+                          placeholder="Nombre del Responsable"
+                          [ngClass]="{
+                            'is-invalid':
+                              detailsEmpresaForm.get('empStaffName')?.touched &&
+                              detailsEmpresaForm.get('empStaffName')?.invalid
+                          }"
+                        />
+                        <label for="empStaffName" class="form-label fw-semibold"
+                          >Nombre del Responsable<span class="text-danger"
+                            >*</span
+                          ></label
+                        >
+                        <div
+                          *ngIf="
+                            detailsEmpresaForm.get('empStaffName')?.touched &&
+                            detailsEmpresaForm.get('empStaffName')?.invalid
+                          "
+                          class="invalid-feedback"
+                        >
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empStaffName')?.errors?.['required']"
+                          >
+                            El nombre es obligatorio.
+                          </div>
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empStaffName')?.errors?.['pattern']"
+                          >
+                            No se permite caracteres especiales o números.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <!-- LastName -->
+                      <div class="form-floating mb-4">
+                        <input
+                          type="text"
+                          class="form-control shadow"
+                          id="empStaffLastName"
+                          formControlName="empStaffLastName"
+                          autocomplete="off"
+                          placeholder="Apellido del Responsable"
+                          [ngClass]="{
+                            'is-invalid':
+                              detailsEmpresaForm.get('empStaffLastName')
+                                ?.touched &&
+                              detailsEmpresaForm.get('empStaffLastName')
+                                ?.invalid
+                          }"
+                        />
+                        <label
+                          for="empStaffLastName"
+                          class="form-label fw-semibold"
+                          >Apellido del Responsable<span class="text-danger"
+                            >*</span
+                          ></label
+                        >
+                        <div
+                          *ngIf="
+                            detailsEmpresaForm.get('empStaffLastName')
+                              ?.touched &&
+                            detailsEmpresaForm.get('empStaffLastName')?.invalid
+                          "
+                          class="invalid-feedback"
+                        >
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empStaffLastName')?.errors?.['required']"
+                          >
+                            El Apellido es obligatorio.
+                          </div>
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empStaffLastName')?.errors?.['pattern']"
+                          >
+                            No se permite caracteres especiales o números.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Fila # 2 -->
+                  <div
+                    class="row justify-content-center align-items-center g-2"
+                  >
+                    <div class="col">
+                      <!-- Email -->
+                      <div class="form-floating mb-4">
+                        <input
+                          type="text"
+                          class="form-control shadow"
+                          id="empStaffEmail"
+                          formControlName="empStaffEmail"
+                          autocomplete="off"
+                          placeholder="Email del Responsable"
+                          [ngClass]="{
+                            'is-invalid':
+                              detailsEmpresaForm.get('empStaffEmail')
+                                ?.touched &&
+                              detailsEmpresaForm.get('empStaffEmail')?.invalid
+                          }"
+                        />
+                        <label
+                          for="empStaffEmail"
+                          class="form-label fw-semibold"
+                          >Email del Responsable<span class="text-danger"
+                            >*</span
+                          ></label
+                        >
+                        <div
+                          *ngIf="
+                            detailsEmpresaForm.get('empStaffEmail')?.touched &&
+                            detailsEmpresaForm.get('empStaffEmail')?.invalid
+                          "
+                          class="invalid-feedback"
+                        >
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empStaffEmail')?.errors?.['required']"
+                          >
+                            El correo electrónico es obligatorio.
+                          </div>
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empStaffEmail')?.errors?.['pattern']"
+                          >
+                            No se permite caracteres especiales o números.
+                          </div>
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empStaffEmail')?.errors?.['email']"
+                          >
+                            El correo electrónico debe ser valido.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <!-- Password -->
+                      <div class="form-floating mb-4">
+                        <input
+                          type="text"
+                          class="form-control shadow"
+                          id="empStaffPassword"
+                          formControlName="empStaffPassword"
+                          autocomplete="off"
+                          placeholder="Contraseña del responsable"
+                          [ngClass]="{
+                            'is-invalid':
+                              detailsEmpresaForm.get('empStaffPassword')
+                                ?.touched &&
+                              detailsEmpresaForm.get('empStaffPassword')
+                                ?.invalid
+                          }"
+                        />
+                        <label
+                          for="empStaffPassword"
+                          class="form-label fw-semibold"
+                          >Contraseña del Responsable<span class="text-danger"
+                            >*</span
+                          ></label
+                        >
+                        <div
+                          *ngIf="
+                            detailsEmpresaForm.get('empStaffPassword')
+                              ?.touched &&
+                            detailsEmpresaForm.get('empStaffPassword')?.invalid
+                          "
+                          class="invalid-feedback"
+                        >
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empStaffPassword')?.errors?.['required']"
+                          >
+                            La contraseña es requerida.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="fw-semibold">Datos de la Empresa</p>
+                  <!-- Fila # 3-->
+                  <div
+                    class="row justify-content-center align-items-center g-2"
+                  >
+                    <div class="col">
+                      <!-- Name Empresa -->
+                      <div class="form-floating mb-4">
+                        <input
+                          type="text"
+                          class="form-control shadow"
+                          id="empName"
+                          formControlName="empName"
+                          autocomplete="off"
+                          placeholder="Nombre de la Empresa"
+                          [ngClass]="{
+                            'is-invalid':
+                              detailsEmpresaForm.get('empName')?.touched &&
+                              detailsEmpresaForm.get('empName')?.invalid
+                          }"
+                        />
+                        <label for="empName" class="form-label fw-semibold"
+                          >Nombre de la Empresa<span class="text-danger"
+                            >*</span
+                          ></label
+                        >
+                        <div
+                          *ngIf="
+                            detailsEmpresaForm.get('empName')?.touched &&
+                            detailsEmpresaForm.get('empName')?.invalid
+                          "
+                          class="invalid-feedback"
+                        >
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empName')?.errors?.['required']"
+                          >
+                            El nombre es obligatorio.
+                          </div>
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empName')?.errors?.['pattern']"
+                          >
+                            No se permite caracteres especiales o números.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <!-- Razón Social -->
+                      <div class="form-floating mb-4">
+                        <input
+                          type="text"
+                          class="form-control shadow"
+                          id="empRazonSocial"
+                          formControlName="empRazonSocial"
+                          autocomplete="off"
+                          placeholder="Razón Social"
+                          [ngClass]="{
+                            'is-invalid':
+                              detailsEmpresaForm.get('empRazonSocial')
+                                ?.touched &&
+                              detailsEmpresaForm.get('empRazonSocial')?.invalid
+                          }"
+                        />
+                        <label
+                          for="empRazonSocial"
+                          class="form-label fw-semibold"
+                          >Razón Social<span class="text-danger">*</span></label
+                        >
+                        <div
+                          *ngIf="
+                            detailsEmpresaForm.get('empRazonSocial')?.touched &&
+                            detailsEmpresaForm.get('empRazonSocial')?.invalid
+                          "
+                          class="invalid-feedback"
+                        >
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empRazonSocial')?.errors?.['required']"
+                          >
+                            La Razón Social es requerida.
+                          </div>
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empRazonSocial')?.errors?.['pattern']"
+                          >
+                            No se permite caracteres especiales o números.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Acciones -->
+                  <div class="text-center">
+                    <a
+                      href="/usuarios-page"
+                      type="button"
+                      class="btn btn-success mx-1"
+                      >Regresar</a
+                    >
+                    <button
+                      type="submit"
+                      class="btn btn-warning shadow text-white mx-1"
+                      [disabled]="!detailsEmpresaForm.valid"
+                    >
+                      Actualizar
+                    </button>
+                    <a
+                      href="/usuarios-page"
+                      type="button"
+                      class="btn btn-danger mx-1"
+                      (click)="deleteEmpresa()"
+                      >Eliminar</a
+                    >
+                  </div>
+                </form>
+              </div>
+
+              <div class="text-center"></div>
+            </div>
+            <div class="card-footer text-muted fst-italic">
+              Los campos con (<span class="text-danger">*</span>) son
+              obligatorios.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer><app-footer-admin></app-footer-admin></footer>
