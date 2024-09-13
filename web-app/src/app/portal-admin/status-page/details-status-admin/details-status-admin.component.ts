@@ -108,12 +108,14 @@ export class DetailsStatusAdminComponent implements OnInit, OnDestroy {
   }
   //Función para eliminar
   deleteStatus(): void {
-    this.estadoService.deleteEstado(this.statusId).subscribe((result) => {
-      if (result) {
-        this.toast.success('Estado eliminado correctamente');
-      } else {
-        this.toast.error('Error al eliminar estado');
-      }
-    });
+    if (confirm('¿Esta seguro de eliminar el registro?')) {
+      this.estadoService.deleteEstado(this.statusId).subscribe((result) => {
+        if (result) {
+          this.toast.success('Estado eliminado correctamente');
+        } else {
+          this.toast.error('Error al eliminar estado');
+        }
+      });
+    }
   }
 }

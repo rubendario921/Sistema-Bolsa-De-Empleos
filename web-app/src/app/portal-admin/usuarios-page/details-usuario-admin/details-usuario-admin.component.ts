@@ -160,13 +160,15 @@ export class DetailsUsuarioAdminComponent implements OnInit, OnDestroy {
   }
 
   deleteUser(): void {
-    this.userService.deleteUsuarios(this.userId).subscribe((result) => {
-      if (result) {
-        this.toastService.success('Usuario eliminado correctamente');
-      } else {
-        console.error(result);
-        this.toastService.error('Error al eliminar el usuario');
-      }
-    });
+    if (confirm('¿Estas seguro de eliminar el registro?')) {
+      this.userService.deleteUsuarios(this.userId).subscribe((result) => {
+        if (result) {
+          this.toastService.success('Usuario eliminado correctamente');
+        } else {
+          console.error(result);
+          this.toastService.error('Error al eliminar el usuario');
+        }
+      });
+    }
   }
 }

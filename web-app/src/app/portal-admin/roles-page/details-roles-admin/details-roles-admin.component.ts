@@ -76,7 +76,7 @@ export class DetailsRolesAdminComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if(this.detailsRolesForm){
+    if (this.detailsRolesForm) {
       this.detailsRolesForm.reset();
     }
   }
@@ -88,31 +88,40 @@ export class DetailsRolesAdminComponent implements OnInit, OnDestroy {
       rolId: updateRolData.rolId,
       rolName: updateRolData.rolName,
       rolDescription: updateRolData.rolDescription,
-    }
-   //console.log(rolDTO);
-    this.rolService.updateRol(rolDTO.rolId, rolDTO).subscribe((result)=>{
-      if(result){
-        this.toast.success("Rol actualizado de manera correcta");
-        this.router.navigate(['/roles-page']);
-      }else{
-        console.error(result);
-        this.toast.error("Error en actualizar los datos.")  
+    };
+    //console.log(rolDTO);
+    this.rolService.updateRol(rolDTO.rolId, rolDTO).subscribe(
+      (result) => {
+        if (result) {
+          this.toast.success('Rol actualizado de manera correcta');
+          this.router.navigate(['/roles-page']);
+        } else {
+          console.error(result);
+          this.toast.error('Error en actualizar los datos.');
+        }
+      },
+      (error) => {
+        console.error(error);
+        this.toast.error('Error en actualizar los datos.');
       }
-    },(error)=>{
-      console.error(error);
-      this.toast.error("Error en actualizar los datos.")
-    });
+    );
   }
 
   deleteRoles(): void {
-    this.rolService.deleteRol(this.rolId).subscribe((result)=>{
-      if(result){
-        this.toast.success('Rol eliminado correctamente');
-      }else{
-        this.toast.error('Error al eliminar rol');
-      }
-    },(error)=>{
-      console.error(error);
-      this.toast.error("Error al eliminar rol.")})
+    if (confirm('¿Estás seguro de eliminar le registro?')) {
+      this.rolService.deleteRol(this.rolId).subscribe(
+        (result) => {
+          if (result) {
+            this.toast.success('Rol eliminado correctamente');
+          } else {
+            this.toast.error('Error al eliminar rol');
+          }
+        },
+        (error) => {
+          console.error(error);
+          this.toast.error('Error al eliminar rol.');
+        }
+      );
+    }
   }
 }
