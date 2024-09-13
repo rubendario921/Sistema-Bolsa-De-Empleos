@@ -41,13 +41,13 @@ export class DetailsUsuarioAdminComponent implements OnInit, OnDestroy {
   userId!: number;
   //Constructor
   constructor(
-    private userService: UsersService,
-    private estadoService: EstadosService,
     private rolService: RolesService,
     private fb: FormBuilder,
     private toastService: CustomToastrService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private userService: UsersService,
+    private estadoService: EstadosService
   ) {
     this.detailsUserForm = this.fb.group({
       newId: [''],
