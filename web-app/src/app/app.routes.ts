@@ -11,6 +11,7 @@ import { DetailsUsuarioAdminComponent } from './portal-admin/usuarios-page/detai
 import { RolesPageComponent } from './portal-admin/roles-page/roles-page.component';
 import { DetailsRolesAdminComponent } from './portal-admin/roles-page/details-roles-admin/details-roles-admin.component';
 import { PostulacionesPageComponent } from './main/postulaciones-page/postulaciones-page.component';
+import { EmpresasPageComponent } from './portal-admin/empresas-page/empresas-page.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -39,6 +40,12 @@ export const routes: Routes = [
   },
   //Roles
   { path: 'roles-page', component: RolesPageComponent },
-  { path: 'roles-page/details-status/:id', component: DetailsRolesAdminComponent },
+  {
+    path: 'roles-page/details-status/:id',
+    component: DetailsRolesAdminComponent,
+  },
+  //Empresas
+  { path: 'empresas-page', component: EmpresasPageComponent },
+  //{ path: 'roles-page/details-status/:id', component: DetailsRolesAdminComponent },
 ];
 export const appRouterProviders = [provideRouter(routes)];
