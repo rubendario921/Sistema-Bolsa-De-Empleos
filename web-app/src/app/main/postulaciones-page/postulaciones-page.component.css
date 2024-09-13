@@ -1,49 +1,65 @@
+
 .text-color {
-    color: #4a4a4a;
+    color: #2c2b2b; /* Color de texto principal */
   }
-  
+
   .back-color {
     background: linear-gradient(135deg, #fdf3f4, #c1dff0);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-  
+
   .icon-color {
-    color: #a600ff;
+    color: #a600ff; 
     font-weight: 600;
     font-size: 1.2rem;
   }
   
-  .job-item {
+  /* Estilo general para las cardd */
+  .job-card {
+    background: linear-gradient(135deg, #fdf3f4, #c1dff0); 
+    border-left: 5px solid #a600ff; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     margin-bottom: 20px;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  }
-  
-  .job-item:hover {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;  }
+
+  /* caudno pasa el mause */
+  .job-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  .job-card-header {
+    background: transparent; 
+    padding: 15px;
+  }
+  .job-title {
+    font-size: 1.5em; 
+    font-weight: bold; 
+    color: #333; 
+    margin: 0;
+  }
+  .job-card-body {
+    padding: 5px;
+    background: transparent; 
+  }
+  .company {
+    color: #a600ff; 
+    font-weight: 600; 
   }
   
-  .custom-font-size {
-    font-size: 2.7rem;
-    color: #333;
+  .location, .job-type, .published {
+    color: rgb(30, 29, 29); 
+    font-weight: normal;
+    margin: px 2; 
   }
   
-  .highlight {
-    font-weight: bold;
-    font-size: 1.8rem;
-    color: #333;
+  .job-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre tarjetas */
   }
-  
-  .job-image-element {
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .job-image-element:hover {
-    transform: scale(1.05);
-  }
+
   

@@ -1,0 +1,73 @@
+/* Contenedor de filtros de búsqueda */
+.navbar-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 25px;
+    background: linear-gradient(135deg, #ffffff, #e0f7fa);
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .navbar-filters h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  /* aqui es para los estilos de los campos de entrada y selectores */
+  .filter-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .filter-item label {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+  }
+  
+  .filter-item input,
+  .filter-item select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .filter-item input:focus,
+  .filter-item select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Estilos del botón */
+  button {
+    padding: 12px;
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    background: linear-gradient(135deg, #0056b3, #00a3e0);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  }
+  
+  .navbar-filters {
+    /* Otras reglas existentes */
+    margin-left: -160px;
+}
+
+ 

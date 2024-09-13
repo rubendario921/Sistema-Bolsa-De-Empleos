@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { HeaderMainComponent } from "../templates/header-main/header-main.component";
 
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
+import { NavbarFiltrosComponent } from "./navbar-filtros/navbar-filtros.component"; 
 
 @Component({
   selector: 'app-postulaciones-page',
   standalone: true,
-  imports: [HeaderMainComponent, CommonModule],
+  imports: [HeaderMainComponent, CommonModule, NavbarFiltrosComponent],
   templateUrl: './postulaciones-page.component.html',
   styleUrl: './postulaciones-page.component.css'
 })
@@ -35,7 +36,7 @@ jobList = [
     jobType: 'Presencial',
     published: 'Publicado hoy'
   }
-  // Puedes agregar más empleos aquí
+  // agregar más empleos aquí
 ];
 
 
