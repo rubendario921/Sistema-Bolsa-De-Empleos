@@ -11,6 +11,8 @@ import { empresaDTO } from '../../../models/empresasDTO';
 import { EmpresasService } from '../../../services/empresas.service';
 import { CustomToastrService } from '../../../services/custom-toastr.service';
 import { Router } from '@angular/router';
+import { CantidadEmpleadosService } from '../../../services/cantidad-empleados.service';
+import { cantidadEmpleadosDTO } from '../../../models/cantidadEmpleadosDTO.interface';
 
 @Component({
   selector: 'app-new-company',
@@ -24,12 +26,14 @@ export class NewCompanyComponent implements OnInit, OnDestroy {
   registerStaff!: FormGroup;
   viewPasswordInput: boolean = false;
   viewConfirmPasswordInput: boolean = false;
+  allCantidadEmpresas: cantidadEmpleadosDTO[] = [];
   //Constructor
   constructor(
     private empresasService: EmpresasService,
     private fb: FormBuilder,
     private toast: CustomToastrService,
-    private router: Router
+    private router: Router,
+    private cantidadEmpresasService: CantidadEmpleadosService
   ) {
     //Formulario del registro
     this.registerStaff = this.fb.group({
@@ -103,19 +107,19 @@ export class NewCompanyComponent implements OnInit, OnDestroy {
         empDireccion: empresaData.staffAddress,
         empCodPostal: empresaData.staffPostalCode,
         empNumPhone: empresaData.staffNumContact,
-        empActvidadEconomica: empresaData.staffIndustry,
-        empCantidadEmpelados: empresaData.StaffCount,
         empProfilePicture: '',
         estId: 1,
         estName: '',
+        estColor: '',
+        // indId: number;
+        // indName: string;
+        cantEmpID: empresaData.StaffCount,
+        cantEmpDetails: '',
       };
       this.empresasService.saveEmpresa(empresaDTO).subscribe((result) => {
         if (result) {
           console.log(result);
           this.toast.success('Empresa registrada con éxito');
-          // this.router.navigate(['/companies']).then(() => {
-          //   window.location.reload();
-          // });
         } else {
           console.log('Error en crear la empresa.');
           this.toast.error('Error en crear la empresa.');
@@ -125,10 +129,23 @@ export class NewCompanyComponent implements OnInit, OnDestroy {
       this.registerStaff.markAllAsTouched();
     }
   }
+
   viewPassword(): void {
     this.viewPasswordInput = !this.viewPasswordInput;
   }
   viewConfirmPassword(): void {
     this.viewConfirmPasswordInput = !this.viewConfirmPasswordInput;
+  }
+
+  //Cantidad Empleados
+  loadCantidadEmpresas(): void {
+    this.cantidadEmpresasService
+      .getAllCantidadEmpleados()
+      .subscribe((result) => {
+        if (result) {
+          console.log(result);
+          this.allCantidadEmpresas = result;
+        }
+      });
   }
 }

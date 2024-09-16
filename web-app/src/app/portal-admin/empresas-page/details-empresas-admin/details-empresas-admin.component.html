@@ -316,10 +316,302 @@
                       </div>
                     </div>
                   </div>
+                  <!-- Fila # 4-->
+                  <div
+                    class="row justify-content-center align-items-center g-2"
+                  >
+                    <div class="col">
+                      <!-- RUC -->
+                      <div class="form-floating mb-4">
+                        <input
+                          type="text"
+                          class="form-control shadow"
+                          id="empNumRuc"
+                          formControlName="empNumRuc"
+                          autocomplete="off"
+                          placeholder="Ruc de la Empresa"
+                          [ngClass]="{
+                            'is-invalid':
+                              detailsEmpresaForm.get('empNumRuc')?.touched &&
+                              detailsEmpresaForm.get('empNumRuc')?.invalid
+                          }"
+                        />
+                        <label for="empNumRuc" class="form-label fw-semibold"
+                          >RUC de la Empresa<span class="text-danger"
+                            >*</span
+                          ></label
+                        >
+                        <div
+                          *ngIf="
+                            detailsEmpresaForm.get('empNumRuc')?.touched &&
+                            detailsEmpresaForm.get('empNumRuc')?.invalid
+                          "
+                          class="invalid-feedback"
+                        >
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empNumRuc')?.errors?.['required']"
+                          >
+                            El nombre es obligatorio.
+                          </div>
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empNumRuc')?.errors?.['pattern']"
+                          >
+                            No se permite caracteres especiales o letras.
+                          </div>
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empNumRuc')?.errors?.['minlength']"
+                          >
+                            El mínimo de dígitos debe ser de 13.
+                          </div>
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empNumRuc')?.errors?.['minlength']"
+                          >
+                            El máximo de dígitos debe ser de 13.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <!-- Número de Contacto -->
+                      <div class="form-floating mb-4">
+                        <input
+                          type="text"
+                          class="form-control shadow"
+                          id="empNumPhone"
+                          formControlName="empNumPhone"
+                          autocomplete="off"
+                          placeholder="Número de Contacto Empresarial"
+                          [ngClass]="{
+                            'is-invalid':
+                              detailsEmpresaForm.get('empNumPhone')?.touched &&
+                              detailsEmpresaForm.get('empNumPhone')?.invalid
+                          }"
+                        />
+                        <label for="empNumPhone" class="form-label fw-semibold"
+                          >Número de contacto empresarial<span
+                            class="text-danger"
+                            >*</span
+                          ></label
+                        >
+                        <div
+                          *ngIf="
+                            detailsEmpresaForm.get('empNumPhone')?.touched &&
+                            detailsEmpresaForm.get('empNumPhone')?.invalid
+                          "
+                          class="invalid-feedback"
+                        >
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empNumPhone')?.errors?.['required']"
+                          >
+                            El número de contacto es requerido.
+                          </div>
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empNumPhone')?.errors?.['pattern']"
+                          >
+                            No se permite caracteres especiales letras
+                          </div>
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empNumPhone')?.errors?.['pattern']"
+                          >
+                            El mínimo de dígitos es 10.
+                          </div>
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empNumPhone')?.errors?.['pattern']"
+                          >
+                            El máximo de dígitos es 10.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Fila # 4-->
+                  <div
+                    class="row justify-content-center align-items-center g-2"
+                  >
+                    <div class="col">
+                      <!-- Ubicación de la Empresa -->
+                      <div class="form-floating mb-4">
+                        <input
+                          type="text"
+                          class="form-control shadow"
+                          id="empDireccion"
+                          formControlName="empDireccion"
+                          autocomplete="off"
+                          placeholder="Ubicación de la empresa"
+                          [ngClass]="{
+                            'is-invalid':
+                              detailsEmpresaForm.get('empDireccion')?.touched &&
+                              detailsEmpresaForm.get('empDireccion')?.invalid
+                          }"
+                        />
+                        <label for="empDireccion" class="form-label fw-semibold"
+                          >Ubicación de la empresa<span class="text-danger"
+                            >*</span
+                          ></label
+                        >
+                        <div
+                          *ngIf="
+                            detailsEmpresaForm.get('empDireccion')?.touched &&
+                            detailsEmpresaForm.get('empDireccion')?.invalid
+                          "
+                          class="invalid-feedback"
+                        >
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empDireccion')?.errors?.['required']"
+                          >
+                            El nombre es obligatorio.
+                          </div>
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empDireccion')?.errors?.['pattern']"
+                          >
+                            No se permite caracteres especiales.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <!-- Código Postal -->
+                      <div class="form-floating mb-4">
+                        <input
+                          type="text"
+                          class="form-control shadow"
+                          id="empCodPostal"
+                          formControlName="empCodPostal"
+                          autocomplete="off"
+                          placeholder="Número de Contacto Empresarial"
+                          [ngClass]="{
+                            'is-invalid':
+                              detailsEmpresaForm.get('empCodPostal')?.touched &&
+                              detailsEmpresaForm.get('empCodPostal')?.invalid
+                          }"
+                        />
+                        <label for="empCodPostal" class="form-label fw-semibold"
+                          >Código Postal<span class="text-danger"
+                            >*</span
+                          ></label
+                        >
+                        <div
+                          *ngIf="
+                            detailsEmpresaForm.get('empCodPostal')?.touched &&
+                            detailsEmpresaForm.get('empCodPostal')?.invalid
+                          "
+                          class="invalid-feedback"
+                        >
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empCodPostal')?.errors?.['required']"
+                          >
+                            El código postal es requerido.
+                          </div>
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empCodPostal')?.errors?.['pattern']"
+                          >
+                            No se permite caracteres especiales o letras.
+                          </div>
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empCodPostal')?.errors?.['pattern']"
+                          >
+                            El mínimo de dígitos es 6.
+                          </div>
+                          <div
+                            *ngIf="detailsEmpresaForm.get('empCodPostal')?.errors?.['pattern']"
+                          >
+                            El máximo de dígitos es 6.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Fila # 6-->
+                  <div
+                    class="row justify-content-center align-items-center g-2"
+                  >
+                    <div class="col">
+                      <!-- Industrias -->
+                      <div class="form-floating mb-4">
+                        <select
+                          formControlName="empActvidadEconomica"
+                          id="empActvidadEconomica"
+                          class="form-select shadow"
+                          required
+                          [ngClass]="{
+                            'is-invalid':
+                              detailsEmpresaForm.get('empActvidadEconomica')
+                                ?.touched &&
+                              detailsEmpresaForm.get('empActvidadEconomica')
+                                ?.invalid
+                          }"
+                        >
+                          <option value="" disabled></option>
+                          <option
+                            *ngFor="let rol of allRoles"
+                            [value]="rol.rolId"
+                          >
+                            {{ rol.rolName }}
+                          </option>
+                        </select>
+                        <label for="newStatus" class="form-label fw-semibold"
+                          >Roles</label
+                        >
+                        <div
+                          *ngIf="
+                            detailsEmpresaForm.get('newRol')?.touched &&
+                            detailsEmpresaForm.get('newRol')?.invalid
+                          "
+                          class="invalid-feedback"
+                        >
+                          <div
+                            *ngIf="detailsEmpresaForm.get('newRol')?.errors?.['required']"
+                          >
+                            El rol es obligatorio.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <!-- Estado -->
+                      <div class="form-floating mb-4">
+                        <select
+                          formControlName="newStatus"
+                          id="newStatus"
+                          class="form-select shadow"
+                          required
+                          [ngClass]="{
+                            'is-invalid':
+                              detailsEmpresaForm.get('newStatus')?.touched &&
+                              detailsEmpresaForm.get('newStatus')?.invalid
+                          }"
+                        >
+                          <option value="" disabled></option>
+                          <option
+                            *ngFor="let state of allEstados"
+                            [value]="state.estId"
+                          >
+                            {{ state.estName }}
+                          </option>
+                        </select>
+                        <label for="newStatus" class="form-label fw-semibold"
+                          >Estado</label
+                        >
+                        <div
+                          *ngIf="
+                            detailsEmpresaForm.get('newStatus')?.touched &&
+                            detailsEmpresaForm.get('newStatus')?.invalid
+                          "
+                          class="invalid-feedback"
+                        >
+                          <div
+                            *ngIf="detailsEmpresaForm.get('newStatus')?.errors?.['required']"
+                          >
+                            El Estado es obligatorio.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <!-- Acciones -->
                   <div class="text-center">
                     <a
-                      href="/usuarios-page"
+                      href="/empresas-page"
                       type="button"
                       class="btn btn-success mx-1"
                       >Regresar</a
@@ -332,7 +624,7 @@
                       Actualizar
                     </button>
                     <a
-                      href="/usuarios-page"
+                      href="/empresas-page"
                       type="button"
                       class="btn btn-danger mx-1"
                       (click)="deleteEmpresa()"
@@ -341,9 +633,9 @@
                   </div>
                 </form>
               </div>
-
               <div class="text-center"></div>
             </div>
+            <!-- Footer Card -->
             <div class="card-footer text-muted fst-italic">
               Los campos con (<span class="text-danger">*</span>) son
               obligatorios.

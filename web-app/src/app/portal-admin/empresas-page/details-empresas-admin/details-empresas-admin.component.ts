@@ -73,10 +73,26 @@ export class DetailsEmpresasAdminComponent implements OnInit, OnDestroy {
         '',
         [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)],
       ],
-      empNumRuc: [''],
+      empNumRuc: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(13),
+          Validators.maxLength(13),
+          Validators.pattern(/^[0-9]+$/),
+        ],
+      ],
+      empNumPhone: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(13),
+          Validators.maxLength(13),
+          Validators.pattern(/^[0-9]+$/),
+        ],
+      ],
       empDireccion: [''],
       empCodPostal: [''],
-      empNumPhone: [''],
       empActvidadEconomica: [''],
       empCantidadEmpelados: [''],
       empProfilePicture: [''],
@@ -118,16 +134,43 @@ export class DetailsEmpresasAdminComponent implements OnInit, OnDestroy {
               result.empRazonSocial,
               [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)],
             ],
-            empNumRuc: [result.empId],
-            empDireccion: [result.empId],
-            empCodPostal: [result.empId],
-            empNumPhone: [result.empId],
-            empActvidadEconomica: [result.empId],
+            empNumRuc: [
+              result.empNumRuc,
+              [
+                Validators.required,
+                Validators.minLength(13),
+                Validators.maxLength(13),
+                Validators.pattern(/^[0-9]+$/),
+              ],
+            ],
+            empNumPhone: [
+              result.empNumPhone,
+              [
+                Validators.required,
+                Validators.minLength(10),
+                Validators.maxLength(10),
+                Validators.pattern(/^[0-9]+$/),
+              ],
+            ],
+            empDireccion: [
+              result.empDireccion,
+              [Validators.required, Validators.pattern(/^[a-zA-Z0-9, ]+$/)],
+            ],
+            empCodPostal: [
+              result.empCodPostal,
+              [
+                Validators.required,
+                Validators.minLength(6),
+                Validators.maxLength(6),
+                Validators.pattern(/^[0-9]+$/),
+              ],
+            ],
+            empActvidadEconomica: [result.empActvidadEconomica],
             empCantidadEmpelados: [result.empId],
-            empProfilePicture: [result.empId],
+            //empProfilePicture: [result.empId],
             estId: [result.empId],
             estName: [result.empId],
-            estColor: [result.empId],
+            //estColor: [result.empId],
           });
         } else {
           console.error(result);

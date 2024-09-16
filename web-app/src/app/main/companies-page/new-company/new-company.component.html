@@ -581,15 +581,25 @@
                   <select
                     name="StaffCount"
                     id="StaffCount"
-                    class="form-select"
+                    class="form-select shadow"
                     formControlName="StaffCount"
                     aria-describedby="StaffCountFeedback"
+                    required
+                    [ngClass]="{
+                      'is-invalid':
+                        registerStaff.get('StaffCount')?.invalid &&
+                        registerStaff.get('StaffCount')?.invalid
+                    }"
                   >
                     <option value="" disabled selected>
                       Seleccione una opción.
                     </option>
-                    <option value="1">0 - 5</option>
-                    <option value="2">50-100</option>
+                    <option
+                      **ngFor="let count of allCantidadEmpresas"
+                      [value]="count.cantEmpId"
+                    >
+                      {{ count.cantEmpDetails }}
+                    </option>
                   </select>
                   <label for="StaffCount" class="form-label fw-semibold"
                     >Cantidad de Empleados<span class="text-danger"

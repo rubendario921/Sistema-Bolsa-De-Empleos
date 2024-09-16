@@ -10,9 +10,12 @@ export interface empresaDTO {
   empDireccion: string;
   empCodPostal: string;
   empNumPhone: string;
-  empActvidadEconomica: string;
-  empCantidadEmpelados: string;
   empProfilePicture: string;
   estId: number;
   estName: string;
+  estColor: string;
+  indId: number;
+  indName: string;
+  cantEmpID: number;
+  cantEmpDetails: string;
 }
