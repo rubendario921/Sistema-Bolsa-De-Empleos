@@ -546,15 +546,19 @@
                   <select
                     name="staffIndustry"
                     id="staffIndustry"
-                    class="form-select"
+                    class="form-select shadow"
                     formControlName="staffIndustry"
                     aria-describedby="staffIndustryFeedback"
                   >
                     <option value="" disabled selected>
                       Seleccione una industria
                     </option>
-                    <option value="1">Tecnología</option>
-                    <option value="2">Recursos Humanos</option>
+                    <option
+                      *ngFor="let industria of allIndustrias"
+                      [value]="industria.indId"
+                    >
+                      {{ industria.indName }}
+                    </option>
                   </select>
                   <label for="staffIndustry" class="form-label fw-semibold"
                     >Industrias<span class="text-danger">*</span></label
@@ -595,10 +599,10 @@
                       Seleccione una opción.
                     </option>
                     <option
-                      **ngFor="let count of allCantidadEmpresas"
-                      [value]="count.cantEmpId"
+                      *ngFor="let cantidadEmpresa of allCantidadEmpresas"
+                      [value]="cantidadEmpresa.cantEmpId"
                     >
-                      {{ count.cantEmpDetails }}
+                      {{ cantidadEmpresa.cantEmpDetails }}
                     </option>
                   </select>
                   <label for="StaffCount" class="form-label fw-semibold"

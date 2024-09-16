@@ -13,6 +13,8 @@ import { CustomToastrService } from '../../../services/custom-toastr.service';
 import { Router } from '@angular/router';
 import { CantidadEmpleadosService } from '../../../services/cantidad-empleados.service';
 import { cantidadEmpleadosDTO } from '../../../models/cantidadEmpleadosDTO.interface';
+import { IndustriasService } from '../../../services/industrias.service';
+import { industriaDTO } from '../../../models/industriasDTO.interface';
 
 @Component({
   selector: 'app-new-company',
@@ -27,13 +29,16 @@ export class NewCompanyComponent implements OnInit, OnDestroy {
   viewPasswordInput: boolean = false;
   viewConfirmPasswordInput: boolean = false;
   allCantidadEmpresas: cantidadEmpleadosDTO[] = [];
+  allIndustrias: industriaDTO[] = [];
+
   //Constructor
   constructor(
     private empresasService: EmpresasService,
     private fb: FormBuilder,
     private toast: CustomToastrService,
     private router: Router,
-    private cantidadEmpresasService: CantidadEmpleadosService
+    private cantidadEmpresasService: CantidadEmpleadosService,
+    private industriasService: IndustriasService
   ) {
     //Formulario del registro
     this.registerStaff = this.fb.group({
@@ -84,8 +89,8 @@ export class NewCompanyComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    //Consumir industrias con Api (Pendiente)
-    //Consumir cantidad de empleados con Api (Pendiente)
+    this.loadIndustrias();
+    this.loadCantidadEmpresas();
   }
 
   ngOnDestroy(): void {
@@ -111,8 +116,8 @@ export class NewCompanyComponent implements OnInit, OnDestroy {
         estId: 1,
         estName: '',
         estColor: '',
-        // indId: number;
-        // indName: string;
+        indId: empresaData.staffIndustry,
+        indName: '',
         cantEmpID: empresaData.StaffCount,
         cantEmpDetails: '',
       };
@@ -147,5 +152,14 @@ export class NewCompanyComponent implements OnInit, OnDestroy {
           this.allCantidadEmpresas = result;
         }
       });
+  }
+  //Industrias
+  loadIndustrias(): void {
+    this.industriasService.getAllIndustrias().subscribe((result) => {
+      if (result) {
+        console.log(result);
+        this.allIndustrias = result;
+      }
+    });
   }
 }

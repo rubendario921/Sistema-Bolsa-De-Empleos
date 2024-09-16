@@ -21,7 +21,7 @@ export class IndustriasService {
   }
   getIndustriaById(id: number): Observable<any> {
     return this.http.get<any>(
-      this.apiUrl + 'Industrisas/GetIndustriaById/' + id
+      this.apiUrl + 'Industrias/GetIndustriaById/' + id
     );
   }
 
@@ -32,7 +32,10 @@ export class IndustriasService {
     );
   }
   UpdateIndustria(id: number, industriaDTO: industriaDTO): Observable<any> {
-    return this.http.put<any>(this.apiUrl + '' + id, industriaDTO);
+    return this.http.put<any>(
+      this.apiUrl + 'Industrias/UpdateIndustria' + id,
+      industriaDTO
+    );
   }
   DeleteIndustria(id: number): Observable<any> {
     return this.http.delete<any>(

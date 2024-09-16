@@ -13,6 +13,7 @@ import { DetailsRolesAdminComponent } from './portal-admin/roles-page/details-ro
 import { PostulacionesPageComponent } from './main/postulaciones-page/postulaciones-page.component';
 import { EmpresasPageComponent } from './portal-admin/empresas-page/empresas-page.component';
 import { DetailsEmpresasAdminComponent } from './portal-admin/empresas-page/details-empresas-admin/details-empresas-admin.component';
+import { ProvinciasPageComponent } from './portal-admin/provincias-page/provincias-page.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -51,5 +52,7 @@ export const routes: Routes = [
     path: 'empresas-page/details-empresa/:id',
     component: DetailsEmpresasAdminComponent,
   },
+  //Provincias
+  { path: 'provincias-page', component: ProvinciasPageComponent },
 ];
 export const appRouterProviders = [provideRouter(routes)];
