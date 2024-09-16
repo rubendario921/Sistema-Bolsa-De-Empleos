@@ -4,6 +4,7 @@ import { environment } from '../environment/environment.development';
 import { loginDTO } from '../models/loginDTOs.interface';
 import { Observable, tap } from 'rxjs';
 import { forgotDTO } from '../models/forgotDTOs.interface';
+import { loginEmpresasDTO } from '../models/loginEmpresasDTO.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -56,6 +57,12 @@ export class AuthService {
   }
 
   //Método LoginCompanies
+  loginEmpresas(loginEmpresasDTO: loginEmpresasDTO): Observable<any> {
+    return this.http.post<any>(
+      this.apiUrl + 'Authentication/AuthEmpresas',
+      loginEmpresasDTO
+    );
+  }
 
   //Método Forgot
   forgotLogin(forgotDTO: forgotDTO): Observable<any> {

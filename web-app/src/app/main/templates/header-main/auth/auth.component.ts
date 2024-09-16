@@ -11,6 +11,7 @@ import { AuthService } from '../../../../services/auth.service';
 import { Router } from '@angular/router';
 import { CustomToastrService } from '../../../../services/custom-toastr.service';
 import { forgotDTO } from '../../../../models/forgotDTOs.interface';
+import { loginEmpresasDTO } from '../../../../models/loginEmpresasDTO.interface';
 
 @Component({
   selector: 'app-auth',
@@ -73,26 +74,48 @@ export class AuthComponent implements OnInit, OnDestroy {
   onsubmitLogin(): void {
     if (this.loginForm.valid) {
       let newLoginData = this.loginForm.value;
+      //console.log(newLoginData.numDniLogin);
 
-      //Crear el objeto
-      let loginDTO: loginDTO = {
-        usuNumDni: newLoginData.numDniLogin,
-        usuPassword: newLoginData.passwordLogin,
-      };
-      //console.log(loginDTO);
-      this.authService.loginUser(loginDTO).subscribe(
-        (response) => {
-          if (response) {
-            this.toast.success('Inicio de sesión de correcto.');
-            this.router.navigate(['portal-admin']);
-          } else {
-            this.toast.error('Error campos incorrectos');
+      //Validaciones del tamaño del NumDni
+      if (newLoginData.numDniLogin.length == 10) {
+        //Crear el objeto Usuario
+        let loginDTO: loginDTO = {
+          usuNumDni: newLoginData.numDniLogin,
+          usuPassword: newLoginData.passwordLogin,
+        };
+        //console.log(loginDTO);
+        this.authService.loginUser(loginDTO).subscribe(
+          (response) => {
+            if (response) {
+              this.toast.success('Inicio de sesión de correcto.');
+              this.router.navigate(['portal-admin']);
+            } else {
+              this.toast.error('Error campos incorrectos');
+            }
+          },
+          (error) => {
+            this.toast.error(error.message, 'Error');
           }
-        },
-        (error) => {
-          this.toast.error(error.message, 'Error');
-        }
-      );
+        );
+      } else {
+        //Crear el objeto Empresas
+        let loginEmpresasDTO: loginEmpresasDTO = {
+          empNumRuc: newLoginData.numDniLogin,
+          empStaffPassword: newLoginData.passwordLogin,
+        };
+        //console.log(loginEmpresasDTO);
+        this.authService.loginEmpresas(loginEmpresasDTO).subscribe(
+          (result) => {
+            //console.log(result);
+            this.toast.success('Inicio de sesión de correcto');
+            this.router.navigate(['portal-empresas']);
+          },
+          (error) => {
+            //console.error(error);
+            this.toast.error('Error la iniciar sesión. Intente nuevamente');
+          }
+        );
+      }
     }
   }
   onsubmitForgot(): void {

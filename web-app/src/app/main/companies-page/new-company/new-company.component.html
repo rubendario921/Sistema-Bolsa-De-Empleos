@@ -549,6 +549,12 @@
                     class="form-select shadow"
                     formControlName="staffIndustry"
                     aria-describedby="staffIndustryFeedback"
+                    required
+                    [ngClass]="{
+                      'is-invalid':
+                        registerStaff.get('staffIndustry')?.invalid &&
+                        registerStaff.get('staffIndustry')?.invalid
+                    }"
                   >
                     <option value="" disabled selected>
                       Seleccione una industria

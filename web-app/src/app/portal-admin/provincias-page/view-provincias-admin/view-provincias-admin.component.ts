@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './view-provincias-admin.component.html',
-  styleUrl: './view-provincias-admin.component.css'
+  styleUrl: './view-provincias-admin.component.css',
 })
-export class ViewProvinciasAdminComponent {
-
-}
+export class ViewProvinciasAdminComponent {}

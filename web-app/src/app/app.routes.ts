@@ -16,6 +16,7 @@ import { DetailsEmpresasAdminComponent } from './portal-admin/empresas-page/deta
 import { ProvinciasPageComponent } from './portal-admin/provincias-page/provincias-page.component';
 import { IndustriasPageComponent } from './portal-admin/industrias-page/industrias-page.component';
 import { Component } from '@angular/core';
+import { IndexEmpresasComponent } from './portal-empresas/index-empresas/index-empresas.component';
 export const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
   { path: '***', redirectTo: '/main' },
@@ -58,6 +59,8 @@ export const routes: Routes = [
 
   //Industrias
   { path: 'industrias-page', component: IndustriasPageComponent },
+  //
+  { path: 'portal-empresas', component: IndexEmpresasComponent },
 ];
 
 export const appRouterProviders = [provideRouter(routes)];

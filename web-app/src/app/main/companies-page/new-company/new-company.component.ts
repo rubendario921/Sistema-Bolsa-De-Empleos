@@ -121,6 +121,7 @@ export class NewCompanyComponent implements OnInit, OnDestroy {
         cantEmpID: empresaData.StaffCount,
         cantEmpDetails: '',
       };
+      console.log(empresaDTO);
       this.empresasService.saveEmpresa(empresaDTO).subscribe((result) => {
         if (result) {
           console.log(result);
