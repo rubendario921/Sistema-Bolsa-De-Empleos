@@ -1,0 +1,138 @@
+<!-- Modal trigger button -->
+<button
+  type="button"
+  class="btn btn-primary btn-lg shadow"
+  data-bs-toggle="modal"
+  data-bs-target="#modalNewIndustria"
+>
+  Nuevo Registro
+</button>
+
+<!-- Modal Body -->
+<!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+<div
+  class="modal fade"
+  id="modalNewIndustria"
+  tabindex="-1"
+  data-bs-backdrop="static"
+  data-bs-keyboard="true"
+  role="dialog"
+  aria-labelledby="modalTitleNewIndustria"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog modal-dialog-scrollable modal-body modal-md"
+    role="document"
+  >
+    <div class="modal-content">
+      <div class="modal-header">
+        <p
+          class="modal-title text-subtitle-color fs-3"
+          id="modalTitleNewIndustria"
+        >
+          Nuevo Registro
+        </p>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulario de registro -->
+        <form
+          [formGroup]="newFormIndustria"
+          (ngSubmit)="newRegisterIndustria()"
+          method="post"
+          class="needs-validations"
+          novalidate
+        >
+          <!-- Nombre -->
+          <div class="form-floating mb-4">
+            <input
+              type="text"
+              class="form-control shadow"
+              id="newName"
+              formControlName="newName"
+              autocomplete="off"
+              placeholder="Nombre de la Industria"
+              [ngClass]="{
+                'is-invalid':
+                  newFormIndustria.get('newName')?.touched &&
+                  newFormIndustria.get('newName')?.invalid
+              }"
+            />
+            <label for="newName" class="form-label fw-semibold"
+              >Nombre de la Industria<span class="text-danger">*</span></label
+            >
+
+            <div
+              *ngIf="
+                newFormIndustria.get('newName')?.touched &&
+                newFormIndustria.get('newName')?.invalid
+              "
+              class="invalid-feedback"
+            >
+              <div *ngIf="newFormIndustria.get('newName')?.errors?.['required']">
+                El nombre es obligatorio.
+              </div>
+              <div *ngIf="newFormIndustria.get('newName')?.errors?.['pattern']">
+                No se permite caracteres especiales o números.
+              </div>
+            </div>
+          </div>
+          <!-- Descripción -->
+          <div class="form-floating mb-4">
+            <input
+              type="text"
+              class="form-control shadow"
+              id="newDescription"
+              formControlName="newDescription"
+              autocomplete="off"
+              placeholder="Descripción de la industria"
+              [ngClass]="{
+                'is-invalid':
+                  newFormIndustria.get('newDescription')?.touched &&
+                  newFormIndustria.get('newDescription')?.invalid
+              }"
+            />
+            <label for="newDescription" class="form-label fw-semibold"
+              >Descripción de la Industria<span class="text-danger">*</span></label
+            >
+
+            <div
+              *ngIf="
+                newFormIndustria.get('newDescription')?.touched &&
+                newFormIndustria.get('newDescription')?.invalid
+              "
+              class="invalid-feedback"
+            >
+              <div
+                *ngIf="newFormIndustria.get('newDescription')?.errors?.['required']"
+              >
+                La categoría es obligatorio.
+              </div>
+            </div>
+          </div>
+          <!-- Acciones -->
+          <button
+            type="button"
+            class="btn btn-danger shadow mx-1"
+            data-bs-dismiss="modal"
+          >
+            Cerrar
+          </button>
+          <button
+            type="submit"
+            class="btn btn-success shadow mx-1"
+            [disabled]="!newFormIndustria.valid"
+            data-bs-dismiss="modal"
+          >
+            Guardar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

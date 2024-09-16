@@ -25,19 +25,19 @@ export class IndustriasService {
     );
   }
 
-  SaveIndustria(industriaDTO: industriaDTO): Observable<any> {
+  saveIndustria(industriaDTO: industriaDTO): Observable<any> {
     return this.http.post<any>(
       this.apiUrl + 'Industrias/SaveIndustria',
       industriaDTO
     );
   }
-  UpdateIndustria(id: number, industriaDTO: industriaDTO): Observable<any> {
+  updateIndustria(id: number, industriaDTO: industriaDTO): Observable<any> {
     return this.http.put<any>(
       this.apiUrl + 'Industrias/UpdateIndustria' + id,
       industriaDTO
     );
   }
-  DeleteIndustria(id: number): Observable<any> {
+  deleteIndustria(id: number): Observable<any> {
     return this.http.delete<any>(
       this.apiUrl + 'Industrias/DeleteIndustria' + id
     );

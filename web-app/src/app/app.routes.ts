@@ -14,7 +14,8 @@ import { PostulacionesPageComponent } from './main/postulaciones-page/postulacio
 import { EmpresasPageComponent } from './portal-admin/empresas-page/empresas-page.component';
 import { DetailsEmpresasAdminComponent } from './portal-admin/empresas-page/details-empresas-admin/details-empresas-admin.component';
 import { ProvinciasPageComponent } from './portal-admin/provincias-page/provincias-page.component';
-
+import { IndustriasPageComponent } from './portal-admin/industrias-page/industrias-page.component';
+import { Component } from '@angular/core';
 export const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
   { path: '***', redirectTo: '/main' },
@@ -54,5 +55,9 @@ export const routes: Routes = [
   },
   //Provincias
   { path: 'provincias-page', component: ProvinciasPageComponent },
+
+  //Industrias
+  { path: 'industrias-page', component: IndustriasPageComponent },
 ];
+
 export const appRouterProviders = [provideRouter(routes)];
