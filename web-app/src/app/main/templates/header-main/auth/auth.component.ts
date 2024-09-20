@@ -131,14 +131,10 @@ export class AuthComponent implements OnInit, OnDestroy {
         (response) => {
           if (response) {
             this.toast.success('Contraseña restablecida.');
-            this.router.navigate(['main']).then(() => {
-              window.location.reload();
-            });
+            this.router.navigate(['main']);
           } else {
             this.toast.error('Error de campos incorrectos');
-            this.router.navigate(['main']).then(() => {
-              window.location.reload();
-            });
+            this.router.navigate(['main']);
           }
         },
         (error) => {

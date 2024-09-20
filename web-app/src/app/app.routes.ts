@@ -59,7 +59,8 @@ export const routes: Routes = [
 
   //Industrias
   { path: 'industrias-page', component: IndustriasPageComponent },
-  //
+
+  //Portal-Empresas
   { path: 'portal-empresas', component: IndexEmpresasComponent },
 ];
 

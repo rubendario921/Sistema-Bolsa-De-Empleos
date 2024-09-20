@@ -1,0 +1,450 @@
+<!-- Modal trigger button -->
+<button
+  type="button"
+  class="btn btn-primary btn-lg"
+  data-bs-toggle="modal"
+  data-bs-target="#modalNewOferta"
+>
+  Nuevo Registro
+</button>
+
+<!-- Modal Body -->
+<div
+  class="modal fade"
+  id="modalNewOferta"
+  tabindex="-1"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  role="dialog"
+  aria-labelledby="modalNewOfertaTitle"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog modal-dialog-scrollable modal-body modal-lg"
+    role="document"
+  >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-subtitle-color" id="modalNewOfertaTitle">
+          Nuevo Registro
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- Body -->
+        <div class="container-fluid">
+          <!-- Formulario de registro -->
+          <form
+            method="post"
+            [formGroup]="newFormOferta"
+            (ngSubmit)="registerNewOferta()"
+            class="needs-validations"
+            novalidate
+          >
+            <!-- Fila # 1-->
+            <div class="row justify-content-center align-items-center g-2">
+              <div class="col">
+                <!-- Titulo -->
+                <div class="form-floating mb-4">
+                  <input
+                    type="text"
+                    class="form-control shadow"
+                    id="newTitulo"
+                    formControlName="newTitulo"
+                    autocomplete="off"
+                    placeholder="Titulo de la Oferta"
+                    [ngClass]="{
+                      'is-invalid':
+                        newFormOferta.get('newTitulo')?.touched &&
+                        newFormOferta.get('newTitulo')?.invalid
+                    }"
+                  />
+                  <label for="newTitulo" class="form-label fw-semibold"
+                    >Titulo de la Empresa<span class="text-danger"
+                      >*</span
+                    ></label
+                  >
+                  <div
+                    *ngIf="
+                      newFormOferta.get('newTitulo')?.touched &&
+                      newFormOferta.get('newTitulo')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="newFormOferta.get('newTitulo')?.errors?.['required']"
+                    >
+                      El titulo es obligatorio.
+                    </div>
+                    <div
+                      *ngIf="newFormOferta.get('newTitulo')?.errors?.['pattern']"
+                    >
+                      No se permite caracteres especiales o números.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <!-- Detalle -->
+                <div class="form-floating mb-4">
+                  <input
+                    type="text"
+                    class="form-control shadow"
+                    id="newSubTitle"
+                    formControlName="newSubTitle"
+                    autocomplete="off"
+                    placeholder="Breve Detalle de la Oferta"
+                    [ngClass]="{
+                      'is-invalid':
+                        newFormOferta.get('newSubTitle')?.touched &&
+                        newFormOferta.get('newSubTitle')?.invalid
+                    }"
+                  />
+                  <label for="newSubTitle" class="form-label fw-semibold"
+                    >Breve Detalle de la Oferta<span class="text-danger"
+                      >*</span
+                    ></label
+                  >
+                  <div
+                    *ngIf="
+                      newFormOferta.get('newSubTitle')?.touched &&
+                      newFormOferta.get('newSubTitle')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="newFormOferta.get('newSubTitle')?.errors?.['required']"
+                    >
+                      El detalle es obligatorio.
+                    </div>
+                    <div
+                      *ngIf="newFormOferta.get('newSubTitle')?.errors?.['pattern']"
+                    >
+                      No se permite caracteres especiales o números.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Fila # 2-->
+            <div class="row justify-content-center align-items-center g-2">
+              <div class="col">
+                <!-- Tipo de Empleo -->
+                <div class="form-floating mb-4">
+                  <input
+                    type="email"
+                    class="form-control shadow"
+                    id="newTipoEmpleo"
+                    formControlName="newTipoEmpleo"
+                    autocomplete="off"
+                    placeholder="Tipo de Empleo"
+                    [ngClass]="{
+                      'is-invalid':
+                        newFormOferta.get('newTipoEmpleo')?.touched &&
+                        newFormOferta.get('newTipoEmpleo')?.invalid
+                    }"
+                  />
+                  <label for="newSubTitle" class="form-label fw-semibold"
+                    >Tipo de Empleo<span class="text-danger">*</span></label
+                  >
+                  <div
+                    *ngIf="
+                      newFormOferta.get('newTipoEmpleo')?.touched &&
+                      newFormOferta.get('newTipoEmpleo')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="newFormOferta.get('newTipoEmpleo')?.errors?.['required']"
+                    >
+                      El tipo de empleo es obligatorio.
+                    </div>
+                    <div
+                      *ngIf="newFormOferta.get('newTipoEmpleo')?.errors?.['pattern']"
+                    >
+                      No se permite caracteres especiales o letras.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <!-- Modalidad -->
+                <div class="form-floating mb-4">
+                  <input
+                    type="text"
+                    class="form-control shadow"
+                    id="newModalidad"
+                    formControlName="newModalidad"
+                    autocomplete="off"
+                    placeholder="Modalidad de la Oferta"
+                    [ngClass]="{
+                      'is-invalid':
+                        newFormOferta.get('newModalidad')?.touched &&
+                        newFormOferta.get('newModalidad')?.invalid
+                    }"
+                  />
+                  <label for="newSubTitle" class="form-label fw-semibold"
+                    >Modalidad de la Oferta<span class="text-danger"
+                      >*</span
+                    ></label
+                  >
+                  <div
+                    *ngIf="
+                      newFormOferta.get('newModalidad')?.touched &&
+                      newFormOferta.get('newModalidad')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="newFormOferta.get('newModalidad')?.errors?.['required']"
+                    >
+                      La modalidad es obligatorio.
+                    </div>
+                    <div
+                      *ngIf="newFormOferta.get('newModalidad')?.errors?.['pattern']"
+                    >
+                      No se permite caracteres especiales o letras.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Fila # 3-->
+            <div class="row justify-content-center align-items-center g-2">
+              <div class="col">
+                <!-- Sueldo -->
+                <div class="form-floating mb-4">
+                  <input
+                    type="text"
+                    class="form-control shadow"
+                    id="newSueldo"
+                    formControlName="newSueldo"
+                    autocomplete="off"
+                    placeholder="Correo Electrónico"
+                    [ngClass]="{
+                      'is-invalid':
+                        newFormOferta.get('newSueldo')?.touched &&
+                        newFormOferta.get('newSueldo')?.invalid
+                    }"
+                  />
+                  <label for="newSueldo" class="form-label fw-semibold"
+                    >Sueldo Pretendido $
+                    <span class="text-danger">*</span></label
+                  >
+                  <div
+                    *ngIf="
+                      newFormOferta.get('newSueldo')?.touched &&
+                      newFormOferta.get('newSueldo')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="newFormOferta.get('newSueldo')?.errors?.['required']"
+                    >
+                      El sueldo es obligatorio.
+                    </div>
+                    <div
+                      *ngIf="newFormOferta.get('newSueldo')?.errors?.['pattern']"
+                    >
+                      No se permite caracteres especiales, ni letras.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <!-- Password -->
+                <div class="form-floating mb-4">
+                  <input
+                    type="date"
+                    class="form-control shadow"
+                    id="newFechaLimite"
+                    formControlName="newFechaLimite"
+                    autocomplete="off"
+                    placeholder="Fecha Limite"
+                    [ngClass]="{
+                      'is-invalid':
+                        newFormOferta.get('newFechaLimite')?.touched &&
+                        newFormOferta.get('newFechaLimite')?.invalid
+                    }"
+                  />
+                  <label for="newFechaLimite" class="form-label fw-semibold"
+                    >Fecha Limite<span class="text-danger">*</span></label
+                  >
+                  <div
+                    *ngIf="
+                      newFormOferta.get('newFechaLimite')?.touched &&
+                      newFormOferta.get('newFechaLimite')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="newFormOferta.get('newFechaLimite')?.errors?.['required']"
+                    >
+                      El Apellido es obligatorio.
+                    </div>
+                    <div
+                      *ngIf="newFormOferta.get('newFechaLimite')?.errors?.['pattern']"
+                    >
+                      No se permite caracteres especiales o números.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Fila # 1-->
+            <div class="row justify-content-center align-items-center g-2">
+              <div class="col">
+                <!-- Provincia -->
+                <div class="form-floating mb-4">
+                  <select
+                    formControlName="newProvincia"
+                    id="newProvincia"
+                    class="form-select shadow"
+                    required
+                    [ngClass]="{
+                      'is-invalid':
+                        newFormOferta.get('newProvincia')?.touched &&
+                        newFormOferta.get('newProvincia')?.invalid
+                    }"
+                  >
+                    <option value="" disabled></option>
+                    <option
+                      *ngFor="let provincia of allProvincias"
+                      [value]="provincia.proId"
+                    >
+                      {{ provincia.prodName }}- {{ provincia.prodCapital }}
+                    </option>
+                  </select>
+                  <label for="newProvincia" class="form-label fw-semibold"
+                    >Provincia</label
+                  >
+                  <div
+                    *ngIf="
+                      newFormOferta.get('newProvincia')?.touched &&
+                      newFormOferta.get('newProvincia')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="newFormOferta.get('newProvincia')?.errors?.['required']"
+                    >
+                      La provincia es obligatorio.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <!-- Modalidad -->
+                <div class="form-floating mb-4">
+                  <select
+                    formControlName="newModalidad"
+                    id="newModalidad"
+                    class="form-select shadow"
+                    required
+                    [ngClass]="{
+                      'is-invalid':
+                        newFormOferta.get('newModalidad')?.touched &&
+                        newFormOferta.get('newModalidad')?.invalid
+                    }"
+                  >
+                    <option value="" disabled></option>
+                    <!-- <option
+                      *ngFor="let state of allEstados"
+                      [value]="state.estId"
+                    >
+                      {{ state.estName }}
+                    </option> -->
+                  </select>
+                  <label for="newModalidad" class="form-label fw-semibold"
+                    >Modalidad</label
+                  >
+                  <div
+                    *ngIf="
+                      newFormOferta.get('newModalidad')?.touched &&
+                      newFormOferta.get('newModalidad')?.invalid
+                    "
+                    class="invalid-feedback"
+                  >
+                    <div
+                      *ngIf="newFormOferta.get('newModalidad')?.errors?.['required']"
+                    >
+                      La modalidad es obligatorio.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Text Area -->
+            <!-- Fila # 1-->
+            <div class="row justify-content-center align-items-center g-2">
+              <div class="form-floating mb-4">
+                <textarea
+                  class="form-control shadow"
+                  id="newDetalle"
+                  formControlName="newDetalle"
+                  autocomplete="off"
+                  placeholder="Detalle de la Oferta"
+                  [ngClass]="{
+                    'is-invalid':
+                      newFormOferta.get('newDetalle')?.touched &&
+                      newFormOferta.get('newDetalle')?.invalid
+                  }"
+                ></textarea>
+                <label for="newDetalle" class="form-label fw-semibold"
+                  >Detalle de la Oferta<span class="text-danger">*</span></label
+                >
+                <div
+                  *ngIf="
+                    newFormOferta.get('newDetalle')?.touched &&
+                    newFormOferta.get('newDetalle')?.invalid
+                  "
+                  class="invalid-feedback"
+                >
+                  <div
+                    *ngIf="newFormOferta.get('newDetalle')?.errors?.['required']"
+                  >
+                    El detalle es obligatorio.
+                  </div>
+                  <div
+                    *ngIf="newFormOferta.get('newDetalle')?.errors?.['pattern']"
+                  >
+                    No se permite caracteres especiales o números.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Acciones -->
+            <div class="text-center">
+              <button
+                type="button"
+                class="btn btn-danger mx-2"
+                data-bs-dismiss="modal"
+              >
+                Cerrar
+              </button>
+              <button
+                type="submit"
+                class="btn btn-success mx-2"
+                [disabled]="!newFormOferta.valid"
+                data-bs-dismiss="modal"
+              >
+                Guardar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <p class="fst-italic">
+          Todos los campos con <span class="text-danger">*</span> son
+          requeridos.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
