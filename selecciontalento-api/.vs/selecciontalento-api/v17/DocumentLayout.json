@@ -1,0 +1,257 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|c:\\users\\ruben dario\\documents\\portafolio programas\\work_app\\selecciontalento-api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|c:\\users\\ruben dario\\documents\\portafolio programas\\work_app\\selecciontalento-api\\controllers\\ofertaempleocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|solutionrelative:controllers\\ofertaempleocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|c:\\users\\ruben dario\\documents\\portafolio programas\\work_app\\selecciontalento-api\\repositories\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|solutionrelative:repositories\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|c:\\users\\ruben dario\\documents\\portafolio programas\\work_app\\selecciontalento-api\\models\\estados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|solutionrelative:models\\estados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|c:\\users\\ruben dario\\documents\\portafolio programas\\work_app\\selecciontalento-api\\models\\provincias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|solutionrelative:models\\provincias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|c:\\users\\ruben dario\\documents\\portafolio programas\\work_app\\selecciontalento-api\\models\\ofertaempleos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|solutionrelative:models\\ofertaempleos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|c:\\users\\ruben dario\\documents\\portafolio programas\\work_app\\selecciontalento-api\\dtos\\ofertaempleodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|solutionrelative:dtos\\ofertaempleodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|c:\\users\\ruben dario\\documents\\portafolio programas\\work_app\\selecciontalento-api\\models\\empresas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|solutionrelative:models\\empresas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|c:\\users\\ruben dario\\documents\\portafolio programas\\work_app\\selecciontalento-api\\models\\usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|solutionrelative:models\\usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|c:\\users\\ruben dario\\documents\\portafolio programas\\work_app\\selecciontalento-api\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|solutionrelative:controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|c:\\users\\ruben dario\\documents\\portafolio programas\\work_app\\selecciontalento-api\\services\\servicesofertaempleo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|solutionrelative:services\\servicesofertaempleo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|c:\\users\\ruben dario\\documents\\portafolio programas\\work_app\\selecciontalento-api\\services\\servicesroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|solutionrelative:services\\servicesroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|c:\\users\\ruben dario\\documents\\portafolio programas\\work_app\\selecciontalento-api\\services\\iserviceestados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|solutionrelative:services\\iserviceestados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|c:\\users\\ruben dario\\documents\\portafolio programas\\work_app\\selecciontalento-api\\services\\iservicesofertaempleo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10C07D50-648B-4003-830A-0889F6FDF6DD}|selecciontalento-api.csproj|solutionrelative:services\\iservicesofertaempleo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 1698,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Provincias.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Models\\Provincias.cs",
+              "RelativeDocumentMoniker": "Models\\Provincias.cs",
+              "ToolTip": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Models\\Provincias.cs",
+              "RelativeToolTip": "Models\\Provincias.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T23:08:04.262Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAywCkAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T20:46:21.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OfertaEmpleoController.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Controllers\\OfertaEmpleoController.cs",
+              "RelativeDocumentMoniker": "Controllers\\OfertaEmpleoController.cs",
+              "ToolTip": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Controllers\\OfertaEmpleoController.cs",
+              "RelativeToolTip": "Controllers\\OfertaEmpleoController.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAcwIUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T20:25:21.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DataContext.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Repositories\\DataContext.cs",
+              "RelativeDocumentMoniker": "Repositories\\DataContext.cs",
+              "ToolTip": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Repositories\\DataContext.cs",
+              "RelativeToolTip": "Repositories\\DataContext.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAYwDgAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T18:09:16.823Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Empresas.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Models\\Empresas.cs",
+              "RelativeDocumentMoniker": "Models\\Empresas.cs",
+              "ToolTip": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Models\\Empresas.cs",
+              "RelativeToolTip": "Models\\Empresas.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAmwBkAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T21:06:51.476Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ServicesOfertaEmpleo.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Services\\ServicesOfertaEmpleo.cs",
+              "RelativeDocumentMoniker": "Services\\ServicesOfertaEmpleo.cs",
+              "ToolTip": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Services\\ServicesOfertaEmpleo.cs",
+              "RelativeToolTip": "Services\\ServicesOfertaEmpleo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T17:45:49.692Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IServicesOfertaEmpleo.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Services\\IServicesOfertaEmpleo.cs",
+              "RelativeDocumentMoniker": "Services\\IServicesOfertaEmpleo.cs",
+              "ToolTip": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Services\\IServicesOfertaEmpleo.cs",
+              "RelativeToolTip": "Services\\IServicesOfertaEmpleo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvw4AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T17:45:26.937Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1474,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Estados.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Models\\Estados.cs",
+              "RelativeDocumentMoniker": "Models\\Estados.cs",
+              "ToolTip": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Models\\Estados.cs",
+              "RelativeToolTip": "Models\\Estados.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T22:54:39.119Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OfertaEmpleos.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Models\\OfertaEmpleos.cs",
+              "RelativeDocumentMoniker": "Models\\OfertaEmpleos.cs",
+              "ToolTip": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Models\\OfertaEmpleos.cs",
+              "RelativeToolTip": "Models\\OfertaEmpleos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T19:38:48.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Usuarios.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Models\\Usuarios.cs",
+              "RelativeDocumentMoniker": "Models\\Usuarios.cs",
+              "ToolTip": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Models\\Usuarios.cs",
+              "RelativeToolTip": "Models\\Usuarios.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA/wCEAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T21:22:00.876Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RolesController.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Controllers\\RolesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RolesController.cs",
+              "ToolTip": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Controllers\\RolesController.cs",
+              "RelativeToolTip": "Controllers\\RolesController.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAA/wBAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T20:24:55.491Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "OfertaEmpleoDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\DTOs\\OfertaEmpleoDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\OfertaEmpleoDTO.cs",
+              "ToolTip": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\DTOs\\OfertaEmpleoDTO.cs",
+              "RelativeToolTip": "DTOs\\OfertaEmpleoDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T19:28:46.429Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ServicesRoles.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Services\\ServicesRoles.cs",
+              "RelativeDocumentMoniker": "Services\\ServicesRoles.cs",
+              "ToolTip": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Services\\ServicesRoles.cs",
+              "RelativeToolTip": "Services\\ServicesRoles.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAywHAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T18:09:05.59Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IServiceEstados.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Services\\IServiceEstados.cs",
+              "RelativeDocumentMoniker": "Services\\IServiceEstados.cs",
+              "ToolTip": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\Services\\IServiceEstados.cs",
+              "RelativeToolTip": "Services\\IServiceEstados.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T17:46:13.309Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
