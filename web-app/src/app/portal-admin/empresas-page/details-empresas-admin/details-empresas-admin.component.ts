@@ -19,18 +19,17 @@ import { EmpresasService } from '../../../services/empresas.service';
 import { EstadosService } from '../../../services/estados.service';
 
 @Component({
-  selector: 'app-details-empresas-admin',
-  standalone: true,
-  imports: [
-    HeaderAdminComponent,
-    FooterAdminComponent,
-    NavbarAdminComponent,
-    ReactiveFormsModule,
-    CommonModule,
-    FormsModule,
-  ],
-  templateUrl: './details-empresas-admin.component.html',
-  styleUrl: './details-empresas-admin.component.css',
+    selector: 'app-details-empresas-admin',
+    imports: [
+        HeaderAdminComponent,
+        FooterAdminComponent,
+        NavbarAdminComponent,
+        ReactiveFormsModule,
+        CommonModule,
+        FormsModule,
+    ],
+    templateUrl: './details-empresas-admin.component.html',
+    styleUrl: './details-empresas-admin.component.css'
 })
 export class DetailsEmpresasAdminComponent implements OnInit, OnDestroy {
   //Variables

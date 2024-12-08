@@ -14,11 +14,10 @@ import { forgotDTO } from '../../../../models/forgotDTOs.interface';
 import { loginEmpresasDTO } from '../../../../models/loginEmpresasDTO.interface';
 
 @Component({
-  selector: 'app-auth',
-  standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
-  templateUrl: './auth.component.html',
-  styleUrl: './auth.component.css',
+    selector: 'app-auth',
+    imports: [ReactiveFormsModule, CommonModule],
+    templateUrl: './auth.component.html',
+    styleUrl: './auth.component.css'
 })
 export class AuthComponent implements OnInit, OnDestroy {
   // Variables del componente

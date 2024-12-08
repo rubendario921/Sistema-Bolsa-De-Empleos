@@ -9,11 +9,10 @@ import { CommonModule } from '@angular/common';
 import { ProvinciasService } from '../../../services/provincias.service';
 
 @Component({
-  selector: 'app-carousel-main',
-  standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
-  templateUrl: './carousel-main.component.html',
-  styleUrl: './carousel-main.component.css',
+    selector: 'app-carousel-main',
+    imports: [ReactiveFormsModule, CommonModule],
+    templateUrl: './carousel-main.component.html',
+    styleUrl: './carousel-main.component.css'
 })
 export class CarouselMainComponent implements OnInit, OnDestroy {
   provincias: any[] = [];

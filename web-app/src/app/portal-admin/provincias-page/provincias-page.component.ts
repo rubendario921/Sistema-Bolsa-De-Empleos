@@ -5,15 +5,14 @@ import { NavbarAdminComponent } from '../template-admin/navbar-admin/navbar-admi
 import { ViewProvinciasAdminComponent } from './view-provincias-admin/view-provincias-admin.component';
 
 @Component({
-  selector: 'app-provincias-page',
-  standalone: true,
-  imports: [
-    HeaderAdminComponent,
-    FooterAdminComponent,
-    NavbarAdminComponent,
-    ViewProvinciasAdminComponent,
-  ],
-  templateUrl: './provincias-page.component.html',
-  styleUrl: './provincias-page.component.css',
+    selector: 'app-provincias-page',
+    imports: [
+        HeaderAdminComponent,
+        FooterAdminComponent,
+        NavbarAdminComponent,
+        ViewProvinciasAdminComponent,
+    ],
+    templateUrl: './provincias-page.component.html',
+    styleUrl: './provincias-page.component.css'
 })
 export class ProvinciasPageComponent {}

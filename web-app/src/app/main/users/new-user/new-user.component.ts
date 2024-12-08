@@ -13,11 +13,10 @@ import { CustomToastrService } from '../../../services/custom-toastr.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-new-user',
-  standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
-  templateUrl: './new-user.component.html',
-  styleUrl: './new-user.component.css',
+    selector: 'app-new-user',
+    imports: [ReactiveFormsModule, CommonModule],
+    templateUrl: './new-user.component.html',
+    styleUrl: './new-user.component.css'
 })
 export class NewUserComponent implements OnInit, OnDestroy {
   //Variables de Componente

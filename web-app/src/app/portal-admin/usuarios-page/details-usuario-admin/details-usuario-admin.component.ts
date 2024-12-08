@@ -20,17 +20,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { subscribeOn } from 'rxjs';
 
 @Component({
-  selector: 'app-details-usuario-admin',
-  standalone: true,
-  imports: [
-    HeaderAdminComponent,
-    FooterAdminComponent,
-    NavbarAdminComponent,
-    ReactiveFormsModule,
-    CommonModule,
-  ],
-  templateUrl: './details-usuario-admin.component.html',
-  styleUrl: './details-usuario-admin.component.css',
+    selector: 'app-details-usuario-admin',
+    imports: [
+        HeaderAdminComponent,
+        FooterAdminComponent,
+        NavbarAdminComponent,
+        ReactiveFormsModule,
+        CommonModule,
+    ],
+    templateUrl: './details-usuario-admin.component.html',
+    styleUrl: './details-usuario-admin.component.css'
 })
 export class DetailsUsuarioAdminComponent implements OnInit, OnDestroy {
   //Variables

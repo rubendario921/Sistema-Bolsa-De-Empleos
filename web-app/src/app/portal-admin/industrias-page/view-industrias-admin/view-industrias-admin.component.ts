@@ -7,11 +7,10 @@ import { IndustriasService } from '../../../services/industrias.service';
 import DataTable from 'datatables.net-dt';
 
 @Component({
-  selector: 'app-view-industrias-admin',
-  standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, FormsModule],
-  templateUrl: './view-industrias-admin.component.html',
-  styleUrl: './view-industrias-admin.component.css',
+    selector: 'app-view-industrias-admin',
+    imports: [ReactiveFormsModule, CommonModule, FormsModule],
+    templateUrl: './view-industrias-admin.component.html',
+    styleUrl: './view-industrias-admin.component.css'
 })
 export class ViewIndustriasAdminComponent implements OnInit, OnDestroy {
   //Variables

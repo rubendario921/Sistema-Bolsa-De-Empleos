@@ -8,11 +8,10 @@ import { userDTO } from '../../../models/userDTO.interface';
 declare var $: any;
 
 @Component({
-  selector: 'app-view-usuarios-admin',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './view-usuarios-admin.component.html',
-  styleUrl: './view-usuarios-admin.component.css',
+    selector: 'app-view-usuarios-admin',
+    imports: [CommonModule, FormsModule],
+    templateUrl: './view-usuarios-admin.component.html',
+    styleUrl: './view-usuarios-admin.component.css'
 })
 export class ViewUsuariosAdminComponent implements OnInit, OnDestroy {
   //Variables

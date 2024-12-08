@@ -6,16 +6,15 @@ import { ViewRolesAdminComponent } from './view-roles-admin/view-roles-admin.com
 import { NewRolAdminComponent } from './new-rol-admin/new-rol-admin.component';
 
 @Component({
-  selector: 'app-roles-page',
-  standalone: true,
-  imports: [
-    HeaderAdminComponent,
-    FooterAdminComponent,
-    NavbarAdminComponent,
-    ViewRolesAdminComponent,
-    NewRolAdminComponent
-  ],
-  templateUrl: './roles-page.component.html',
-  styleUrl: './roles-page.component.css',
+    selector: 'app-roles-page',
+    imports: [
+        HeaderAdminComponent,
+        FooterAdminComponent,
+        NavbarAdminComponent,
+        ViewRolesAdminComponent,
+        NewRolAdminComponent
+    ],
+    templateUrl: './roles-page.component.html',
+    styleUrl: './roles-page.component.css'
 })
 export class RolesPageComponent {}

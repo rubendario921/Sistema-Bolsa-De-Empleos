@@ -4,14 +4,13 @@ import { FooterAdminComponent } from '../../portal-admin/template-admin/footer-a
 import { NewOfertaEmpresasComponent } from './new-oferta-empresas/new-oferta-empresas.component';
 
 @Component({
-  selector: 'app-index-empresas',
-  standalone: true,
-  imports: [
-    HeaderAdminComponent,
-    FooterAdminComponent,
-    NewOfertaEmpresasComponent,
-  ],
-  templateUrl: './index-empresas.component.html',
-  styleUrl: './index-empresas.component.css',
+    selector: 'app-index-empresas',
+    imports: [
+        HeaderAdminComponent,
+        FooterAdminComponent,
+        NewOfertaEmpresasComponent,
+    ],
+    templateUrl: './index-empresas.component.html',
+    styleUrl: './index-empresas.component.css'
 })
 export class IndexEmpresasComponent {}

@@ -9,11 +9,10 @@ import { FormsModule } from '@angular/forms';
 declare var $: any;
 
 @Component({
-  selector: 'app-view-status-admin',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './view-status-admin.component.html',
-  styleUrl: './view-status-admin.component.css',
+    selector: 'app-view-status-admin',
+    imports: [CommonModule, FormsModule],
+    templateUrl: './view-status-admin.component.html',
+    styleUrl: './view-status-admin.component.css'
 })
 export class ViewStatusAdminComponent implements OnInit, OnDestroy {
   //Data for table Estados

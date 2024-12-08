@@ -8,11 +8,10 @@ import DataTable from 'datatables.net-dt';
 import { catchError } from 'rxjs';
 
 @Component({
-  selector: 'app-view-roles-admin',
-  standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, FormsModule],
-  templateUrl: './view-roles-admin.component.html',
-  styleUrl: './view-roles-admin.component.css',
+    selector: 'app-view-roles-admin',
+    imports: [ReactiveFormsModule, CommonModule, FormsModule],
+    templateUrl: './view-roles-admin.component.html',
+    styleUrl: './view-roles-admin.component.css'
 })
 export class ViewRolesAdminComponent implements OnInit, OnDestroy {
   //Variables

@@ -5,11 +5,10 @@ import { provinciasDTO } from '../../../models/provinciasDTO';
 import { ProvinciasService } from '../../../services/provincias.service';
 
 @Component({
-  selector: 'app-new-oferta-empresas',
-  standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
-  templateUrl: './new-oferta-empresas.component.html',
-  styleUrl: './new-oferta-empresas.component.css',
+    selector: 'app-new-oferta-empresas',
+    imports: [ReactiveFormsModule, CommonModule],
+    templateUrl: './new-oferta-empresas.component.html',
+    styleUrl: './new-oferta-empresas.component.css'
 })
 export class NewOfertaEmpresasComponent {
   //Variables

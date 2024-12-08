@@ -5,16 +5,15 @@ import { NavbarAdminComponent } from '../template-admin/navbar-admin/navbar-admi
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
-  selector: 'app-index-page',
-  standalone: true,
-  imports: [
-    RouterLink,
-    RouterLinkActive,
-    HeaderAdminComponent,
-    FooterAdminComponent,
-    NavbarAdminComponent,
-  ],
-  templateUrl: './index-page.component.html',
-  styleUrl: './index-page.component.css',
+    selector: 'app-index-page',
+    imports: [
+        RouterLink,
+        RouterLinkActive,
+        HeaderAdminComponent,
+        FooterAdminComponent,
+        NavbarAdminComponent,
+    ],
+    templateUrl: './index-page.component.html',
+    styleUrl: './index-page.component.css'
 })
 export class IndexPageComponent {}

@@ -6,16 +6,15 @@ import { ViewStatusAdminComponent } from './view-status-admin/view-status-admin.
 import { NewStatusAdminComponent } from './new-status-admin/new-status-admin.component';
 
 @Component({
-  selector: 'app-status-page',
-  standalone: true,
-  imports: [
-    HeaderAdminComponent,
-    FooterAdminComponent,
-    NavbarAdminComponent,
-    ViewStatusAdminComponent,
-    NewStatusAdminComponent,
-  ],
-  templateUrl: './status-page.component.html',
-  styleUrl: './status-page.component.css',
+    selector: 'app-status-page',
+    imports: [
+        HeaderAdminComponent,
+        FooterAdminComponent,
+        NavbarAdminComponent,
+        ViewStatusAdminComponent,
+        NewStatusAdminComponent,
+    ],
+    templateUrl: './status-page.component.html',
+    styleUrl: './status-page.component.css'
 })
 export class StatusPageComponent {}

@@ -12,11 +12,10 @@ import { Router } from '@angular/router';
 import { rolesDTO } from '../../../models/rolesDTO';
 
 @Component({
-  selector: 'app-new-rol-admin',
-  standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
-  templateUrl: './new-rol-admin.component.html',
-  styleUrl: './new-rol-admin.component.css',
+    selector: 'app-new-rol-admin',
+    imports: [ReactiveFormsModule, CommonModule],
+    templateUrl: './new-rol-admin.component.html',
+    styleUrl: './new-rol-admin.component.css'
 })
 export class NewRolAdminComponent implements OnInit, OnDestroy {
   //Variables

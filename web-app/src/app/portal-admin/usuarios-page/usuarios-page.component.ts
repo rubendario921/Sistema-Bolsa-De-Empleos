@@ -7,17 +7,16 @@ import { NewUserComponent } from '../../main/users/new-user/new-user.component';
 import { NewUsuariosAdminComponent } from './new-usuarios-admin/new-usuarios-admin.component';
 
 @Component({
-  selector: 'app-usuarios-page',
-  standalone: true,
-  imports: [
-    HeaderAdminComponent,
-    FooterAdminComponent,
-    NavbarAdminComponent,
-    ViewUsuariosAdminComponent,
-    NewUsuariosAdminComponent,
-  ],
-  templateUrl: './usuarios-page.component.html',
-  styleUrls: ['./usuarios-page.component.css'],
+    selector: 'app-usuarios-page',
+    imports: [
+        HeaderAdminComponent,
+        FooterAdminComponent,
+        NavbarAdminComponent,
+        ViewUsuariosAdminComponent,
+        NewUsuariosAdminComponent,
+    ],
+    templateUrl: './usuarios-page.component.html',
+    styleUrls: ['./usuarios-page.component.css']
 })
 export class UsuariosPageComponent implements OnInit {
   constructor() {}

@@ -16,11 +16,10 @@ import { rolesDTO } from '../../../models/rolesDTO';
 import { RolesService } from '../../../services/roles.service';
 
 @Component({
-  selector: 'app-new-usuarios-admin',
-  standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
-  templateUrl: './new-usuarios-admin.component.html',
-  styleUrl: './new-usuarios-admin.component.css',
+    selector: 'app-new-usuarios-admin',
+    imports: [ReactiveFormsModule, CommonModule],
+    templateUrl: './new-usuarios-admin.component.html',
+    styleUrl: './new-usuarios-admin.component.css'
 })
 export class NewUsuariosAdminComponent implements OnInit, OnDestroy {
   //Variables

@@ -12,11 +12,10 @@ import { CustomToastrService } from '../../../services/custom-toastr.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-new-status-admin',
-  standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
-  templateUrl: './new-status-admin.component.html',
-  styleUrl: './new-status-admin.component.css',
+    selector: 'app-new-status-admin',
+    imports: [ReactiveFormsModule, CommonModule],
+    templateUrl: './new-status-admin.component.html',
+    styleUrl: './new-status-admin.component.css'
 })
 export class NewStatusAdminComponent implements OnInit, OnDestroy {
   //Variables de Componentes

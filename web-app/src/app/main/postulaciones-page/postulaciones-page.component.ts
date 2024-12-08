@@ -5,11 +5,10 @@ import { CommonModule } from '@angular/common';
 import { NavbarFiltrosComponent } from "./navbar-filtros/navbar-filtros.component"; 
 
 @Component({
-  selector: 'app-postulaciones-page',
-  standalone: true,
-  imports: [HeaderMainComponent, CommonModule, NavbarFiltrosComponent],
-  templateUrl: './postulaciones-page.component.html',
-  styleUrl: './postulaciones-page.component.css'
+    selector: 'app-postulaciones-page',
+    imports: [HeaderMainComponent, CommonModule, NavbarFiltrosComponent],
+    templateUrl: './postulaciones-page.component.html',
+    styleUrl: './postulaciones-page.component.css'
 })
 export class PostulacionesPageComponent {
 

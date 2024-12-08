@@ -6,16 +6,15 @@ import { CarouselCompaniesComponent } from './carousel-companies/carousel-compan
 import { NoticesCompaniesComponent } from './notices-companies/notices-companies.component';
 
 @Component({
-  selector: 'app-companies-page',
-  standalone: true,
-  imports: [
-    HeaderMainComponent,
-    FooterMainComponent,
-    NewCompanyComponent,
-    CarouselCompaniesComponent,
-    NoticesCompaniesComponent,
-  ],
-  templateUrl: './companies-page.component.html',
-  styleUrl: './companies-page.component.css',
+    selector: 'app-companies-page',
+    imports: [
+        HeaderMainComponent,
+        FooterMainComponent,
+        NewCompanyComponent,
+        CarouselCompaniesComponent,
+        NoticesCompaniesComponent,
+    ],
+    templateUrl: './companies-page.component.html',
+    styleUrl: './companies-page.component.css'
 })
 export class CompaniesPageComponent {}

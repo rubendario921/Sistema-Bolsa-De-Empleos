@@ -16,17 +16,16 @@ import { RolesService } from '../../../services/roles.service';
 import { ReplaySubject } from 'rxjs';
 
 @Component({
-  selector: 'app-details-roles-admin',
-  standalone: true,
-  imports: [
-    HeaderAdminComponent,
-    FooterAdminComponent,
-    NavbarAdminComponent,
-    ReactiveFormsModule,
-    CommonModule,
-  ],
-  templateUrl: './details-roles-admin.component.html',
-  styleUrl: './details-roles-admin.component.css',
+    selector: 'app-details-roles-admin',
+    imports: [
+        HeaderAdminComponent,
+        FooterAdminComponent,
+        NavbarAdminComponent,
+        ReactiveFormsModule,
+        CommonModule,
+    ],
+    templateUrl: './details-roles-admin.component.html',
+    styleUrl: './details-roles-admin.component.css'
 })
 export class DetailsRolesAdminComponent implements OnInit, OnDestroy {
   //Variables

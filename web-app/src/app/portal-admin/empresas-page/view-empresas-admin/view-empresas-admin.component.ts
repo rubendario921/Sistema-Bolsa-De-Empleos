@@ -7,11 +7,10 @@ import { EmpresasService } from '../../../services/empresas.service';
 import DataTable from 'datatables.net-dt';
 
 @Component({
-  selector: 'app-view-empresas-admin',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule],
-  templateUrl: './view-empresas-admin.component.html',
-  styleUrl: './view-empresas-admin.component.css',
+    selector: 'app-view-empresas-admin',
+    imports: [CommonModule, ReactiveFormsModule, FormsModule],
+    templateUrl: './view-empresas-admin.component.html',
+    styleUrl: './view-empresas-admin.component.css'
 })
 export class ViewEmpresasAdminComponent implements OnInit, OnDestroy {
   //Variables

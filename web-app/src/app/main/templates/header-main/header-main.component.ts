@@ -4,11 +4,10 @@ import { AuthComponent } from './auth/auth.component';
 import { AuthService } from '../../../services/auth.service';
 
 @Component({
-  selector: 'app-header-main',
-  standalone: true,
-  imports: [RouterOutlet, RouterLink, AuthComponent],
-  templateUrl: './header-main.component.html',
-  styleUrl: './header-main.component.css',
+    selector: 'app-header-main',
+    imports: [RouterOutlet, RouterLink, AuthComponent],
+    templateUrl: './header-main.component.html',
+    styleUrl: './header-main.component.css'
 })
 export class HeaderMainComponent implements OnInit{
   //Constructor

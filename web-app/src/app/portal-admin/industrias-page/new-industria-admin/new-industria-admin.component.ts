@@ -7,11 +7,10 @@ import { industriaDTO } from '../../../models/industriasDTO.interface';
 import { Router } from '@angular/router';
 import { CustomToastrService } from '../../../services/custom-toastr.service';
 @Component({
-  selector: 'app-new-industria-admin',
-  standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
-  templateUrl: './new-industria-admin.component.html',
-  styleUrl: './new-industria-admin.component.css',
+    selector: 'app-new-industria-admin',
+    imports: [ReactiveFormsModule, CommonModule],
+    templateUrl: './new-industria-admin.component.html',
+    styleUrl: './new-industria-admin.component.css'
 })
 export class NewIndustriaAdminComponent implements OnInit, OnDestroy {
   //Variables

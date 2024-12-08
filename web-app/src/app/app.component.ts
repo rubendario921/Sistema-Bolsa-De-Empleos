@@ -5,16 +5,15 @@ import { HeaderMainComponent } from './main/templates/header-main/header-main.co
 import { FooterMainComponent } from './main/templates/footer-main/footer-main.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    RouterOutlet,
-    MainComponent,
-    HeaderMainComponent,
-    FooterMainComponent,
-  ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+    selector: 'app-root',
+    imports: [
+        RouterOutlet,
+        MainComponent,
+        HeaderMainComponent,
+        FooterMainComponent,
+    ],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'web-app';

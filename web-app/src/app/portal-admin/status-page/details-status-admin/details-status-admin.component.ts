@@ -16,17 +16,16 @@ import { EstadosService } from '../../../services/estados.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-details-status-admin',
-  standalone: true,
-  imports: [
-    HeaderAdminComponent,
-    FooterAdminComponent,
-    NavbarAdminComponent,
-    ReactiveFormsModule,
-    CommonModule,
-  ],
-  templateUrl: './details-status-admin.component.html',
-  styleUrls: ['./details-status-admin.component.css'],
+    selector: 'app-details-status-admin',
+    imports: [
+        HeaderAdminComponent,
+        FooterAdminComponent,
+        NavbarAdminComponent,
+        ReactiveFormsModule,
+        CommonModule,
+    ],
+    templateUrl: './details-status-admin.component.html',
+    styleUrls: ['./details-status-admin.component.css']
 })
 export class DetailsStatusAdminComponent implements OnInit, OnDestroy {
   //Variables para Formulario de actualización de Estados

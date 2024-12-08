@@ -5,15 +5,14 @@ import { NavbarAdminComponent } from '../template-admin/navbar-admin/navbar-admi
 import { ViewEmpresasAdminComponent } from './view-empresas-admin/view-empresas-admin.component';
 
 @Component({
-  selector: 'app-empresas-page',
-  standalone: true,
-  imports: [
-    HeaderAdminComponent,
-    FooterAdminComponent,
-    NavbarAdminComponent,
-    ViewEmpresasAdminComponent,
-  ],
-  templateUrl: './empresas-page.component.html',
-  styleUrl: './empresas-page.component.css',
+    selector: 'app-empresas-page',
+    imports: [
+        HeaderAdminComponent,
+        FooterAdminComponent,
+        NavbarAdminComponent,
+        ViewEmpresasAdminComponent,
+    ],
+    templateUrl: './empresas-page.component.html',
+    styleUrl: './empresas-page.component.css'
 })
 export class EmpresasPageComponent {}

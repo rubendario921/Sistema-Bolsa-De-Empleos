@@ -17,11 +17,10 @@ import { IndustriasService } from '../../../services/industrias.service';
 import { industriaDTO } from '../../../models/industriasDTO.interface';
 
 @Component({
-  selector: 'app-new-company',
-  standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
-  templateUrl: './new-company.component.html',
-  styleUrl: './new-company.component.css',
+    selector: 'app-new-company',
+    imports: [ReactiveFormsModule, CommonModule],
+    templateUrl: './new-company.component.html',
+    styleUrl: './new-company.component.css'
 })
 export class NewCompanyComponent implements OnInit, OnDestroy {
   //Variables del componente
