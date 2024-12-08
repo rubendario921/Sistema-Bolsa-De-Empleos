@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("selecciontalento-api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+788145e4c177ce5167b3900db643f39a435f1fa3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ee905ab81adac0a38130dcfd188170afad32a7a")]
 [assembly: System.Reflection.AssemblyProductAttribute("selecciontalento-api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("selecciontalento-api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

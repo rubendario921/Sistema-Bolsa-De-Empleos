@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "o3Vub7ptSMs=",
+  "dgSpecHash": "7oaS8L9+qk0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ruben Dario\\Documents\\Portafolio Programas\\work_app\\selecciontalento-api\\selecciontalento-api.csproj",
+  "projectFilePath": "C:\\Users\\Ruben Dario\\Documents\\Portafolio de Programas 921\\Sistema-Bolsa-De-Empleos\\selecciontalento-api\\selecciontalento-api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ruben Dario\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Ruben Dario\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
